@@ -19,6 +19,9 @@
 \newcommand{\R}{\mathds{R}}
 \newcommand{\N}{\mathds{N}}
 \newcommand{\e}{\textrm{e}}
+\newcommand{\infn}{n\rightarrow\infty}
+\newcommand{\bmark}[1]{\textcolor{blue}{#1}}
+\newcommand{\gmark}[1]{\textcolor{lightgray}{#1}}
 
 \renewcommand{\*}{\cdot}
 \renewcommand{\epsilon}{\varepsilon}
@@ -526,8 +529,8 @@
 		\item[a)] Eine Folge $(a_n)_{n\in\N}$ reeller Zahlen heißt \underline{konvergent gegen $a\in\R$}, wenn es zu jeder positiven Zahl $\epsilon>0$ ein $N\in\N$ gibt (das von $\epsilon$ abhängen darf), so dass gilt: $|a_n-a|<\epsilon$ für alle $n\geq N$.\\
 		(kurz: $\forall\epsilon>0\quad\exists N\in\N\quad\forall n\geq N\colon|a_n-a|<\epsilon$)
 		\item[b)] Die Zahl a heißt dann \underline{Grenzwert} oder \underline{Limes} der Folge, wir schreiben:\\
-		 $\lim\limits_{n\rightarrow\infty}a_n=a$ oder\\
-		 $a_n\rightarrow a$ für $n\rightarrow\infty$ ($a_n$ strebt gegen $a$)
+		 $\lim\limits_{\infn}a_n=a$ oder\\
+		 $a_n\rightarrow a$ für $\infn$ ($a_n$ strebt gegen $a$)
 		 \item[c)] Eine Folge, die gegen $0$ konvergiert, heißt \underline{Nullfolge}.
 		 \item[d)] Eine Folge, die nicht konvergiert, heißt \underline{divergent} (die Folge divergiert).
 	\end{itemize}
@@ -535,7 +538,7 @@
 	$\rightarrow$ Folien 20.04.16\\
 	\subsection{Beispiel}
 	\begin{itemize}
-		\item[a)] $a_n=\frac{1}{n}$ ist Nulfolge, d.h. $\lim\limits_{n\rightarrow\infty}\frac{1}{n}=a=0$, denn:\\
+		\item[a)] $a_n=\frac{1}{n}$ ist Nulfolge, d.h. $\lim\limits_{\infn}\frac{1}{n}=a=0$, denn:\\
 		Sei $\epsilon>0$ beliebig. Dann wähle $N$ als $N>\frac{1}{\epsilon}$, denn damit gilt für alle $a_n$ mit $n\geq N$:\\
 		$|a_n-0|=|\frac{1}{n}-0|=\frac{1}{n}\leq\frac{1}{N}$, da $n\geq N$ und $\frac{1}{N}<\frac{1}{\frac{1}{\epsilon}}=\epsilon\Rightarrow|a_n-0|<\epsilon$.\\
 		(z.B. falls $\epsilon=\frac{1}{10}$, wähle $N>10$, z.B. $N=11$; ab $a_{11}$ haben alle Folgenglieder einen Abstand $<\frac{1}{10}$ von 0)
@@ -543,13 +546,13 @@
 		Beweis: Sei $\epsilon>0$ beliebig. Dann wähle $N>\frac{1}{3\epsilon}$. Für alle $a_n$ mit $n\geq N$ gilt dann:\\
 		$|a_n-a|=|\frac{n+1}{3n}-\frac{1}{3}|=|\frac{n+1-n}{3n}|=\frac{1}{3n}<\frac{1}{3N}<\epsilon$. $\frac{1}{3N}<\epsilon$ genau dann, wenn $N>\frac{1}{3\epsilon}$.
 		\item[c)] $(a_n)_{n\in\N}$ mit $a_n=c\quad\forall n$.\\
-		$\lim\limits_{n\rightarrow\infty}a_n=c$\\
+		$\lim\limits_{\infn}a_n=c$\\
 		Sei $\epsilon>0$ beliebig. Dann ist\\
 		$|a_n-c|=|c-c|=0<\epsilon\quad\forall n\geq1$, hier ist also $N=1$, hängt nicht von $\epsilon$ ab, untypisch.
 	\end{itemize}
 	\subsection{Bemerkung}
 	$N$ muss nicht optimal gewählt werden.\\
-	Beispiel: $\lim\limits_{n\rightarrow\infty}\frac{1}{n^3+n+5}=0$, [...]\\
+	Beispiel: $\lim\limits_{\infn}\frac{1}{n^3+n+5}=0$, [...]\\
 	$|\frac{1}{n^3+n+5}-0|=\frac{1}{n^3+n^+5}\leq\frac{1}{N^3+N+5}\overset{!}{<}\epsilon$. Für optimales $N$: $\frac{1}{N^3+N+5}<\epsilon$ nach $N$ auflösen, schwer.\\
 	Deshalb grob abschätzen, z.B. so:\\
 	$\frac{1}{N13+N+5}<\frac{1}{N}<\epsilon$, also wähle $N>\frac{1}{\epsilon}$.
@@ -578,13 +581,13 @@
 	Bsp. $(a_n)$ mit $a_n=n$
 	\subsection{Wichtiges Beispiel (geometrische Folgen)}
 	Für $q\in\R$ gilt: 
-	$\lim\limits_{n\rightarrow\infty}q^n=\begin{cases}
+	$\lim\limits_{\infn}q^n=\begin{cases}
 	0\textrm{, falls }|q|<1\\
 	1\textrm{, falls }|q|=1
 	\end{cases}$\\
 	Die Folge $(q^n)_n\in\N$ divergiert, falls $q=-1$ oder $|q|>1$.\\
 	Beweis: \begin{itemize}
-		\item[1. Fall] $|q|<1$ (zu zeigen $q^n\rightarrow 0$ für $n\rightarrow\infty$)\\
+		\item[1. Fall] $|q|<1$ (zu zeigen $q^n\rightarrow 0$ für $\infn$)\\
 		Sei $\epsilon>0$ beliebig. Dann ist
 		\begin{align*}
 			|q^n-0|=|q^n|=|q|^n&<\epsilon\\
@@ -600,14 +603,14 @@
 	\subsection{Beispiel}
 	Nach 2.11 sind die Folgen $((\frac{1}{2})^n)_{n\in\N}=(\frac{1}{2^n})_{n\in\N},\quad ((-\frac{7}{8})^n)_n\in\N$ Nullfolgen.
 	\subsection{Satz: Rechenregeln für konvergente Folgen}
-	Seien $(a_n), (b_n)$ reelle Folgen mit $\lim\limits_{n\rightarrow\infty}a_n=a$ und $\lim\limits_{n\rightarrow\infty}b_n=b$. Dann gilt:
+	Seien $(a_n), (b_n)$ reelle Folgen mit $\lim\limits_{\infn}a_n=a$ und $\lim\limits_{\infn}b_n=b$. Dann gilt:
 	\begin{itemize}
 		\item[a)] Die Folge $(c\*a_n)$ konvergiert gegen $c\*a, c\in\R$.
 		\item[b)] Die Folge $(a_n\pm b_n)$ konvergiert gegen $a\pm b$.
 		\item[c)] Die Folge $(a_n\*b_n)$ konvergiert gegen $a\*b$.
 		\item[d)] Die Folge $(\frac{a_n}{b_n})$ konvergiert gegen $\frac{a}{b}$, falls $b_n, b\neq0$ und $|a_n|\rightarrow|a|$.
 	\end{itemize}
-	Seien weiter $(d_n), (e_n)$ reelle Folgen mit $\lim\limits_{n\rightarrow\infty}d_n=0$, dann gilt:
+	Seien weiter $(d_n), (e_n)$ reelle Folgen mit $\lim\limits_{\infn}d_n=0$, dann gilt:
 	\begin{itemize}
 		\item[e)] Ist $(e_n)$ beschränkt, dann ist $(d_n\*e_n)$ auch eine Nullfolge.
 		\item[f)] Gilt $|e_n|\leq d_n\quad\forall n$, so ist $(e_n)$ auch eine Nullfolge.
@@ -616,15 +619,99 @@
 	\begin{itemize}
 		\item[a)] Falls $c=0$: klar, konstante 0-Folge.\\
 		Falls $c\neq 0$: Sei $\epsilon>0$ beliebig. Dann existiert $N\in\N$, so dass $|a_n-a|<\frac{\epsilon}{|c|}\quad\forall n\in\N$ (denn $a_n\rightarrow a$)\\
-		Dann ist aber $|c\*a_n-c\*a|=|c\*(a_n-a)|=|c|\*\overset{<\frac{\epsilon}{|c|}}{|a_n-a|}<\epsilon\quad\forall n\geq N$, also $c\*a_n\rightarrowc\*a$
+		Dann ist aber $|c\*a_n-c\*a|=|c\*(a_n-a)|=|c|\*\overbrace{|a_n-a|}^{<\frac{\epsilon}{|c|}}<\epsilon\quad\forall n\geq N$, also $c\*a_n\rightarrow c\*a$
 		\item[b)] Sei $\epsilon>0$ beliebig.\\
-		Dann $\exists N_1\in\N$, so dass $|a_n-a|<\frac{\epsilon}{2}\quad\forall n\geq N_1$ (denn $a_n\rightarrow a$) und $\exists N_2\in\N$, so dass $|b_n-b|<\frac{\epsilon}{2}\quad\forall n\geq N_2$ (denn $b_n\rightarrow b$).\\
-		Dann gilt: [...]
+		Dann $\exists N_1\in\N$, so dass $|a_n-a|<\frac{\epsilon}{2}\quad\forall n\geq N_1$ (denn $a_n\rightarrow a$)\\
+		und $\exists N_2\in\N$, so dass $|b_n-b|<\frac{\epsilon}{2}\quad\forall n\geq N_2$ (denn $b_n\rightarrow b$).\\
+		Dann gilt:
+		\begin{align*}
+			|(a_n+b_n)-(a+b)&|=|\overbrace{(a_n-a)}^{<\frac{\epsilon}{2}}+\overbrace{(b_n-b)}^{<\frac{\epsilon}{2}}|\overset{\triangle\textrm{-Ungleichung}}{\leq}|a_n-a|+|b_n-b|\\
+			&<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\quad\forall n\geq N_1\textrm{ und }N_2
+		\end{align*}
+		(also z.B. für $n\geq N\coloneqq\max\{N_1,N_2\}$).\\
+		\\
+		Also gilt $(a_n+b_n)\rightarrow a+b$.\hfill$\square$
 	\end{itemize}
-	
-	
-	
-	
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $\frac{(-1)^n+5}{n}\rightarrow0$ für $\infn$, denn $\frac{1}{n}\rightarrow0$ für $\infn$ und $(-1)^n+5$ ist beschränkt: $|(-1)^n+5|\leq6\quad\forall n\in\N$ (nach 2.13 d)
+		\item[b)] $\frac{3n^2-2n+1}{-n^2+n}\rightarrow-3$ für $\infn$, denn\\ $\frac{3n^2-2n+1}{-n^2+n}=\frac{n^2\*(3-\frac{2}{n}+\frac{1}{n^2})}{n^2\*(-1+\frac{1}{n})}=\frac{3-\bmark{\frac{2}{n}}+\bmark{\frac{1}{n^2}}}{-1+\bmark{\frac{1}{n}}}\quad\gmark{\frac{\rightarrow3\textrm{ für }\infn}{\rightarrow-1\textrm{ für }\infn}}\longrightarrow\frac{3}{-1}$ für $\infn$ (nach 2.13 b,d)\begin{tiny}
+			[\bmark{Nullfolgen}]
+		\end{tiny}
+		\item[c)] \underline{Wichtiges Beispiel}\\
+		Sei $x\in\R$ mit $|x|<1$, d.h. $|x|=\frac{1}{1+t}$ mit $t>0$.\\
+		Sei $k\in\N_0$. Dann ist $\lim\limits_{\infn}(n^k\*x^n)=0$, denn
+		\begin{align*}
+			(1+t)^n\quad&\qquad\mathclap{\overset{\overset{\textrm{Mathe 1: 7.17}}{\textrm{bin. Lehrsatz}}}{=}}\qquad\quad\sum_{j=0}^{n}[\binom{n}{j}\*1^{n-j}\*t^j]\\
+			&\qquad\mathclap{=}\overbrace{1}^{j=0}+\overbrace{nt}^{j=1}+\overbrace{\frac{n\*(n-1)}{2!}t^2}^{j=2}+\overbrace{\frac{n\*(n-1)\*(n-2)}{3!}t^3}^{j=3}+...\\
+			&\qquad\mathclap{\overset{\overset{\textrm{nur Term}}{j=k+1}}{\geq}}\quad\frac{n\*(n-1)\*(n-2)\*...\*(n-k)}{(k+1)!}t^{k+1}=\binom{n}{k+1}t^{k+1}
+		\end{align*}
+		Damit gilt:
+		\begin{align*}
+			|n^k\*x^n|=|\frac{n^k}{(1+t)^n}|\leq\frac{n^k}{\binom{n}{k+1}t^{k+1}}=\frac{n^k}{n^{k+1}+...}\rightarrow 0
+		\end{align*}
+		für $\infn$.\\
+		Es gilt also z.B. ($k=10000, x=\frac{1}{2}$): $\frac{n^{10000}}{2^{n}} \rightarrow 0$ für $\infn$\\
+		$\Rightarrow \overset{\textrm{Exponentialfkt.}}{(1+t)^n}$ wächst schneller als jede Potenz $\overset{Polynom}{n^k}$ !
+	\end{itemize}
+	\subsection{Anmerkung (Landau-Symbole, $\mathcal{O}$-Notation)}
+	(Informatik, VL Algorithmen)\\
+	Sei $(a_n)$ eine \underline{strikt positive} Folge, d.h. $a_n>0\quad\forall n\in\N$. Dann ist
+	\begin{itemize}
+		\item[a)] $\mathcal{O}(a_n)=\mathcal{O}((a_n))=\{(b_n)|(\frac{b_n}{a_n})\textrm{ ist beschränkt }\}$ ("Menge aller Folgen, für die ... gilt")
+		\item[b)] $o(a_n)=\{(b_n)|\frac{b_n}{a_n}\textrm{ ist Nullfolge }\}$ ($(a_n)$ wächst schneller als $(b_n)$)
+	\end{itemize}
+	$\mathcal{O},o\colon $ Landau-Symbole
+	\begin{itemize}
+		\item[c)] $(a_n)\sim(b_n)$, falls $\lim\limits_{\infn}(\frac{a_n}{b_n})_n=1$
+	\end{itemize}
+	Beispiel:
+	\begin{itemize}
+		\item $(2n^2+5n+1)_n\in\mathcal{O}(n^2)$, denn\\
+		$(\frac{2n^2+5n+1}{n^2})=\frac{n^2\*(2+\frac{5}{n}+\frac{1}{n^2})}{n^2}\rightarrow2$ für $\infn$, beschränkt
+		\item $(n^2)\in o(n^3)$
+		\item $(n^3)\in o(2^n)$
+		\item $(n13-3)\sim(n^3)$, denn $(\frac{n^3}{n^3-3})=(\frac{n^3\*(1)}{n^3\*(1-\frac{3}{n^3})})\rightarrow1$ für $\infn$
+		\item häufig auch laxe Schreibweise
+		\begin{align*}
+			2n^2+5n+1&=\mathcal{O}(n^2)\\
+			n^2&=o(n^3)
+		\end{align*}
+	\end{itemize}
+	Außerdem:
+	\begin{align*}
+		\mathcal{O}(1)&=\textrm{ Menge der beschränkten Folgen}\\
+		o(1)&=\textrm{ Menge der Nullfolgen}
+	\end{align*}
+	Wichtige Formel: \underline{Stirling}: $(n!)\sim(\sqrt{2\pi n}(\frac{n}{\e})^n)$\\
+	\\
+	Problem: Wie zeigt man die Konvergenz einer Folge, wenn man den Grenzwert nicht kennt?
+	\subsection{Definition}
+	Eine Folge reeller Zahle $(a_n)_n$ heißt
+	\begin{itemize}
+		\item[a)] \underline{(\bmark{streng}) monoton steigend/wachsend}, falls $a_{n+1}\overset{\bmark{>}}{\geq}a_n\quad\forall n\in\N$, Schreibweise: $(a_n)\nearrow$
+		\item[b)] \underline{(\bmark{streng}) monoton fallend} $(a_n)\searrow$, falls $a_{n+1}\overset{\bmark{<}}{\leq}a_n\quad\forall n\in\N$
+		\item[c)] \underline{monoton}, falls a) oder b) gilt (oder beides)
+	\end{itemize}	
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item $(a_n)=(\frac{1}{n})$ ist streng monoton fallend
+		\item $(a_n)=(1)$ ist monoton fallend und monoton steigend
+		\item $(a_n)=((-1)^n)$ ist nicht monoton
+	\end{itemize}
+	\subsection{Bemerkung}
+	$(a_n)\nearrow$ zeigt man so:
+	\begin{align*}
+		a_{n-1}-a_n&\geq0\quad\textrm{ oder }\\
+		\frac{a_{n+1}}{a_n}&\geq1 
+	\end{align*}
+	\subsection{Satz (Monotone Konvergenz)}
+	Jede beschränkte, monotone Folge reeller Zahlen $(a_n)_n$ konvergiert, und zwar gegen
+	\begin{itemize}
+		\item $\sup\{a_n\colon n\in\N\}$, falls $(a_n)$ monoton steigend oder gegen
+		\item $\inf\{a_n\colon n\in\N\}$, falls $(a_n)$ monoton falend ist.
+		
+	\end{itemize}
 	
 	
 	
