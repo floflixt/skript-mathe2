@@ -1,0 +1,634 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black filecolor=green, urlcolor=blue]{hyperref}
+\usepackage[a4paper]{geometry}
+\usepackage{tikz}
+
+\begin{titlepage}
+	\title{Mathematik II}
+	\date{26.04.2016}
+\end{titlepage}
+
+\newcommand{\R}{\mathds{R}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\e}{\textrm{e}}
+
+\renewcommand{\*}{\cdot}
+\renewcommand{\epsilon}{\varepsilon}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	\section{Reelle Funktionen}
+	\subsection{Wiederholung Mathe 1: Funktionen}
+	\subsubsection*{Definition}
+		Eine \underline{Funktion/Abbildung} $f\colon A\rightarrow B$ besteht aus
+		\begin{itemize}
+			\item zwei Mengen:
+			\begin{itemize}
+				\item $A$: \underline{Definitionsbereich} von $f$
+				\item $B$: \underline{Bildbereich} von $f$
+			\end{itemize}
+			\item und einer \underline{Zuordnungsvorschrift}, die jedem Element $a\in A$ genau ein Element $b\in B$ zuordnet.
+		\end{itemize}
+		Wir schreiben dann $b=f(a)$, nennen $b$ das \underline{Bild}/den \underline{Funktionswert} von $a$ (unter $f$) sowie $a$ (ein) \underline{Urbild} von $b$ (unter $f$).
+	\subsubsection*{Notation}
+		\vspace{-1cm}\begin{align*}
+			f\colon A&\rightarrow B\\
+			a&\mapsto f(a)
+		\end{align*}
+	\subsubsection*{Beispiel}
+		$\rightarrow$ Folien 11.04.2016
+	\subsection{Reelle Funktionen}
+	\subsubsection*{Definition}
+	Eine \underline{reelle Funktion} einer \underline{Veränderlichen} ist eine Abbildung $f\colon D\rightarrow \R$, wobei $D\subseteq \R$ (oft ist $D$ endliche Vereinigung von Intervallen, z.B.
+	\begin{itemize}
+		\item $ D=(-\infty,a]=\{x\in \R|x\leq a\} $
+		\item $ D=\R^+_0=[0,\infty)=\{x\in\R|x\geq 0\}$
+		\item $ D=(-\infty,\infty)=\R $
+		\item $ D=\R\setminus\{0\}=(-\infty,0)\cup(0,\infty) $\hfill).
+	\end{itemize}
+	\subsection{Neue Funktionen aus Alten, Kompositionen}
+	\subsubsection*{Definition}
+	Seien $f,g\colon D\rightarrow \R$ reelle Funktionen.
+	\begin{itemize}
+		\item[a)] $(f\pm g)(x)\coloneqq f(x)\pm g(x)\qquad \forall x\in D$\\
+				  \underline{Summe/Differenz} von $f$ und $g$\\
+				  (genauer:\vspace{-0.5cm} \begin{align*}
+				  	f\pm g\colon D&\rightarrow \R\\
+				  	x&\mapsto (f\pm g)(x)=f(x)\pm g(x) \textrm{\qquad )}\end{align*}
+		\item[b)] $(f\* g)(x)\coloneqq f(x)\* g(x)\qquad \forall x\in D$\\
+		\underline{Produkt} von $f$ und $g$
+		\item[c)] falls $g(x)\neq 0\quad \forall x\in D$, dann\\
+		$(\frac{f}{g})(x)\coloneqq\frac{f(x)}{g(x)}\qquad \forall x\in D$\\
+		\underline{Quotient} von $f$ und $g$
+		\item[d)] \underline{Komposition/Hintereinanderausführung}\\
+		$f\colon D_f\rightarrow \R,\quad g\colon D_g\rightarrow\R\textrm{, wobei } f(D_f)\subseteq D_g$\\
+		\vspace{-0.5cm}\begin{align*}
+			g\circ f\colon D_f&\rightarrow\R\\
+			x&\mapsto g(f(x))
+		\end{align*}
+	\end{itemize}
+	\subsection{Beispiel}
+	\begin{align*}
+		f,g&\colon \R\rightarrow\R\\
+		f(x)&=x^2\\
+		g(x)&=x-1\\
+		\\
+		(f+g)(x)&=x^2+x-1\\
+		(f\* g)(x)&=x^2\* (x-1)=x^3-x^2\\
+		(\frac{f}{g})(x)&=\frac{x^2}{x-1}\quad\textrm{für }x\neq 1\quad (D_g=\R\setminus \{1\})\\
+		(g\circ f)(x)&=g(f(x))=g(x^2)=x^2-1\\
+		(f\circ g)(x)&=f(g(x))=f(x-1)=(x-1)^2=x^2-2x+1\\
+		\\
+		\Rightarrow (g\circ f)(x)&\neq (f\circ g)(x)
+	\end{align*}
+	\subsection{Wiederholung Mathe 1: Injektivität, Surjektivität, Bijektivität; Umkehrfunktion}
+	$\rightarrow$ Folien 13.04.2016	
+	\subsection{Elementare Funktionen (naive Einführung)}
+	\begin{itemize}
+		\item[a)] \underline{Konstante Funktionen}\\
+		für $c\in\R$ (fest):\\
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{align*}
+				f\colon \R&\rightarrow\R\\
+				x&\mapsto c
+			\end{align*}
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5,domain=0:4]
+				\draw[->]
+					(-0.2,0) -- (4.2,0) node[right] {$x$};
+				\draw[->]
+					(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+				\draw[color=blue]
+					plot(\x,1.5) node[right]{$f(x)=c$};
+			\end{tikzpicture}
+		\end{minipage}
+		\item[b)] \underline{Die identische Funktion (Identität)}\\
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{align*}
+				f\colon \R&\rightarrow \R\\
+				x&\mapsto x
+			\end{align*}
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5,domain=0:4]
+			\draw[->]
+				(-0.2,0) -- (4.2,0) node[right] {$x$};
+			\draw[->]
+				(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+			\draw[color=blue]
+				plot(\x,\x) node[right]{$f(x)=x$};
+			\end{tikzpicture}
+		\end{minipage}
+	\end{itemize}
+	Durch mehrfache Anwendung von 1.3 entstehen aus a) und b) viele weitere Funktionen.
+	\begin{itemize}
+		\item[c)] \underline{Potenzen (Monome)}\\
+		für $n\in\N_0$ (fest):
+		\begin{align*}
+			f\colon \R&\rightarrow\R\\
+			x&\mapsto x^n
+		\end{align*}
+		\begin{itemize}
+			\item $n=0$: die konstante 1-Funktion
+			\begin{align*}
+				f\colon \R&\rightarrow\R\\
+				x&\mapsto x^0=1
+			\end{align*}\\
+			\item $n$ ungerade:\\
+			\begin{minipage}[c]{0.5\textwidth}
+				$f$ punktsymmetrisch zum Ursprung $(0|0)$, bijektiv
+			\end{minipage}
+			\begin{minipage}[c]{0.5\textwidth}
+				\begin{tikzpicture}[scale=0.5]
+				\draw[->]
+				(-4.2,0) -- (4.2,0) node[right] {$x$};
+				\draw[->]
+				(0,-4.2) -- (0,4.2) node[above] {$f(x)$};
+				\draw[color=blue, domain=-2:2]
+				plot(\x,\x*\x*\x*0.5) node[right]{$f(x)=x^n$};
+				\end{tikzpicture}
+			\end{minipage}
+			\item $n$ gerade:\\
+			\begin{minipage}[c]{0.5\textwidth}
+				$f$ achsensymmetrisch zur $y$-Achse, nicht bijektiv\\ $f(x)\geq 0\quad\forall x\in\R$
+			\end{minipage}
+			\begin{minipage}[c]{0.5\textwidth}
+				\begin{tikzpicture}[scale=0.5]
+				\draw[->]
+				(-4.2,0) -- (4.2,0) node[right] {$x$};
+				\draw[->]
+				(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+				\draw[color=blue, domain=-3:3]
+				plot(\x,\x*\x*0.5) node[right]{$f(x)=x^n$};
+				\end{tikzpicture}
+			\end{minipage}
+		\end{itemize}
+		\item[d)] \underline{Wurzelfunktionen}\\
+		Wurzelfunktionen sind die Umkehrfunktionen der Monome. Dazu musss die Gleichung $f(x)=x^n=y$ ($y\in\R$ gegeben) gelöst werden.
+		\begin{itemize}
+			\item $n$ ungerade:\\
+			\\
+			\begin{minipage}[c]{0.5\textwidth}
+				$f$ ist bijektiv, dann gibt es zu jedem \\
+				$y\in\R$ genau ein $x\in\R$ mit $x^n=y$. Dieses wird die $n$-te Wurzel aus $y$ genannt:\\ $x=\sqrt[n]{y}$.\\
+				\vspace{-0.5cm}
+				\begin{align*}
+					\sqrt[n]{\quad}\colon \R&\rightarrow\R\\
+					x&\mapsto\sqrt[n]{x}
+				\end{align*}
+			\end{minipage}
+			\begin{minipage}[c]{0.5\textwidth}
+				\begin{tikzpicture}[scale=0.5]
+				\draw[->]
+				(-4.2,0) -- (4.2,0) node[right] {$x$};
+				\draw[->]
+				(0,-4.2) -- (0,4.2) node[above] {$f(x)$};
+				\draw[color=gray, domain=-2:2,very thin]
+				plot(\x,\x*\x*\x*0.5) node[right]{$f(x)=x^n$};
+				\draw[color=blue,domain=-1.7:1.7]
+				plot(\x*\x*\x,\x) node[right]{$f(x)=\sqrt[n]{x}$};
+				\end{tikzpicture}
+			\end{minipage}
+			\item $n$ gerade: Dann hat die Gleichung $x^n=y$ in $\R$
+			\begin{itemize}
+				\item keine Lösung, falls $y<0$
+				\item genau eine Lösung, falls $y=0$ (nämlich $x=0$)
+				\item zwei Lösungen, falls $y>0$:
+				\begin{align*}
+					x_1&=\sqrt[n]{y}\quad(>0)\\
+					x_2&=-\sqrt[n]{y}\quad(<0)
+				\end{align*}
+				\begin{minipage}[c]{0.5\textwidth}
+					Die \underline{positive} Lösung wird hier dann als $n$-te Wurzel bezeichnet:
+					\begin{align*}
+					\sqrt[n]{\quad}\colon\R_0^+&\rightarrow\R_0^+\\
+					x&\mapsto\sqrt[n]{x}
+					\end{align*}
+				\end{minipage}
+				\begin{minipage}[c]{0.5\textwidth}
+					\begin{tikzpicture}[scale=0.5]
+					\draw[->]
+					(-4.2,0) -- (4.2,0) node[right] {$x$};
+					\draw[->]
+					(0,-4.2) -- (0,4.2) node[above] {$f(x)$};
+					\draw[color=gray, domain=-3:3,very thin]
+					plot(\x,\x*\x*0.5) node[right]{$f(x)=x^n$};
+					\draw[color=blue,domain=0:3]
+					plot(\x*\x*0.5,\x) node[right]{$f(x)=\sqrt[n]{x}$};
+					\draw[color=gray,domain=-3:3,dotted]
+					plot(\x*\x*0.5,-\x);
+					\end{tikzpicture}
+				\end{minipage}
+			\end{itemize}
+		\end{itemize}
+		\item[e)] \underline{Polynome}\\
+		$a_0,\quad...\quad,a_n\in\R$ (Koeffizienten)\\
+		Ein Polynom ist eine Funktion $p$ mit 
+		\begin{align*}
+			p\colon \R&\rightarrow\R\\
+			x&\mapsto a_nx^n+a_{n-1}x^{n-1}+...+a_1x^1+a_0x^0=\sum_{k=0}^{n}{a_kx^k}
+		\end{align*}
+		Falls $a_n\neq 0$ ist, heißt $n$ \underline{Grad} des Polynoms.
+		\item[f)] \underline{Rationale Funktionen}\\
+		Rationale Funktionen sind Quotienten von Polynomen (mit $p,q$...Polynome):
+		\begin{align*}
+			f\colon D&\rightarrow\R\\
+			x&\mapsto\frac{p(x)}{q(x)}
+		\end{align*}
+		mit $D=\{x\in\R|q(x)\neq 0\}$
+		\item[g)] \underline{Exponentialfunktionen}\\
+		Exponentialfunktionen sind Funktionen
+		\begin{align*}
+			f\colon\R&\rightarrow\R^+\\
+			x&\mapsto q^x
+		\end{align*} wobei die Basis $\R\ni q>0$, $q\neq 1$ vorgegeben ist.
+		\begin{align*}
+			q>1&\colon\textrm{$f$ steigt}\\
+			0<q<1&\colon\textrm{$f$ fällt}
+		\end{align*}
+		Bekannte Rechenregeln:
+		\begin{itemize}
+			\item $q^x\* q^y=q^{x+y}$
+			\item $\frac{q^x}{q^y}=q^{x-y}$
+			\item $(q^x)^y=q^{x\* y}$
+			\item $(p\* q)^x=p^x\* q^x$
+			\item $(\frac{p}{q})^x=\frac{p^x}{q^x}$
+		\end{itemize}
+		Zur Beschreibung von Exponentialfunktionen genügt es, \underline{eine} bestimmte Basis zu benutzen (man kann $g(x)=p^x$ durch $f(x)=q^x$ ausdrücken, siehe Teil h).\\
+		Früher: Basis 10\\
+		Heute: Basis $\e\approx 2.781828...$ (Eulersche Zahl)\\
+		Informatik: oft Basis 2\\
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{align*}
+			\textrm{exp}\colon\R&\rightarrow\R^+\\
+			x&\mapsto \e^x\\
+			\\
+			\textrm{exp}(0)&=\e^0=1\\
+			\textrm{exp}(1)&=\e^1=2.781828...
+			\end{align*}
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+				(-4.2,0) -- (4.2,0) node[right] {$x$};
+			\draw[->]
+			 	(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+			\draw[color=blue,domain=-3:1.5]
+				plot(\x,{exp(\x)}) node[right]{$f(x)=\textrm{exp}(x)$};;
+			\end{tikzpicture}
+		\end{minipage}
+		\item[h)] \underline{Logarithmen}\\
+		Die Exponentialfunktion
+		\begin{align*}
+			\textrm{exp}(x)\colon\R&\rightarrow\R^+\\
+			x&\mapsto \e^x
+		\end{align*} ist bijektiv.\\
+		Um sie umzukehren, muss zu gegebenem $y\in\R^+$ die Gleichung $\e^x=y$ gelöst werden.\\
+		Die Lösung ist für $y>0$ in $\R$ eindeutig und wird als der \underline{natürliche Logarithmus} von $y$ bezeichnet: $x=\ln y$.\\
+		In $\R$ ist die Gleichung für $y\leq 0$ unlösbar.\\
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{align*}
+			\ln\colon\R^+&\rightarrow\R\\
+			x&\mapsto\ln x
+			\end{align*}
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-4.2,0) -- (4.2,0) node[right] {$x$};
+			\draw[->]
+			(0,-4.2) -- (0,4.2) node[above] {$f(x)$};
+			\draw[color=gray, domain=-3:1.5,very thin]
+			plot(\x,{exp(\x)}) node[right]{$f(x)=\textrm{exp}(x)$};
+			\draw[color=blue,domain=-3:1.5]
+			plot({exp(\x)},\x) node[right]{$f(x)=\ln x$};;
+			\end{tikzpicture}
+		\end{minipage}
+		Analoges gilt für andere Exponentialfunktionen.
+		\begin{align*}
+			f:\R&\rightarrow\R^+\\
+			x&\mapsto q^x\quad (q>0,q\neq 1)
+		\end{align*}
+		Es gilt: $q^x=y\Leftrightarrow x=\log_qy$ (Logarithmus zur Basis $q$).\\
+		\\
+		Es genügt wieder, \underline{eine} feste Basis zu betrachten, z.B. $\e$, denn $q^x=(\e^{\ln q})^x=\e^{x\*\ln q}$. Es gilt:
+		\begin{align*}
+			q^x=y&\Leftrightarrow\e^{x\*\ln q}=y\\
+			&\Leftrightarrow\ln(\e^{x\*\ln q})=\ln y\\
+			&\Leftrightarrow x\*\ln q=\ln y\\
+			&\Leftrightarrow x=\frac{\ln y}{\ln q}\quad\textrm{,}
+		\end{align*}
+	also gilt $\log_qy=\frac{\ln y}{\ln q}$.\\
+	\\
+	\underline{Rechenregeln} für den Logarihmus lassen sich aus den Regeln für die Exponentialfunktion herleiten:\\
+	\\
+	Sei $u\coloneqq\ln x$, $v\coloneqq\ln y$, dann ist $x=\e^u$ und $y=\e^v$, daraus folgt 
+	\begin{align*}
+	x\* y=\e^u\*\e^v=\e^{u+v}\quad\textrm{,}
+	\end{align*} also ist 
+	\begin{align*}
+	\ln(x\* y)=\ln(\e^{u+v})=u+v=\ln x+\ln y\quad\textrm{.}
+	\end{align*}
+	Genauso kann man mit beliebiger Basis $q>0$, $q\neq1$ verfahren, wir erhalten für jede Logarithmusfunktion $\log\colon\R^+\rightarrow\R$:
+	\begin{itemize}
+		\item $\log(x\*y)=\log x+\log y\quad\forall x,y>0$
+		\item $\log(\frac{x}{y})=\log x-\log y\quad\forall x,y>0$
+		\item $\log(x^\alpha)=\alpha\*\log x\quad\forall x>0,\alpha\in\R$
+	\end{itemize}
+	\item[i)] \underline{Trigonometrische Funktionen}\\
+	Wir betrachten einen Punkt $P$ auf dem Einheitskreis (Kreis um $O$, Radius 1).\\
+	\\
+	\begin{minipage}[c]{0.5\textwidth}
+		Der Winkel, der von der positiven $x_1$-Achse und der Geraden durch $O$ und $P$ eingeschlossen wird, sei $x$.
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		\begin{tikzpicture}[scale=0.5]
+		\draw[->]
+		(-4.2,0) -- (4.2,0) node[right] {$x_1$};
+		\draw[->]
+		(0,-4.2) -- (0,4.2) node[above] {$x_2$};
+		\draw (0,0) circle (100pt);
+		\draw[color=gray, domain=-0.5:3,very thin]
+		plot(\x,\x) node[right]{};
+		\draw[color=blue, domain=-1:2.45, style=dotted]
+		plot(2.45,\x);
+		\draw[color=blue, domain=0:2.45, line width=2pt]
+		plot(\x,-1) node[below left]{$\cos x$};
+		\draw[color=red, domain=-1:2.45, style=dotted]
+		plot(\x,2.45);
+		\draw[color=red, domain=0:2.45, line width=2pt]
+		plot(-1,\x) node[below left]{$\sin x$};
+		\draw[fill=black](2.45,2.45) circle(3pt) node[above right]{$P$};
+		\draw[fill=black](0,0) circle(3pt) node[below left]{$O$};
+		\draw[fill=black](3.5,0) circle(3pt) node[below right]{1};
+		\draw[very thin, color=gray, ->]
+		(2, 0) node[above left]{$x$} arc (0:45:2);
+		\end{tikzpicture}
+	\end{minipage}\\
+	Dann heißt die $x_1$-Koordinate von $P$ der \underline{Kosinus} von $x$ ($\cos x$), die $x_2$-Koordinate heißt der \underline{Sinus} von $x$ ($\sin x$).\\
+	\\
+	Der Winkel $x$ kann im Gradmaß oder im Bogenmaß (Länge des Bogens von $(1|0)$ bis $P$) gemessen werden, es gilt:
+	\begin{align*}
+		\frac{\textrm{Gradmaß}}{360^\circ}=\frac{\textrm{Bogenmaß}}{2\pi}
+	\end{align*}
+	So lassen sich die Funktionen $\cos$ und $\sin$ definieren:
+	\begin{align*}
+		\cos\colon\R&\rightarrow[-1;1]\\
+		x&\mapsto\cos x\\
+		\\
+		\sin\colon\R&\rightarrow[-1;1]\\
+		x&\mapsto\sin x
+	\end{align*}
+	und weiter
+	\begin{align*}
+		\tan x&\coloneqq\frac{\sin x}{\cos x}\qquad\textrm{(Tangens)}\qquad
+		\textrm{und}\\
+		\\
+		\cot x&\coloneqq\frac{\cos x}{\sin x}\qquad\textrm{(Kotangens)}
+	\end{align*}
+	(Tangens und Kotangens sind jeweils nur dort definiert, wo der Nenner $\neq 0$ ist!)\\
+	\begin{minipage}[c]{0.5\textwidth}
+		\begin{tikzpicture}
+			\draw[->]
+			(-0.2,0) -- (4.2,0) node[right] {$x_1$};
+			\draw[->]
+			(0,-0.2) -- (0,4.2) node[above] {$x_2$};
+			\draw
+			(4,0) arc(0:90:4);
+			\draw[domain=-0.1:4.5, very thin]
+			plot(\x,0.75*\x);
+			\draw[color=gray, very thin, ->]
+			(2,0) node[above left]{$x$} arc(0:37:2);
+			\draw[fill=black](3.2,2.4) circle(1.5pt);
+			\draw[color=gray, very thin, domain=0:4, <->]
+			(-1.5,0) -- (-1.5,2) node[left]{1} -- (-1.5,4);
+			\draw[color=gray, very thin, domain=0:4, <->]
+			(0,-1) -- (2,-1) node[below]{1} -- (4,-1);		
+			\draw[style=dotted]
+			(4,-0.5) -- (4,4);
+			\draw[color=green, line width=2pt]
+			(4,0) -- (4,1.5) node[right]{$\tan x$} -- (4,3);
+			\draw[color=blue]
+			(0,-0.3) -- (1.6,-0.3) node[below]{$\cos x$} -- (3.2,-0.3);
+			\draw[color=red]
+			(-0.3,0) -- (-0.3,1) node[left]{$\sin x$} -- (-0.3,2.4);
+		\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		Strahlensatz: $\frac{\sin x}{\cos x}=\frac{\tan x}{1}$\\
+		\\
+		Wertetabelle: s. PÜ 02
+	\end{minipage}
+	Graphen:\\
+	\begin{tikzpicture}
+		\draw[->]
+		(-6,0) -- (7,0) node[right] {$x$};
+		\draw[->]
+		(0,-2) -- (0,2) node[above] {$f(x)$};
+		\draw
+		(0,1) node[left]{$1$}
+		(0,-1) node[left]{$-1$}
+		(-6.283,0) node[below]{$-2\pi$}
+		(-4.65,0) node[below]{$-\frac{3}{2}\pi$}
+		(-3.1415,0) node[below]{$-\pi$}
+		(-1.57,0) node[below]{$-\frac{1}{2}\pi$}
+		(1.57,0) node[below]{$\frac{1}{2}\pi$}
+		(3.1415,0) node[below]{$\pi$}
+		(4.65,0) node[below]{$\frac{3}{2}\pi$}
+		(6.283,0) node[below]{$2\pi$};
+		\draw[color=red, domain=-6:6, samples=50]
+		plot(\x,{sin(\x r)}) node[below left]{$\sin x$};
+		\draw[color=blue, domain=-6:6, samples=50]
+		plot(\x,{cos(\x r)}) node[above right]{$\cos x$};
+		\draw[color=green, domain=-1.2:1.2]
+		plot(\x,{tan(\x r)});
+		\draw[style=dotted, color=green]
+		(-1.57,-3)--(-1.57,3);
+		\draw[color=green, domain=1.95:4.35]
+		plot(\x,{tan(\x r)}) node[right]{$\tan x$};
+		\draw[style=dotted, color=green]
+		(1.57,-3)--(1.57,3);
+		\draw[color=green, domain=-4.35:-1.95]
+		plot(\x,{tan(\x r)});
+	\end{tikzpicture}\\
+	Additionstheoreme:
+	\begin{align*}
+		\sin (x+y)&=\sin x\*\cos y+\cos x\* \sin y\\
+		\cos(x+y)&=\cos x\*\cos y-\sin x\*\sin y\\
+		(\sin x)^2+(\cos x)^2&=\sin^2x+\cos^2x=1\qquad\textrm{(Satz des Pythagoras)}
+	\end{align*}
+	\\
+	Es gilt: $\cos x=\sin (x+\frac{\pi}{2})$ (Verschiebung um $\frac{\pi}{2}$).\\
+	\\
+	$\sin$ und $\cos$ sind $2\pi$-periodisch, d.h.
+	\begin{align*}
+		\sin x&=\sin(x+2\pi)\qquad\forall x\\
+		\cos x&=\cos (x+2\pi)\qquad\forall x
+	\end{align*}
+	$\tan$ ist $\pi$-periodisch:
+	\begin{align*}
+		\tan x&=\tan(x+\pi)\qquad\forall x\textrm{ auf Definitionsbereich}
+	\end{align*}
+	\end{itemize}
+	\newpage
+	\section{Folgen}
+	\subsection{Definition: Folge}
+	\subsubsection*{Definition}
+	Eine \underline{Folge} $(a_n)_{n\in\N}$ ist eine Abbildung von der Menge der natürlichen Zahlen $\N$ in eine Menge $M$ (oft $M\subset \R$).\\
+	Die $a_n$ ($n=1,2,3,...$) heißen \underline{Glieder} der Folge, $n$ heißt \underline{Index}.\\
+	(Bemerkung: Das 1. Glied der Folge muss nicht $a_1$ sein. durch Umbenennung, z.B. $b_1\coloneqq a_7, b_2\coloneqq a_8$, ist auch $(a_7, a_8, a_9, ...)$ eine Folge im sinne der Definition 2.1)
+	\subsubsection*{Schreibweisen}
+	\begin{align*}
+		&(a_n)_{n\in\N}\\
+		&(a_n)_{n\geq n_0}\qquad \textrm{(z.B. $(a_n)_{n\geq 7}$) oder nur}\\
+		&(a_n)
+	\end{align*}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $a_n=c\qquad\forall n\geq 1, c\in\R\textrm{ konstant}$\\
+		$(a_n)_{n\in\N}=(c)_n\qquad (c,c,c,c,...)$
+		\item[b)] $a_n=n\qquad (1, 2, 3,4,...)$
+		\item[c)] $a_n=(-1)^n\qquad (-1,1,-1,1,-1,...)$
+		\item[d)] $a_n=\frac{1}{n}\qquad(1,\frac{1}{2},\frac{1}{3},\frac{1}{4},...)$
+		\item[e)] $a_n=[0,\frac{2}{n})\qquad$ Folge von Intervallen
+		\item[f)] $a_n$ rekursiv definiert:\\
+		\begin{align*}
+			a_1&\coloneqq 1\\
+			a_{n+1}&\coloneqq(n+1)a_n\qquad(n\geq 1)\\
+			a_2&=2\*a_1=2\\
+			a_3&=3\*a_2=6\\
+			a_4&=4\*a_3=24
+		\end{align*}
+	\end{itemize}
+	\subsection{Definition: Eigenschaften von Folgen}
+	Eine Folge $(a_n)_{n\in\N}$ reeller Zahlen heißt
+	\begin{itemize}
+		\item[a)] \underline{beschränkt}, wenn die Menge der Folgenglieder beschränkt ist (s. Mathe 1), d.h. wenn es eine Zahl $K\geq 0$ gibt mit $|a_n|\leq K\quad\forall n\in\N$ (d.h. alle Folgenglieder liegen im Intervall $[-K,K]\quad\forall n;\quad(-K\leq a_n\leq K)$).
+		\item[b)] \underline{alternierend}, falls ihre Glieder abwechselnd positiv und negativ sind.
+	\end{itemize}
+	\subsection{Beispiel}
+	Beispiele aus 2.2:\\
+	beschränkt: a), c), d) [für c) und d) z.B. K=1] \\
+	alternierend: c)
+	\subsection{Definition: Konvergenz}
+	\begin{itemize}
+		\item[a)] Eine Folge $(a_n)_{n\in\N}$ reeller Zahlen heißt \underline{konvergent gegen $a\in\R$}, wenn es zu jeder positiven Zahl $\epsilon>0$ ein $N\in\N$ gibt (das von $\epsilon$ abhängen darf), so dass gilt: $|a_n-a|<\epsilon$ für alle $n\geq N$.\\
+		(kurz: $\forall\epsilon>0\quad\exists N\in\N\quad\forall n\geq N\colon|a_n-a|<\epsilon$)
+		\item[b)] Die Zahl a heißt dann \underline{Grenzwert} oder \underline{Limes} der Folge, wir schreiben:\\
+		 $\lim\limits_{n\rightarrow\infty}a_n=a$ oder\\
+		 $a_n\rightarrow a$ für $n\rightarrow\infty$ ($a_n$ strebt gegen $a$)
+		 \item[c)] Eine Folge, die gegen $0$ konvergiert, heißt \underline{Nullfolge}.
+		 \item[d)] Eine Folge, die nicht konvergiert, heißt \underline{divergent} (die Folge divergiert).
+	\end{itemize}
+	\subsection{Bemerkung}
+	$\rightarrow$ Folien 20.04.16\\
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $a_n=\frac{1}{n}$ ist Nulfolge, d.h. $\lim\limits_{n\rightarrow\infty}\frac{1}{n}=a=0$, denn:\\
+		Sei $\epsilon>0$ beliebig. Dann wähle $N$ als $N>\frac{1}{\epsilon}$, denn damit gilt für alle $a_n$ mit $n\geq N$:\\
+		$|a_n-0|=|\frac{1}{n}-0|=\frac{1}{n}\leq\frac{1}{N}$, da $n\geq N$ und $\frac{1}{N}<\frac{1}{\frac{1}{\epsilon}}=\epsilon\Rightarrow|a_n-0|<\epsilon$.\\
+		(z.B. falls $\epsilon=\frac{1}{10}$, wähle $N>10$, z.B. $N=11$; ab $a_{11}$ haben alle Folgenglieder einen Abstand $<\frac{1}{10}$ von 0)
+		\item[b)] $(a_n)$ mit $a_n=\frac{n+1}{3n}$. Behauptung: $a=\frac{1}{3}$.\\
+		Beweis: Sei $\epsilon>0$ beliebig. Dann wähle $N>\frac{1}{3\epsilon}$. Für alle $a_n$ mit $n\geq N$ gilt dann:\\
+		$|a_n-a|=|\frac{n+1}{3n}-\frac{1}{3}|=|\frac{n+1-n}{3n}|=\frac{1}{3n}<\frac{1}{3N}<\epsilon$. $\frac{1}{3N}<\epsilon$ genau dann, wenn $N>\frac{1}{3\epsilon}$.
+		\item[c)] $(a_n)_{n\in\N}$ mit $a_n=c\quad\forall n$.\\
+		$\lim\limits_{n\rightarrow\infty}a_n=c$\\
+		Sei $\epsilon>0$ beliebig. Dann ist\\
+		$|a_n-c|=|c-c|=0<\epsilon\quad\forall n\geq1$, hier ist also $N=1$, hängt nicht von $\epsilon$ ab, untypisch.
+	\end{itemize}
+	\subsection{Bemerkung}
+	$N$ muss nicht optimal gewählt werden.\\
+	Beispiel: $\lim\limits_{n\rightarrow\infty}\frac{1}{n^3+n+5}=0$, [...]\\
+	$|\frac{1}{n^3+n+5}-0|=\frac{1}{n^3+n^+5}\leq\frac{1}{N^3+N+5}\overset{!}{<}\epsilon$. Für optimales $N$: $\frac{1}{N^3+N+5}<\epsilon$ nach $N$ auflösen, schwer.\\
+	Deshalb grob abschätzen, z.B. so:\\
+	$\frac{1}{N13+N+5}<\frac{1}{N}<\epsilon$, also wähle $N>\frac{1}{\epsilon}$.
+	\subsection{Satz: Beschränktheit von Folgen}
+	Jede konvergente folge ist beschränkt.\\
+	\\
+	Beweis: (zu zeigen: $(a_n)$ konvergente Folge: $\exists K\in\N$, so dass $|a_n|\leq K\quad\forall n\in\N$)\\
+	Sei $(a_n)_{n\in\N}$ konvergent gegen $a$.\\
+	dann existiert für alle $\epsilon>0$, also auch speziell für $\epsilon=1$, ein $N\in\N$ mit $|a_n-a|<1\quad\forall b\geq N$.\\
+	Also gilt für alle $n\geq N$:\\
+	\begin{align*}
+		|a_n|&=|a_n+a-a|&\leq |a_n-a|+|a|\\
+		&\textrm{'Einschiebetrick'} &\textrm{Dreiecksungleichung}\\
+		|a_n|&&<1+|a|
+	\end{align*}
+	(also für $n\geq N$ sind die $|a_n|<1+|a|$; aber für $n=1,2,3,..., N-1$?)\\
+	Definiere $K$ als $K\coloneqq\max\{|a_1|,|a_2|,|a_3|,...,|a_{N-1}|,1+|a|\}$\\
+	Dann gilt $|a_n|\leq K\quad\forall n$.\\
+	(Anmerkung: Durch den vorletzten Schritt ist meist $K\in\R^+$.)\\
+	\subsection{Bemerkung}
+	Nach 2.9 gilt:\\
+	 $(a_n)$ konvergiert $\Rightarrow$ $(a_n)$ ist beschränkt\\
+	Das ist äquivalent zu:\\
+	$(a_n)$ ist nicht beschränkt $\Rightarrow$ $(a_n)$ konvergiert nicht\\
+	(Kontraposition). Unbeschränkte Folgen sind also immer divergent.\\
+	Bsp. $(a_n)$ mit $a_n=n$
+	\subsection{Wichtiges Beispiel (geometrische Folgen)}
+	Für $q\in\R$ gilt: 
+	$\lim\limits_{n\rightarrow\infty}q^n=\begin{cases}
+	0\textrm{, falls }|q|<1\\
+	1\textrm{, falls }|q|=1
+	\end{cases}$\\
+	Die Folge $(q^n)_n\in\N$ divergiert, falls $q=-1$ oder $|q|>1$.\\
+	Beweis: \begin{itemize}
+		\item[1. Fall] $|q|<1$ (zu zeigen $q^n\rightarrow 0$ für $n\rightarrow\infty$)\\
+		Sei $\epsilon>0$ beliebig. Dann ist
+		\begin{align*}
+			|q^n-0|=|q^n|=|q|^n&<\epsilon\\
+			\Leftrightarrow n\*\ln|q|&<\ln\epsilon\\
+			\Leftrightarrow n \qquad &\mathclap{\overset{da |q|<1}{\geq}}\qquad \frac{\ln\epsilon}{\ln|q|}
+		\end{align*}
+		Wähle $\N\ni N>\frac{\ln\epsilon}{\ln|q|}$, dann ist also $|q|^n<\epsilon\quad\forall n\geq N$.
+		\item[2. Fall] $q=1$ $\rightarrow$ konstante 1-Folge, konvergiert, s. 2.7 c)
+		\item[3. Fall] $|q|\geq 1, q\neq 1$\\
+		Für $|q|>1$ ist $(q^n)$ unbeschränkt, also divergent (s. 2,9/2.10).\\
+		Für $q=-1$: können wir erst später beweisen ($\rightarrow$ Cauchy-Folgen)
+	\end{itemize}
+	\subsection{Beispiel}
+	Nach 2.11 sind die Folgen $((\frac{1}{2})^n)_{n\in\N}=(\frac{1}{2^n})_{n\in\N},\quad ((-\frac{7}{8})^n)_n\in\N$ Nullfolgen.
+	\subsection{Satz: Rechenregeln für konvergente Folgen}
+	Seien $(a_n), (b_n)$ reelle Folgen mit $\lim\limits_{n\rightarrow\infty}a_n=a$ und $\lim\limits_{n\rightarrow\infty}b_n=b$. Dann gilt:
+	\begin{itemize}
+		\item[a)] Die Folge $(c\*a_n)$ konvergiert gegen $c\*a, c\in\R$.
+		\item[b)] Die Folge $(a_n\pm b_n)$ konvergiert gegen $a\pm b$.
+		\item[c)] Die Folge $(a_n\*b_n)$ konvergiert gegen $a\*b$.
+		\item[d)] Die Folge $(\frac{a_n}{b_n})$ konvergiert gegen $\frac{a}{b}$, falls $b_n, b\neq0$ und $|a_n|\rightarrow|a|$.
+	\end{itemize}
+	Seien weiter $(d_n), (e_n)$ reelle Folgen mit $\lim\limits_{n\rightarrow\infty}d_n=0$, dann gilt:
+	\begin{itemize}
+		\item[e)] Ist $(e_n)$ beschränkt, dann ist $(d_n\*e_n)$ auch eine Nullfolge.
+		\item[f)] Gilt $|e_n|\leq d_n\quad\forall n$, so ist $(e_n)$ auch eine Nullfolge.
+	\end{itemize}
+	Beweis [exemplarisch für a) und b), Rest s. Moodle]:\\
+	\begin{itemize}
+		\item[a)] Falls $c=0$: klar, konstante 0-Folge.\\
+		Falls $c\neq 0$: Sei $\epsilon>0$ beliebig. Dann existiert $N\in\N$, so dass $|a_n-a|<\frac{\epsilon}{|c|}\quad\forall n\in\N$ (denn $a_n\rightarrow a$)\\
+		Dann ist aber $|c\*a_n-c\*a|=|c\*(a_n-a)|=|c|\*\overset{<\frac{\epsilon}{|c|}}{|a_n-a|}<\epsilon\quad\forall n\geq N$, also $c\*a_n\rightarrowc\*a$
+		\item[b)] Sei $\epsilon>0$ beliebig.\\
+		Dann $\exists N_1\in\N$, so dass $|a_n-a|<\frac{\epsilon}{2}\quad\forall n\geq N_1$ (denn $a_n\rightarrow a$) und $\exists N_2\in\N$, so dass $|b_n-b|<\frac{\epsilon}{2}\quad\forall n\geq N_2$ (denn $b_n\rightarrow b$).\\
+		Dann gilt: [...]
+	\end{itemize}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
