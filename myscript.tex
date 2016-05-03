@@ -13,7 +13,7 @@
 
 \begin{titlepage}
 	\title{Mathematik II}
-	\date{27.04.2016}
+	\date{03.05.2016}
 \end{titlepage}
 
 \newcommand{\R}{\mathds{R}}
@@ -709,9 +709,118 @@
 	Jede beschränkte, monotone Folge reeller Zahlen $(a_n)_n$ konvergiert, und zwar gegen
 	\begin{itemize}
 		\item $\sup\{a_n\colon n\in\N\}$, falls $(a_n)$ monoton steigend oder gegen
-		\item $\inf\{a_n\colon n\in\N\}$, falls $(a_n)$ monoton falend ist.
-		
+		\item $\inf\{a_n\colon n\in\N\}$, falls $(a_n)$ monoton fallend ist.
 	\end{itemize}
+	Beweis:\\
+	\\
+	Sei $(a_n)\nearrow$ und beschrönkt.
+	\begin{align*}
+		\Rightarrow \{a_n\colon n\in\N\}&\subseteq\quad\textrm{ ist beschränkt}\\
+		\overset{\overset{\textrm{Vollst.-Axiom}}{\textrm{Mathe 1, 8.16}}}{\Rightarrow}S&\coloneqq\sup\{a_n\colon n\in\N\}\quad\textrm{ existiert.}
+	\end{align*}
+	Wir zeigen: $a_n\rightarrow S$ für $\infn$.\\
+	Sei $\epsilon>0$ beliebig. Zu zeigen ist $\exists N\in\N$ mit $|a_n-S|<\epsilon\quad\forall n\geq N$.\\
+	Es gilt $a_n\leq S\quad\forall n\in\N$, also zu zeigen: $S-a_n<\epsilon\quad\forall n\geq N$.\\
+	$S$ ist \underline{kleinste} obere Schranke, d.h. $S-\epsilon$ ist \underline{keine} obere Schranke\\
+	\begin{align*}
+		\Rightarrow\exists N\in\N\quad\textrm{ mit }\quad a_n&>S-\epsilon\quad\forall n\geq N\\
+		\Rightarrow S-a_n&<\epsilon\qquad\forall n\geq N
+	\end{align*}
+	$(a_n)\searrow$ analog\hfill$\square$
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $x\in\R^+$, dann $(x^n)\in o(n!)\qquad(x^n=o(n!))$, d.h. $a_n=\frac{x^n}{n!}\rightarrow 0$ für $\infn$
+		\begin{itemize}
+			\item $a_n>0$
+			\item $\frac{a_{n+1}}{a_n}=\frac{x^{n+1}\*n!}{(n+1)!\*x^n}=\frac{x}{n+1}\leq 1$ für $n+1\geq x$, also gilt $a_{n+1}\leq a_n$, d.h. $(a_n)\searrow$ und $(a_n)$ ist beschränkt
+			\item $\inf\{a_n\colon n\in\N\}=0$
+		\end{itemize}
+		\item[b)] \underline{wichtige Folge}\\
+		\begin{align*}
+			(a_n)_{n\in\N}&=((a+\frac{1}{n})^n)_{n\in\N}\\
+			\lim\limits_{\infn}(a_n)&=\e\qquad\textrm{ (Eulersche Zahl, $\e=2,71828...$)}
+		\end{align*}
+		Warum existiert dieser Limes?\\
+		Zeige: $(a_n)\nearrow$ und $(a_n)$ beschränkt, benutze Satz 2.19
+		\begin{itemize}
+			\item $(a_n)\nearrow$
+			\begin{align*}
+				\frac{a_n}{a_{n+1}}&=(\frac{1+n}{n})^n\*(\frac{n-1}{n})^{n-1}=(\frac{n+1}{n})^n\*(\frac{n-1}{n})^n\*(\frac{n-1}{n})^{-1}\geq 1\\
+				&=(\frac{n^2-1}{n^2})^n\*\frac{n}{n-1}\\
+				&=(1-\frac{1}{n^2})^n\*\frac{n}{n-1}\geq 1
+			\end{align*}
+			Benutze die \underline{Bernoulli-Ungleichung}, für $h\in\R,\quad n\in\N$ gilt $(1+h)^n\geq 1+nh$ für $h\geq -1$ (hier: $h=-\frac{1}{n^2}$)
+			\begin{align*}
+				\frac{a_n}{a_{n-1}}&=(1-\frac{1}{n^2})^n\*\frac{n}{n-1}\geq (1-n\*\frac{1}{n^2})\*\frac{n}{n-1}\\
+				&=(1-\frac{1}{n})\*\frac{n}{n-1}=1\qquad\textrm{ , }
+			\end{align*}
+			also $(a_n)\nearrow$
+			\item $(a_n)$ beschränkt: Übung, benutze wieder Bernoulli
+		\end{itemize}
+	\end{itemize}
+	\subsection{Satz (Intervallschachtelungsprinzip)}
+	Seien $(a_n),\quad(b_n)$ reelle Folgen mit
+	\begin{itemize}
+		\item $(a_n)\nearrow$ (= linke Intervallgrenze)
+		\item $(b_n)\searrow$ (= rechte Intervallgrenze)
+		\item $a_n\leq b_n\quad\forall n\in\N$
+		\item $b_n-a_n\rightarrow 0$ für $\infn$
+	\end{itemize}
+	Dann sind beide Folgen konvergent und besitzen denselben Limes.\\
+	\\
+	Beweis:\\
+	\\
+	$(a_n),\quad(b_n)$ konvergent nach Satz 2.19, denn
+	\begin{itemize}
+		\item $(a_n)\nearrow$; $(a_n)$ beschränkt, da $a_n\leq b_n\quad\forall n\in\N$, also gilt auch $a_n\leq b$ (alle anderen $b_n$ sind noch kleiner)
+		\item $(b_n)\searrow$; $(b_n)$ beschränkt, da $b_n\geq a_n\quad\forall n\in\N$, also $b_n\geq a_n\geq a_1$
+		\item Da $(b_n)-(a_n)$ Nulfolge ist, sind auch die Grenzwerte gleich.
+	\end{itemize}\hfill$\square$
+	\subsection{Beispiel (vgl. Beispiel 2.20 b))}
+	$a_n=(1+\frac{1}{n})^n$, $b_n=(1+\frac{1}{n})^{n+1}$\\
+	Man kann zeigen: $(a_n)\nearrow$, $(b_n)\searrow$\\
+	$a_n\leq b_n$, $b_n-a_n\rightarrow 0$, also $\exists\lim\limits_{\infn}(1+\frac{1}{n})^n=\lim\limits_{\infn}(1+\frac{1}{n})^{n+1}$\\
+	\\
+	Ähnlich zeigt man $\lim\limits_{\infn}(1+\frac{x}{n})^n$ existiert $\forall x\in\R$\\
+	So definiert man $\e^x\coloneqq\lim\limits_{\infn}(1+\frac{x}{n})^n$\\
+	\\
+	\underline{Bisher:}\\
+	$(a_n)$ konvergiert $\Rightarrow (a_n)$ beschränkt, Umkehrung gilt nicht; z.B. $((-1)^n)$\\
+	Allerdings besitzt diese Folge zwei konvergente Teilfolgen mit $\lim\quad+1$ und $\lim\quad-1$.
+	\subsection{Definition}
+	Sei $(a_n)_{n\in\N}$ eine Folge und $(n_k)_{k\in\N}$ ($n_1,n_2,...$) eine streng monoton steigende Folge von Indizes (d.h. $n_1<n_2<n_3<...$).\\
+	Dann heißt die Folge $(a_{n_k})_{k\in\N}$ \underline{Teilfolge} von $(a_n)_{n\in\N}$ ("Teilfolgen entstehen durch Streichung von Gliedern").
+	\subsection{Beispiel}
+	\begin{align*}
+		(a_n)&=((-1)^n)\\
+		n_k&\coloneqq 2n\quad\textrm{ ergibt  }(n_1=2;\ n_2=4\ n_3=6)\\
+		&a_n=1\quad\forall n\in\N\quad\textrm{ (Teilfolge 1,1,1,1...)}\\
+		n_k&\coloneqq 2n-1\quad\textrm{ ergibt (Teilfolge -1,-1,-1,...)}\\
+		&a_{2n-1}=-1\quad\forall n\in\N
+	\end{align*}
+	\subsection{Bemerkung}
+	Es gilt: $(a_n)$ konvergiert gegen $a$ $\Rightarrow$ jede Teilfolge von $(a_n)$ konvergiert gegen $a$.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
