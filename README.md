@@ -2,4 +2,6 @@
 
 Skript zur Mathematikvorlesung im SS 2016 bei Britta Dorn, Uni Tübingen
 
-Stand: VL vom 02.05.2016
+Stand: VL vom 04.05.2016
+
+*** Beweis 2.28 ist dabei ***
