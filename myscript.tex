@@ -13,7 +13,7 @@
 
 \begin{titlepage}
 	\title{Mathematik II}
-	\date{03.05.2016}
+	\date{04.05.2016}
 \end{titlepage}
 
 \newcommand{\R}{\mathds{R}}
@@ -22,9 +22,13 @@
 \newcommand{\infn}{n\rightarrow\infty}
 \newcommand{\bmark}[1]{\textcolor{blue}{#1}}
 \newcommand{\gmark}[1]{\textcolor{lightgray}{#1}}
+\newcommand{\limsuperior}[1]{\lim\limits_{#1}\sup}
+\newcommand{\liminferior}[1]{\lim\limits_{#1}\inf}
 
 \renewcommand{\*}{\cdot}
 \renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\limsup}[1]{\underset{#1}{\overline{\lim}}}
+\renewcommand{\liminf}[1]{\underset{#1}{\underline{\lim}}}
 
 \begin{document}
 	\maketitle
@@ -800,15 +804,85 @@
 	\end{align*}
 	\subsection{Bemerkung}
 	Es gilt: $(a_n)$ konvergiert gegen $a$ $\Rightarrow$ jede Teilfolge von $(a_n)$ konvergiert gegen $a$.
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	\subsection{Definition}
+	Sei $(a_n)$ eine reelle Folge.
+	Eine Zahl $h\in\R$ heißt \underline{Häufungspunkt} von $(a_n)$, wenn es eine Teilfolge von $(a_N)$ gibt, die gegen $h$ konvergiert.
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item $(a_n)=((-1)^n+\frac{1}{n})$ esitzt zwei Häufungspunkte $-1$ und $1$
+		\item $(a_n)=((-1)^n)$ besitzt die Häufungspunkte $-1$ und $1$
+	\end{itemize}
+	\subsection{Satz (Satz von Bolzano-Weierstraß)}
+	Sei $(a_n)$ eine reelle Folge. Dann gilt:
+	\begin{align*}
+		(a_n)\textrm{  beschränkt  }\Rightarrow(a_n)\textrm{  besitzt eine konvergente Teilfolge  }
+	\end{align*}
+	Beweis: Intervallschachtelungsprinzip/Bisektionsverfahren\\
+	(s. Folien/Blatt[$\leftarrow$s.u.])
+	\\
+	Wir verwenden das Intervallschachtelungsprinzip (Satz 2.21). Nach Voraussetzung ist $(a_n)_{n\in\N}$ beschränkt, es existiert also ein $K\in\N$, so dass ale Folgeglieder im Intervall $[-K,K]\eqqcolon[A_0,B_0]$ liegen. Halbiere dieses Intervall:
+	\begin{itemize}
+		\item Falls in der ersten Hälfte des Intervalls unendlich viele Folgenglieder liegen: wähle eines davon aus.
+		\item Falls nicht (also falls nur endlich viele Folgenglieder in der ersten Hälfte des Intervalls liegen), dann liegen in der zweiten Hälfte unendlich viele Folgenglieder. Wähle davon eines aus.
+	\end{itemize}
+	Das ausgewählte Folgenglied nennen wir $a_{n1}$, die Intervallhälfte, aus der es stammt, nennen wir $[A_1,B_1]$. Fahre nun so fort: Halbiere $[A_1,B_1]$, wähle wie oben $a_{n2}$ aus, erhalte damit das Intervall $[A_2,B_2]$, usw. So erhalten wir eine Teilfolge $(a_{n_k})_{k\in\N}$. Für die Intervalgrenzen von $[A_k,B_k]$ gilt:
+	\begin{itemize}
+		\item $A_k\leq a_{n_k}\leq B_k$
+		\item $(A_k)_{k\in\N}\nearrow,\qquad(B_k)_{k\in\N}\searrow$
+		\item $A_k\leq B_k$
+		\item $B_k-A_k\rightarrow 0$ für $k\rightarrow\infty$. 
+	\end{itemize}
+	Damit sind alle Voraussetzungen für Satz 2.21 (Intervallschachtelungsprinzip) erfüllt. Die Folgen $(A_k)_{k\in\N}$ und $(B_k)_{k\in\N}$ sind also konvergent und besitzen denselben Limes $a$. Damit gilt auch $a_{n_k}\rightarrow a$ für $k\rightarrow\infty$.\hfill$\square$
+	\subsection{Bemerkung/Definition}
+	Sei $(a_n)$ reell und beschränkt, dann gibt es inen größten und einen kleinsten Häufungspunkt, den
+	\begin{itemize}
+		\item \underline{Limes superior} von $(a_n)$: $\limsuperior{\infn}a_n$ oder $\limsup{\infn}a_n$ bzw. den
+		\item \underline{Limes inferior} von $(a_n)$: $\liminferior{\infn}a_n$ oder $\liminf{\infn}a_n$.
+	\end{itemize}
+	Weiter setzt man
+	\begin{itemize}
+		\item $\limsup{\infn}a_n\coloneqq\begin{cases}
+			\infty\textrm{, wenn }(a_n)\textrm{ nicht nach oben beschränkt ist}\\
+			-\infty\textrm{, wenn }(a_n)\rightarrow-\infty\textrm{ gilt, d.h. }\forall K>0\quad\exists N\in\N\colon a_n\leq-K\quad\forall n\geq N 
+		\end{cases}$
+		\item $\liminf{\infn}a_n\coloneqq\begin{cases}
+		-\infty\textrm{, wenn }(a_n)\textrm{ nicht nach unten beschränkt ist}\\
+		\infty\textrm{, wenn }(a_n)\rightarrow\infty\textrm{ gilt, d.h. }\forall K>0\quad\exists N\in\N\colon a_n\geq K\quad\forall n\geq N
+		\end{cases}$
+	\end{itemize}
+	\underline{Achtung:} $-\infty,\infty$ sind keine reellen Zahlen!\\
+	Man erweitert hier $\R$ um zwei ideelle Elemente $-\infty,\infty$, setzt $\overline{\R}=\R\cup\{\infty,-\infty\}$ (Abschluss von $\R$) und erweitert die Ordnungsstruktur auf $\R$ durch\\ $-\infty<x<\infty\quad\forall x\in\R$.\\
+	\\
+	Mit dieser Festlegung besitzt \underline{jede} reelle Zahlenfolge sowohl $\limsuperior{}$ als auch $\liminferior{}$.\\
+	Beispiel:
+	\begin{itemize}
+		\item[a)] $a_n=\frac{n+1}{n}\qquad\limsup{\infn}a_n=\liminf{\infn}a_n=1$
+		\item[b)] $a_n=(-1)^n\qquad\limsup{\infn}a_n=1\qquad\liminf{\infn}a_n=-1$
+		\item[c)] $a_n=(-1)^n\*n\qquad\limsup{\infn}a_n=\infty\qquad\liminf{\infn}a_n=-\infty$
+		\item[d)] $a_n=n\*(1+(-1)^n)$ : Übung
+	\end{itemize}
+	\subsection{Definition (Cauchyfolge)}
+	Eine Folge $(a_n)$ heißt \underline{Cauchyfolge}, falls es zu jedem $\epsilon>0$ ein $N\in\N$ gibt, so dass $|a_n-a_m|<\epsilon\quad\forall n,m\geq N$\\
+	(kurz: $\forall\epsilon>0\quad\exists N\in\N\quad\forall n,m\geq N\colon|a_n-a_m|<\epsilon$) mit $|a_n-a_m|$... Abstand zweier Folgenglieder
+	\subsection{Satz (Cauchykriterium)}
+	Eine Folge konvergiert genau dann, wenn sie eine Cauchyfolge ist.
+	\begin{align*}
+		(a_n)\textrm{ konvergiert }\Leftrightarrow(a_n)\textrm{ ist eine Cauchyfolge }
+	\end{align*}
+	Beweisskizze (ausführlicher Beweis: s. Moodle):
+	\begin{itemize}
+		\item "$\Rightarrow$": Einschiebetrick, Dreiecksungleichung verwenden
+		\item "$\Leftarrow$": Idee: $(a_n)$ ist Cauchyfolge (zu zeigen: konvergent)\\
+		zeige: $(a_n)$ ist beschränkt\\
+		$\Rightarrow$ 2.28 $\exists$ konvergente Teilfolge\\
+		zeige: Limes der Teilfolge ist Limes der Folge
+	\end{itemize}
+	\subsection{Anwendung (Banachscher Fixpunktsatz)}
+	Sei $f\colon[a,b]\rightarrow[a,b]$ eine Abbildung mit\\
+	$\underbrace{|f(x)-f(y)|}_{\textrm{Abstand der Bildpunkte}}<\underbrace{|x-y|}_{\textrm{Abstand von 2 Punkten}}\qquad\forall x,y\in[a,b]$\\
+	("$f$ ist strikte Kontraktion")\\
+	Dann hat $f$ genau einen Fixpunkt, d.h.\\
+	$\underbrace{\exists!}_{\textrm{es gibt genau ein...}}r\in[a,b]$ mit $f(r)=r$
 	
 	
 	
