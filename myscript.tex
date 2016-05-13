@@ -13,7 +13,7 @@
 
 \begin{titlepage}
 	\title{Mathematik II}
-	\date{04.05.2016}
+	\date{13.05.2016}
 \end{titlepage}
 
 \newcommand{\R}{\mathds{R}}
@@ -882,10 +882,187 @@
 	$\underbrace{|f(x)-f(y)|}_{\textrm{Abstand der Bildpunkte}}<\underbrace{|x-y|}_{\textrm{Abstand von 2 Punkten}}\qquad\forall x,y\in[a,b]$\\
 	("$f$ ist strikte Kontraktion")\\
 	Dann hat $f$ genau einen Fixpunkt, d.h.\\
-	$\underbrace{\exists!}_{\textrm{es gibt genau ein...}}r\in[a,b]$ mit $f(r)=r$
-	
-	
-	
+	$\underbrace{\exists!}_{\textrm{es gibt genau ein...}}r\in[a,b]$ mit $f(r)=r$\\
+	\\
+	Beweisidee:\\
+	Starte mit beliebigem $x_0\in[a,b]$.\\
+	Berechne $x_1$ als $f(x_0)\qquad x_1\coloneqq f(x_0)$\\
+	$x_2$ als $f(x_1)\qquad x_2\coloneqq f(x_1)$\\
+	also $x_{n+1}\coloneqq f(x_n)$\\
+	\\
+	Zeige: Diese Folge konvergiert (Cauchyfolge), und zwar gegen $r=f(r)$; $r$ ist eindeutig (Annahme: es existieren 2 verschiedene $r$)
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Reihen}
+	\subsection{Definition}
+	Sei $(a_n)_{n\in\N}$ eine Folge.\\
+	Summiere die ersten $n$ Folgeglieder.
+	\begin{align*}
+		S\coloneqq\sum_{k=1}^{n}a_k\qquad\forall
+		 n\in\N\qquad (=a_1+a_2+a_3+...+a_n)
+	\end{align*}
+	(\underline{$n$-te Partialsumme})
+	\begin{align*}
+		\underbrace{\underbrace{\underbrace{\underbrace{a_1}_{S_1}+a_2}_{S_2}+a_3}_{S_3}+...+a_n}_{S_n}
+	\end{align*}
+	Die Folge $(S_n)_{n\in\N}=(S_1,S_2,S_3,...)$ heißt \underline{unendliche Reihe}, schreibe $\sum_{k=1}^{\infty}a_k$\\
+	Falls $(S_n)_{n\in\N}$ gegen $s\in\R$ konvergiert, heißt die Reihe \underline{konvergent gegen $s$} und ihr Grenzwert wird dann ebenfalls mit $\sum_{k=1}^{\infty}a_k$ bezeichnet.\\
+	(Entsprechend kann man für eine Folge $(a_n)_{n\geq n_0}$ die Reihe $\sum_{k=n_0}^{\infty}a_k$ definieren)
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $\sum_{k=1}^{\infty}k=1+2+3+...\qquad$ divergente Folge
+		\item[b)] $\sum_{k=1}^{\infty}(-1)^k=(-1)+1+(-1)+...\qquad$ divergente Folge\\
+		$S_n=\sum_{k=1}^{n}(-1)^k=\begin{cases}
+		0\textrm{, falls }n\textrm{ gerade}\\
+		-1\textrm{, falls }n\textrm{ ungerade}
+		\end{cases}$
+		\item[c)] \underline{Die harmonische Reihe}
+		\begin{align*}
+			\sum_{k=1}^{\infty}\frac{1}{k}&=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+...\qquad\textrm{divergiert}\\
+			S_n&=1+\frac{1}{2}+\underbrace{\frac{1}{3}+\frac{1}{4}}_{>2\*\frac{1}{4}=\frac{1}{2}}+\underbrace{\frac{1}{5}+...+\frac{1}{8}}_{>4\*\frac{1}{8}=\frac{1}{2}}+\underbrace{\frac{1}{9}+...+\frac{1}{16}}_{>8\*\frac{1}{16}=\frac{1}{2}}+\underbrace{...+\frac{1}{n}}_{\textrm{usw.}}\\
+			&>1+\frac{1}{2}+\quad\frac{1}{2}\quad+\qquad\frac{1}{2}\qquad+\qquad\frac{1}{2}\qquad+\quad...
+		\end{align*}
+		$\Rightarrow$ divergent (per Induktion: $S_{2^m}\geq1+\frac{m}{2}$)
+		\item[d)] $\sum_{k=0}^{\infty}\frac{1}{2^k}=1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+...\qquad$ it konvergent gegen den Grenzwert $\sum_{k=0}^{\infty}\frac{1}{2^k}=2$
+		\item[e)] wichtiges Beispiel: \underline{Geometrische Reihe}\\
+		Für $q\in\R$ mit $|q|<1$ gilt
+		\begin{align*}
+			\sum_{k=0}^{\infty}q^k&=\frac{1}{1-q}\qquad\textrm{, denn:}\\
+			S_n=\sum_{k=0}^{n}q^k&=\frac{1-q^{n+1}}{1-q}\qquad\textrm{(Übung: geom. Summe, Induktion)}
+		\end{align*}
+		Aus 2.11:
+		\begin{align*}
+			\lim\limits_{\infn}q^n=0\qquad\textrm{, falls }|q|<1
+		\end{align*}
+		Geometrische Folge. Also gilt:
+		\begin{align*}
+			&S_n\rightarrow\frac{1-0}{1-q}=\frac{1}{1-q}\qquad\textrm{ für }\infn\\
+			&\sum_{k=0}^{\infty}q^k\qquad\textrm{ divergiert für }|q|\geq 1
+		\end{align*}
+		Nochmal Beispiel d)\\
+		$\sum_{k=0}^{\infty}\frac{1}{2^k}=\sum_{k=0}^{\infty}(\frac{1}{2})^k$, also geometrische Reihe mit $q=\frac{1}{2}\qquad1>|q|$, konvergiert gegen $\frac{1}{1-q}=\frac{1}{1-\frac{1}{2}}=\frac{1}{\frac{1}{2}}=2$\\
+		\\
+		Weitere Beispiele:
+		\begin{itemize}
+			\item $\sum_{k=0}^{\infty}\frac{(-1)^k}{2^k}=\sum_{k=0}^{\infty}(\frac{1}{2})^k=\frac{2}{3}$
+			\item $\sum_{k=3}^{\infty}q^k=\sum_{k=0}^{\infty}q^{k+3}=q^3\*\sum_{k=0}^{\infty}q^k=\frac{q^3}{1-q}\qquad$ (falls $|q|<1$)
+		\end{itemize}
+	\end{itemize}
+		\subsection{Rechenregeln für Reihen}
+		folgen aus den Rechenregeln für Folgen. Sei
+		\begin{itemize}
+			\item $\sum_{k=1}^{\infty}a_k$ konvergiert gegen $a$,
+			\item $\sum_{k=1}^{\infty}b_k$ konvergiert gegen $b$.
+		\end{itemize}
+		Dann gilt mit $c\in\R$:
+		\begin{itemize}
+			\item[a)] $\sum_{k=1}^{\infty}(a_k+b_k)$ konvergiert gegen $a+b$
+			\item[b)] $\sum_{k=1}^{\infty}(c\*a_k)$ konvergiert gegen $c\*a$
+		\end{itemize}
+	\subsection{Konvergenz-/Divergenzkriterien für Reihen}
+	\begin{itemize}
+		\item[\fbox{1}] Ist $S_n$ mit $S_n=\sum_{k=1}^{\infty}a_k$ beschränkt und $a_k\geq 0\quad\forall k\in\N$, so ist $\sum_{k=1}^{\infty}a_k$ konvergent (folgt aus Satz 2.19/monotone Konvergenz).
+		\item[\fbox{2}] \underline{Cauchy-Kriterium}\\
+		$\sum_{k=1}^{\infty}a_k$ konvergiert $\Leftrightarrow$ $\forall\epsilon>0\quad\exists N\in\N$, so dass $\forall m>n\geq N$ gilt: $|a_{n+1}+...+a_m|=|\sum_{k=n+1}^{m}a_k|<\epsilon$\\
+		$|S_m-S_n|$\\
+		(folgt aus 2.31/Cauchykriterium für Folgen)\\
+		Daraus ergibt sich:\\
+		Ist $\sum_{k=1}^{\infty}a_k$ konvergent, so ist $(a_n)_n$ Nullfolge (wähle $m=n+1$, dann $|a_{n+1}|<\epsilon$, d.h. $a_n\rightarrow0$).\\
+		$\Rightarrow$[3]
+		\item[\fbox{3}] \underline{Divergenzkriterium}\\
+		Ist $(a_n)_n$ keine Nullfolge, so ist $\sum_{k=1}^{\infty}a_k$ divergent.\\
+		Bsp: $\sum_{k=1}^{\infty}\underbrace{(1+\frac{1}{k})}_{\rightarrow1\textrm{ für }k\rightarrow\infty\textrm{, keine Nullfolge!}}$ divergiert
+		\item[\fbox{4}] \underline{Majorantenkriterium}\\
+		Seien $(a_n),(b_n)$ Folgen mit $|a_n|\leq b_n\quad\forall n\in\N$ (für fast alle $n$, d.h. für alle bis auf endlich viele)\\
+		Dann gilt:\\
+		Ist $\underbrace{\sum_{k=1}^{\infty}b_k}_{\textrm{Majorante}}$ konvergent, dann auch $\sum_{k=1}^{\infty}a_k$ und $\sum_{k=1}^{\infty}|a_k|$\\
+		\\
+		Beweis:
+		\begin{align*}
+			|\sum_{k=n+1}^{m}a_k|&\leq\sum_{k=n+1}^{m}|a_k|\\
+			&\leq\sum_{k=n+1}^{m}b_k\\
+			&\leq|\sum_{k=n+1}^{m}b_k|<\epsilon\textrm{ , da }\sum_{k=1}^{\infty}b_k\textrm{ konvergent,}
+		\end{align*}
+		also ist Cauchykriterium [2] für $\sum_{k=1}^{\infty}a_k$ erfüllt, $\sum_{k=1}^{\infty}a_k$ konvergiert.\\
+		Ähnlich: \underline{Minorantenkriterium} für Divergenz, s. Blatt 5.
+		\item[\fbox{5}] \underline{Leibnitzkriterium für alternierende Reihen}\\
+		Sei $(a_n)_n$ reelle, monoton fallende Nullfolge mit $a_n\geq0\quad\forall n$.\\
+		Dann konvergiert die alternierende Reihe $\sum_{k=0}^{\infty}(-1)^k\*a_k$\\
+		\\
+		Beweis: Intervallschachtelungsprinzip
+		\begin{align*}
+			A_n&\coloneqq\sum_{k=0}^{2n-1}(-1)^k\*a_k\\
+			B_n&\coloneqq\sum_{k=0}^{2n}(-1)^k\*a_k
+		\end{align*}
+	\begin{itemize}
+		\item $A_n\nearrow$, denn
+		\begin{align*}
+			A_{n1}-A_n & =\overbrace{\sum_{k=0}^{2(n+1)-1}}^{2n+1}(-1)^k\*a_k-\sum_{k=0}^{2n-1}(-1)^k\*a_k &  \\
+			           & =(-1)^{2n+1}a_{2n+1}+(-1)^{2n}a_{2n}                                              & =-a_{2n+1}+a_{2n}\geq 0
+		\end{align*}
+		(da $(a_n)\searrow$)
+		\item ähnlich für $B_n\searrow$
+		\item $B_n-A_n=(-1)^{2n}a_{2n}=a_{2n}\geq0\quad\longrightarrow0$ für $\infn$ (weil $(a_n)_n$ Nullfolge nach Voraussetzung)\\
+		$\Rightarrow\exists\lim\limits_{\infn}A_n=\lim\limits_{\infn}B_n$, also konvergiert $\sum_{k=0}^{\infty}(-1)^ka_k$
+	\end{itemize}
+	Bsp:
+	\begin{itemize}
+		\item[a)] Leibnitz-Reihe:
+		\begin{align*}
+			&1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+...-...\\
+			=&\sum_{k=0}^{\infty}(-1)^k\frac{1}{2k+1}
+		\end{align*}
+		konvergiert gegen $\frac{\pi}{4}$
+		\item[b)] Die alternierende harmonische Reihe
+		\begin{align*}
+			&1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-...+...\\
+			=&\sum_{k=0}^{\infty}(-1)^k\frac{1}{k+1}
+		\end{align*}
+		konvergiert gegen $\ln2$
+	\end{itemize}
+	\item[\fbox{6}] \underline{Absolute Konvergenz}
+	\subsubsection*{Definition}
+	Eine Reihe $\sum_{k=0}^{\infty}a_k$ heißt \underline{absolut konvergent}, falls die Betragsreihe $\sum_{k=0}^{\infty}|a_k|$ konvergiert.\\
+	\subsubsection*{Beispiel}
+	\begin{itemize}
+		\item[a)] $\sum_{k=1}^{\infty}(-1)^k\frac{1}{k^2}$ konvergiert absolut, da $\sum_{k=1}^{\infty}|(-1)^k\frac{1}{k^2}|=\underbrace{\sum_{k=1}^{\infty}\frac{1}{k^2}}_{\textrm{s. \fbox{6a}}}$ konvergiert
+		\item[b)] $\sum_{k=1}^{\infty}(-1)^k\frac{1}{k}$ konvergiert nicht absolut (aber konvergiert, s. Leibnitzkriterium), da $\sum_{k=1}^{\infty}|(-1)^k\frac{1}{k}|=\sum_{k=1}^{\infty}\frac{1}{k}$ (harmonische Reihe, konvergiert nicht)
+	\end{itemize}
+	Es gilt: $\overset{\textrm{(Majorantenkriterium)}}{\textrm{Reihe konvergiert absolut}}$ $\Rightarrow$ Reihe konvergiert\\
+	(aber nicht umgekehrt, s. Beispiel b))
+	\item[\fbox{6a}] \underline{Wurzelkriterium}\\
+	Für $a_k\in\R$ gilt:
+	\begin{itemize}
+		\item falls $\limsup{\infn}\sqrt[n]{|a_n|}<1\Rightarrow\sum_{k=0}^{\infty}|a_k|$ konvergiert (d.h. $\sum_{k=0}^{\infty}a_k$ konvergiert absolut)
+		\item falls $\limsup{\infn}\sqrt[n]{|a_n|}>1\Rightarrow\sum_{k=0}^{\infty}a_k$ divergiert
+		\item für $\limsup{\infn}\sqrt[n]{|a_k|}=1$ ist keine allgemeine Aussage möglich
+	\end{itemize}
+	Beweis:\\
+	Sei $s\coloneqq\limsup{\infn}\sqrt[n]{|a_n|}$
+	\begin{itemize}
+		\item falls $s<1$: Wähle kleines $\epsilon>0$, so dass $s+\epsilon<1$\\
+		$\Rightarrow\sqrt[n]{|a_n|}\leq s+\epsilon$ für fast alle $n$\\
+		$\Rightarrow|a_n|leq(s+\epsilon)^n$\\
+		Die Reihe $\sum_{k=0}^{\infty}{\underbrace{(s+\epsilon)}_{<1}}^n$ ist geometrische Reihe und konvergiert, und ist Majorante für die Reihe $\sum_{k=0}^{\infty}|a_k|$
+		\item falls $s>1$, dann ist $\sqrt[n]{|a_n|}>1$ für unendlich viele $n$, also $a_n\rightarrow0$, $\sum_{k=0}^{\infty}a_n$ divergent nach \fbox{3}
+		\item z.B. $\sum_{k=1}^{\infty}\frac{1}{k^\alpha}$ (allgemeine harmonische Reihe) mit $\alpha\geq1$ liefert $\limsup{\infn}\sqrt[n]{|a_n|}=1$, aber es gilt (Mitteilung):\\
+		für $\alpha=1$ ist Reihe divergent (für $0<\alpha<1$ ebenso, Blatt 5 Aufgabe 2);\\
+		für $\alpha>1$ ist Reihe konvergent\\
+		Das Wurzelkriterium kann diese Fälle nicht unterscheiden.
+	\end{itemize}
+	\item[\fbox{6b}] \underline{Quotientenkriterium}\\
+	Sei $a_n\neq0$ für fast alle $k$ (d.h. für alle bis auf endlich viele)
+	\begin{itemize}
+		\item falls $\limsup{\infn}|\frac{a_{n+1}}{a_n}|<1\Rightarrow\sum_{k=0}^{\infty}|a_k|$ konvergiert
+		\item falls $\liminf{\infn}|\frac{a_{n+1}}{a_n}|>1\Rightarrow\sum_{k=0}^{\infty}a_k$ divergiert
+		\item falls $\limsup{\infn}|\frac{a_{n+1}}{a_n}|\geq1$ und $\liminf{\infn}|\frac{a_{n+1}}{a_n}|\leq1$, so ist keine allgemeine Aussage möglich (wie bei \fbox{6a}, dritter Punkt)
+	\end{itemize}
+	Beweis: ähnlich wie \fbox{6a}
+ \end{itemize}%\fbox{numbers}
+ \subsection{Bemerkung}
+ Umordnung einer Reihe, Konvergenzverhalten\\
+ $\rightarrow$ s. Folien 11.05.2016
 	
 	
 	
