@@ -13,7 +13,7 @@
 
 \begin{titlepage}
 	\title{Mathematik II}
-	\date{13.05.2016}
+	\date{26.05.2016}
 \end{titlepage}
 
 \newcommand{\R}{\mathds{R}}
@@ -1063,19 +1063,186 @@
  \subsection{Bemerkung}
  Umordnung einer Reihe, Konvergenzverhalten\\
  $\rightarrow$ s. Folien 11.05.2016
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+ \newpage
+ \section{Potenzreihen}
+ \subsection{Definition}
+ Sei $(a_k)_k$ eine reelle Folge, $x\in\R$. Dann heißt die Reihe
+ \begin{align*}
+ 	P(x)=\sum_{k=0}^{\infty}a_k\*x^k
+ \end{align*}
+ \underline{Potenzreihe} mit Koeffizientenfolge $(a_k)_k$ (oft auch $P(x)=\sum_{k=0}^{\infty}a_k\*(x-b)^k$, $b\in\R$ heißt \underline{Entwicklungspunkt}).\\
+ Falls $a_k\neq0$ für nur endlich viele (d.h. $a_k=0$ für fast alle $k$), dann heißt $P(x)$ \underline{Polynom}.\\
+ (Unterschied zu bisherigen Reihen: abhängig von $x$. Für welche Werte von $x$ konvergiert $P(x)$? Klar: für $x=0$, dann $P(0)=a_0\*0^0=a_0$, auch für andere $x$? Das hängt von der Folge $a_k$ ab)
+ \subsection{Beispiel}
+ \begin{itemize}
+ 	\item[a)] $\sum_{k=0}^{\infty}x^k=\sum_{k=0}^{\infty}1\*x^k\qquad(a_k=1\quad\forall k,\quad b=0)$ konvergiert für alle $x$ mit $|x|<1$ (geometrische Reihe!), also für $x\in\underbrace{(-1,1)}_{\textrm{\underline{Konvergenzintervall}}}$, sonst divergiert sie (z.B. für $x=2,\quad x=3,\quad...$)
+ 	\item[b)] $\sum_{k=0}^{\infty}2^k\*x^k$ (d.h. $a_k=2^k\quad\forall k$) $=\sum_{k=0}^{\infty}(2x)^k$ wie in a), konvergiert für alle $x$ mit $|2x|<1$, also $|x|<\frac{1}{2}$; also für $x\in(-\frac{1}{2},\frac{1}{2})$
+ \end{itemize}
+ \subsection{definition (Formel von Cauchy-Hadamard)}
+ Sei $P(x)=\sum_{k=0}^{\infty}a_kx^k$ eine Potenzreihe.
+ \begin{align*}
+ 	\rho\coloneqq\frac{1}{\limsup{\infn}\sqrt[n]{|a_n|}}
+ \end{align*}
+ heißt der \underline{Konvergenzradius} von $P(x)$ (dabei sei $\frac{1}{0}\coloneqq+\infty$ und $\frac{1}{\infty}\coloneqq0$ gesetzt, es ist also $\rho\in\R\cup\{\infty\}$). Zur Bedeutung von $\rho=\infty$ siehe 4.4.\\
+ Oft einfacher: Formel von Euler:
+ \begin{align*}
+ 	\rho=\lim\limits_{\infty}|\frac{a_n}{a_{n+1}}|\qquad\textrm{ , }
+ \end{align*}
+	falls $(|\frac{a_n}{a_{n+1}}|)$ konvergente Folge ist oder "bestimmt gegen $\infty$ divergiert", d.h. falls $\forall K>0\quad\exists N$ mit $|\frac{a_n}{a_{n+1}}|\geq K\quad\forall n\geq N$, dann setze $\rho=+\infty$.\\
+	(Achtung: z.B. für $a_n=\begin{cases}
+	1\textrm{ , n gerade}\\
+	\frac{1}{n}\textrm{ , n ungerade}
+	\end{cases}$ ist diese Formel nicht anwendbar!)
+	\subsection{Satz (Konvergenz von Potenzreihen)}
+	Sei $P(x)=\sum_{k=0}^{\infty}a_kx^k$ eine Potenzreihe mit Konvergenzradius $\rho$. Dann gilt:
+	\begin{itemize}
+		\item[a)] Für alle $x\in\R$ mit $|x|<\rho$ konvergiert $P(x)$ absolut (d.h. Reihe konvergiert für alle $x\in\R$, die im Konvergenzintervall $(-\rho,\rho)$ liegen.\\
+		Ist $\rho=\infty$, so heißt das für \underline{alle} $x\in\R$!).
+		\item[b)] Für alle $x$ mit $|x|>\rho$ divergiert $P(x)$.
+		\item[c)] Für $|x|=\rho$ ist keine allgemeine Aussage möglich (Konvergenzintervall kann also $(-\rho,\rho)$, $[-\rho,\rho]$, $[-\rho,rho)$, $(-\rho,\rho]$ sein).
+	\end{itemize}
+	\underline{Beweis:}
+	\begin{itemize}
+		\item[a)] Nach dem Wurzelkriterium 3.4 \fbox{6a} ist $\sum_{k=0}^{\infty}|a_kx^k|$ konvergent, falls $\limsup{\infn}\sqrt[n]{|a_nx^n|}<1$ gilt. Das ist äquivalent zu
+		\begin{align*}
+			&|x|\*\limsup{\infn}\sqrt[n]{|a_n|}&<1\\
+			\Leftrightarrow&|x|&<\frac{1}{\limsup{\infn}\sqrt[n]{|a_n|}}=\rho
+		\end{align*}
+		\item[b)] analog
+		\item[c)] Übung (Beispiel suchen)\hfill$\square$
+	\end{itemize}
+	Mit dem Quotientenkriterium 3.4 \fbox{6b} lässt sich der Satz auch für die Formel von Euler für $\rho$ beweisen.	
+	\subsection{Bemerkung}
+	Ist $\rho$ Konvergenzradius von $\sum_{k=0}^{\infty}a_kx^k$, so konvergiert die Reihe absolut für $|x|<\rho$ (für $x\in(-\rho,\rho)$), divergiert für $|x|>\rho$.\\
+	Die Reihe $\sum_{k=0}^{\infty}a_k(x-b)^k$ konvergiert dann absolut für $|x-b|<\rho$ (für $x\in(b-\rho,b+\rho)$); divergiert für $|x-b|>\rho$. Für $x=b-\rho$, $x=b+\rho$ ist keine allgemeine Aussage möglich.\\
+	(Also: Falls $b$ dabei: erst alles ohne $b$ rechnen (4.3,4.4), dann Bemerkung 4.5 verwenden)
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] Bsp. 4.2 mit der Formel für $\rho$ nachrechnen (Präsenzübungsblatt 6)
+		\item[b)] wichitges Beispiel: die Exponentialreihe
+		\begin{align*}
+			\sum_{k=0}^{\infty}\frac{x^k}{x!}&\qquad(a_k=\frac{1}{k!},\quad b=0)\\
+			&=1+\frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+...
+		\end{align*}
+		hat Konvergenzradius $\rho=\infty$ nach Euler, d.h. Reihe konvergiert für \underline{alle} $x\in\R$, deshalb kann man für $x\in\R$ die folgende Funktion definieren (Exponentialfunktion):
+		\begin{align*}
+			\exp\colon&\R\rightarrow\R\\
+			x\mapsto \exp(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!}
+		\end{align*}
+		Es gilt (vgl. Präsenzübungsblatt 6) (Cauchyprodukt):\\
+		$exp(x+y)=\exp(x)\*\exp(y)\qquad x,y\in\R$\\
+		Für $x=1$ erhält man\\
+		$\exp(1)=\frac{1}{0!}+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+...$\\
+		Man kann zeigen: Dies ist $\e$ (Eulersche Zahl) $\lim\limits_{\infn}(1+\frac{1}{n})^n$.\\
+		Allgemein gilt: Die Folge $((1+\frac{x}{n})^n)_n$ konvergiert für $\infn$ gegen $\exp(x)=\sum_{k=0}^{\infn}\frac{x^k}{k!}$\\
+		Daher schreibt man auch\\
+		$\e^x=\exp(x)$ für $x\in\R$
+	\end{itemize}
+	\section{Funktionsgrenzwerte und Stetigkeit}
+	\subsection{Definition}
+	Sei $D\subseteq\R$, $f\colon D\rightarrow\R$ eine Funktion, $x_0,a\in\R$.
+	\begin{itemize}
+		\item[a)] $f$ heißt \underline{konvergent gegen $a$ für $x$ gegen $x_0$}, wenn gilt:\\
+		Für \underline{alle} Folgen $\underbrace{(x_n)_n\textrm{ aus }D\setminus\{x_0\}}_{\textrm{d.h. Glieder der Folge sind alle aus } D\setminus\{x_0\}}$, die gegen $x_0$ konvergieren, konvergieren die Funktionswerte $f(x_n)\rightarrow a$, also $f(x_n)\rightarrow a$ für $x_n\rightarrow x_0$ (Schreibweise: $\lim\limits_{x\rightarrow x_0}f(x)=a$).
+		\item[b)] Analog lässt sich der Grenzwert für $x\rightarrow\infty$ oder für $x\rightarrow-\infty$ definieren:\\
+		$f$ konvergiert gegen $a$ für
+		$\begin{array}{l}
+		x\rightarrow\infty\\
+		x\rightarrow-\infty
+		\end{array}$ falls für alle Folgen $(x_n)_n$ mit $\underbrace{\begin{array}{l}
+		x_n\rightarrow\infty\\
+		x_n\rightarrow-\infty
+		\end{array}}_{\textrm{d.h. }\forall k\in\N\exists N\in\N\colon x_n>k\forall n\geq N}$ gilt: $f(x_n)\rightarrow a$ ($\lim\limits_{x\rightarrow\infty}=a$ bzw. $\lim\limits_{x\rightarrow-\infty}f(x)=a$)
+	\end{itemize}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[zu a)] \begin{align*}
+			f\colon D=&\R\rightarrow\R\qquad\quad x_0\in\R\\
+			&x\rightarrow x^2
+		\end{align*}
+		Was ist $\lim\limits_{x\rightarrow x_0}f(x)$?\\
+		Sei $(x_n)_n$ Folge mit $\lim\limits_{\infn}x_n=x_0$. Nach den Rechenregeln für Folgen (Satz 2.13) gilt:\\
+		$f(x_n)=x^2_n\rightarrow x^2_0$ (Voraussetzung $x_n\rightarrow x_0$, aus Rechenregeln $x^2_n\rightarrow x^2_0$), also ist $\lim\limits_{x\rightarrow x_0}f(x)=x^2_0\eqqcolon a$\\
+		(Bemerkung: allgemein gilt: $\lim\limits_{x\rightarrow x_0}f(x)=f(x_0)$ für alle Polynome)
+		\item[zu b)] \begin{align*}
+			f\colon (0,\infty)=&\R^+\rightarrow\R\\&x\mapsto\frac{1}{x}
+		\end{align*}
+		Was ist $\lim\limits_{x\rightarrow\infty}f(x)$?\\
+		Für alle $(x_n)_n$ mit $x_n\rightarrow\infty$ für $\infn$ gilt:\\
+		$f(x_n)=\frac{1}{x_n}\rightarrow0$, also $\lim\limits_{x\rightarrow\infty}f(x)=0$
+	\end{itemize}
+	\subsection{Bemerkung/Definition}
+	Definition 5.1 ist nur interessant für die Punkte $x_0\in\R$, für die es Folgen $(x_n)_n$ aus $D\setminus\{x_0\}$ gibt, die gegen $x_0$ konvergieren.\\
+	Solche Punkte nennt man \underline{Häufungsstellen (HS)} von $D$.\\
+	$\overline{D}\coloneqq D\cup\{x|x\textrm{ ist HS von }D\}$ heißt \underline{Abschluss} von $D$.\\
+	Beispiel:
+	\begin{itemize}
+		\item[a)] $D=(0,\infty)=\R^+$\\
+		-1 keine HS von $D$\\
+		1 ist HS von $D$\\
+		0 ist HS von $D$
+		\item[b)] $D=\R^+\cup\{-2\}$\\
+		-2 keine HS von $D$, aber $-2\in D$, $-2\in\overline{D}$
+		\item[c)] $D=(a,b)\subseteq\R$, dann sind $a$ und $b$ HS;\\
+		$\overline{D}=[a,b]$
+		\item[d)] Es gilt: $\overline{\mathds{Q}}=\R$ 
+	\end{itemize}
+	\subsection{Bemerkung/Definition}
+	In Definition 5.1 muss $f(x_n)\rightarrow a$ für \underline{alle} Folgen $(x_n)_n$ aus $D\setminus\{x_0\}$, die gegen $x_0$ konvergieren, gelten; also insbesondere für Folgen, die \underline{von links} ($x_n\rightarrow x_0$ mit $x_n<x_0\forall n$) und für Folgen, die \underline{von rechts} ($x_n\rightarrow x_0$ mit $x_n>x_0\forall n$) gegen $x_0$ konvergieren (falls möglich).\\
+	\\
+	Man spricht vom \underline{links- bzw. rechtsseitigen Grenzwert}. Schreibweise:\\
+	\\
+	\begin{minipage}[c]{0.5\textwidth}
+		links:\\
+		\\
+		$\lim\limits_{x\nearrow x_0}f(x)=a$\\
+		\\
+		oder\\
+		$\lim\limits_{x\rightarrow x_0-}$
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		rechts:\\
+		\\
+		$\lim\limits_{x\searrow x_0}f(x)=a$\\
+		\\
+		oder\\
+		$\lim\limits_{x\rightarrow x_0+}$
+	\end{minipage}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] \begin{itemize}
+			\item $D=\R$, $x_0=0$\\
+			Folge aus $D\setminus\{x_0\}$, die von rechts [links] gegen $x_0$ konvergiert ist z.B. $(x_n)_n=(\frac{1}{n})_n\qquad[(x_n)_n=(\frac{-1}{n})_n]$
+		\item $D=[0,\infty]$, $x_0=0$\\
+		Nur Folgen, die von rechts gegen $x_0$ konvergieren, sind möglich (sonst nicht in  $D$)
+		\end{itemize}
+		\item[b)] Heavisidefunktion (Schwellenwertfunktion)\\
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{align*}
+				f\colon\R&\rightarrow\R\\
+				f(x)&=\begin{cases}
+				0\textrm{, }x<0\\
+				1\textrm{, }x\geq0
+				\end{cases}
+			\end{align*}
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-4.2,0) -- (4.2,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+			\draw[color=blue, domain=-3:0, ultra thick]
+			plot(\x,0) node[right]{};
+			\draw[color=blue, domain=0:3, ultra thick]
+			plot(\x,3) node[left]{};
+			\draw[fill, color=blue] (0,3) circle [radius=5pt] node[right] {};
+			\draw[color=blue] (0,0) circle [radius=5pt] node[right] {};
+			\end{tikzpicture}
+		\end{minipage}\\
+		$\lim\limits_{x\rightarrow0}f(x)=$?
+
+
+	\end{itemize}
 	
 \end{document}
