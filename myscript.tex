@@ -13,7 +13,7 @@
 
 \begin{titlepage}
 	\title{Mathematik II}
-	\date{26.05.2016}
+	\date{04.06.2016}
 \end{titlepage}
 
 \newcommand{\R}{\mathds{R}}
@@ -1241,8 +1241,276 @@
 			\end{tikzpicture}
 		\end{minipage}\\
 		$\lim\limits_{x\rightarrow0}f(x)=$?
-
-
+		\begin{itemize}
+			\item für $(x_n)_n=(\frac{1}{n})_n$ gilt $f(x_n)=f(\frac{1}{n})=1\rightarrow1$
+			\item für $(x_n)_n=(-\frac{1}{n})_n$ gilt $f(x_n)=f(-\frac{1}{n})=0\rightarrow0$
+		\end{itemize}
+		Also gibt es kein $a$, so dass \underline{alle} Folgen  mit $x_n\rightarrow x_0$ die Bedingung $f(x_n)\rightarrow a$ erfüllen.\\
+		$\lim\limits_{x\rightarrow 0}f(x)$ existiert hier nicht!
 	\end{itemize}
+	\subsection{Bemerkung/Definition}
+	Sei $f\colon D\rightarrow\R,\quad x_0\in\overline{D}$.\\
+	Falls für alle Folgen $(x_n)_n\in D\setminus\{x_0\}$ mit $x_n\rightarrow x_0$ gilt:
+	\begin{align*}
+		f(x_n)\rightarrow \pm\infty\quad\textrm{ , }
+	\end{align*}
+	so sagt man, \underline{$f$ divergiert bestimmt gegen $\pm\infty$} für $x\rightarrow x_0$ (analog für $x\rightarrow\pm\infty$).\\
+	\\
+	\underline{Beispiel:}
+	\begin{align*}
+		f\colon D&\rightarrow\R\\
+		x&\mapsto\frac{1}{x}
+	\end{align*}
+	\begin{itemize}
+		\item falls $D=(0,\infty)$:\\
+		$f(x)$ divergiert bestimmt gegen $\infty$ für $x\rightarrow 0$ 
+		\item falls $D=(-\infty,0)$:\\
+		$f(x)$ divergiert bestimmt gegen $-\infty$ für $x\rightarrow 0$
+		\item falls $D=\R\setminus\{0\}$:\\
+		dann existiert $\lim\limits_{x\rightarrow0}f(x)$ nicht und $f(x)$ divergiert auch nicht bestimmt.
+	\end{itemize}
+	\subsection{Definition (Stetigkeit)}
+	Sei $f(x)$ eine reelle Funktion $f\colon D\rightarrow\R$.\\
+	Die Funktion heißt \underline{stetig an der Stelle $x_0\in D$}, falls $\lim\limits_{x\rightarrow x_0}f(x)=f(x_0)$ gilt.\\
+	Die Funktion heißt (überall) \underline{stetig in D}, falls $f(x)$ in jedem Punkt $x_0\in D$ stetig ist.
+	\subsection{Bemerkung}
+	Sei $f\colon D\rightarrow\R$.
+	\begin{itemize}
+		\item[a)] Äquivalente Definition der Stetigkeit: $\epsilon$-$\delta$-Kriterium, siehe z.B. WHK 6.17:
+		\begin{align*}
+			\forall\epsilon>0\quad\exists\delta>0\quad\forall x\in D\colon|x-x_0|\leq\delta\Rightarrow|f(x)-f(x_0)|\leq\epsilon
+		\end{align*}
+		\item[b)] Gibt es eine Konstante $K$ mit
+		\begin{align*}
+			|f(x)-f(x_0)|\leq K\*|x-x_0|\quad\forall x\in D\qquad\textrm{, }
+		\end{align*}
+		dann ist die Funktion stetig.
+	\end{itemize}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] \begin{align*}
+			f\colon\R&\rightarrow\R\\
+			x&\mapsto x^2
+		\end{align*}
+		$f(x)$ ist stetig auf $\R$ ($\lim\limits_{x\rightarrow x_0}f(x)$ existiert [vgl. Bsp. 5.2 a)] und ist gleich $f(x_0)\quad\forall x_0\in\R$)
+		\item[b)]
+		\begin{itemize}
+			\item[(1)] Bild:\\
+			\begin{minipage}[c]{0.5\textwidth}
+				$f(x)$ ist stetig in $x_0$
+			\end{minipage}
+			\begin{minipage}[c]{0.5\textwidth}
+				\begin{tikzpicture}[scale=0.5]
+				\draw[->]
+				(-0.2,0) -- (4.2,0) node[right] {$x$};
+				\draw[->]
+				(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+				\draw[color=blue]
+				(0,2.75) node[left]{$\lim\limits_{x\rightarrow x_0}f(x)=f(x_0)$}
+				(2.3,0) node[below]{$x_0$};
+				\draw[style=dotted, color=blue]
+				(0,2.75)--(2.3,2.75);
+				\draw[style=dotted, color=blue]
+				(2.3,2.75)--(2.3,0);
+				\draw[color=blue, domain=0.5:3.7, ultra thick]
+				plot(\x,0.875*\x*\x*\x-6.625*\x*\x+14.75*\x-6.5) node[right]{$f$};
+				\end{tikzpicture}
+			\end{minipage}
+			\item[(2)] Bild:\\
+			\begin{minipage}[c]{0.5\textwidth}
+				$f(x)$ ist nicht stetig in $x_0$:\\
+				$\lim\limits_{x\rightarrow x_0}$ existiert nicht!
+			\end{minipage}
+			\begin{minipage}[c]{0.5\textwidth}
+				\begin{tikzpicture}[scale=0.5]
+				\draw[->]
+				(-0.2,0) -- (4.2,0) node[right] {$x$};
+				\draw[->]
+				(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+				\draw[color=blue]
+				(0,3.6) node[left]{$f(x_0)$}
+				(2,0) node[below]{$x_0$};
+				\draw[style=dotted, color=blue]
+				(2,0)--(2,3.6);
+				\draw[color=blue, style=dotted]
+				(0,3.6)--(2,3.6);
+				\draw[color=blue, domain=0.5:2, ultra thick]
+				plot(\x,\x);
+				\draw[color=blue, domain=2:4, ultra thick]
+				plot(\x,0.875*\x*\x*\x-6.625*\x*\x+14.75*\x-6.5) node[right]{$f$};
+				\draw[color=blue] (2,2) circle [radius=5pt] node[right] {};
+				\draw[fill, color=blue] (2,3.6) circle [radius=5pt] node[right] {};
+				\end{tikzpicture}
+			\end{minipage}
+			\item[(3)] Bild:\\
+			\begin{minipage}[c]{0.5\textwidth}
+				$f(x)$ ist nicht stetig in $x_0$:\\
+				$\lim\limits_{x\rightarrow x_0}$ existiert, ist aber ungleich $f(x_0)$.
+			\end{minipage}
+			\begin{minipage}[c]{0.5\textwidth}
+				\begin{tikzpicture}[scale=0.5]
+				\draw[->]
+				(-0.2,0) -- (4.2,0) node[right] {$x$};
+				\draw[->]
+				(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+				\draw[color=blue]
+				(0,3.6) node[left]{$f(x_0)$}
+				(2,0) node[below]{$x_0$}
+				(0,2) node[left]{$\lim\limits_{x\rightarrow x_0}f(x)$};
+				\draw[style=dotted, color=blue]
+				(2,0)--(2,3.6);
+				\draw[color=blue, style=dotted]
+				(0,3.6)--(2,3.6);
+				\draw[color=blue, style=dotted]
+				(0,2)--(2,2);
+				\draw[color=blue, domain=0.5:1.9, ultra thick]
+				plot(\x,-\x*\x+4*\x-2) node[right]{};
+				\draw[color=blue, domain=2.1:3.6, ultra thick]
+				plot(\x,-\x*\x+4*\x-2) node[right]{$f$};
+				\draw[color=blue] (2,2) circle [radius=5pt] node[right] {};
+				\draw[fill, color=blue] (2,3.6) circle [radius=5pt] node[right] {};
+				\end{tikzpicture}
+			\end{minipage}
+		\end{itemize}
+		\item[c)]
+		\begin{align*}
+			f\colon\R&\rightarrow\R\\
+			x&\mapsto|x|
+		\end{align*}
+		ist stetig auf $\R$
+	\end{itemize}
+	\subsection{Bemerkung}
+	Eine Funktion $f(x)$ ist stetig, falls der Graph von $f$ keine "Sprungstelle" hat bzw. "man $f$ ohne abzusetzen zeichnen kann".\\
+	$\Rightarrow$ in Ordnung für Intuition, aber unpräzise\\
+	\\
+	\underline{Beispiel dazu:}
+	\begin{itemize}
+		\item[a)]
+		\begin{align*}
+			f\colon D=\R\setminus\{0\}&\rightarrow\R\\x&\mapsto\frac{1}{x}
+		\end{align*}
+		Die Funktion ist stetig auf $D$, weil die $0$ ausgenommen wurde.
+		\item[b)] Dirichlet-Funktion
+		\begin{align*}
+			f\colon\R&\rightarrow\R\\
+			x&\mapsto\begin{cases}1\quad&\textrm{falls }x\in\mathds{Q}\\
+			0\quad&\textrm{falls }x\in\R\setminus\mathds{Q}
+			\end{cases}
+		\end{align*}
+		Die Funktion ist unstetig in \underline{jedem} Punkt $x_0\in\R$.
+		\item[c)] Thomaesche Funktion\\
+		Die Funktion ist stetig in jedem $x_0\in\R\setminus\mathds{Q}$ in $[0,1]$\\
+		und unstetig in jedem $x_0\in\mathds{Q}$ in $[0,1]$.
+	\end{itemize}
+	\subsection{Satz (Rechenregeln für stetige Funktionen)}
+	\begin{itemize}
+		\item[a)] Seien $f, g\colon D\rightarrow\R$ stetig in $x_0$, $c\in\R$. Dann sind auch
+		\begin{itemize}
+			\item $c\* f$
+			\item $f+g$
+			\item $f-g$
+			\item $f\* g$
+			\item $\frac{f}{g}$ (für $g(x)\neq 0\quad\forall x\in D$)
+		\end{itemize}
+		stetig in $x_0$.
+		\item[b)] Die Komposition zweier stetiger Funktionen ist stetig.
+		\begin{align*}
+			D,D'&\subseteq\R\\
+			f\colon D&\rightarrow\R\\
+			g\colon D'&\rightarrow\R\\
+			f(D)&\subseteq D'\\
+			f,g&\textrm{ stetig}\\
+			&\Rightarrow\\
+			(g\circ f)\colon D\rightarrow\R&\textrm{ ist stetig}
+		\end{align*}
+		\underline{Beweis} folgt direkt aus Def. 5.1, 5.7 und den Rechenregeln für Folgen 2.13.
+	\end{itemize}
+	\subsection{Bemerkung}
+	Es gilt: $D\subseteq\R$ Intervall, $f\colon D\rightarrow f(D)$ bijektiv, stetig.\\
+	Dann ist auch die Umkehrfunktion $f^{-1}\colon f(D)\rightarrow D$ stetig.
+	\subsection{Bemerkung}
+	Man kann zeigen (u.a. mit 5.11), dass
+	\begin{itemize}
+		\item[a)] Potenzreihen mit Konvergenzradius $\rho$ sind stetig für alle $x$ mit $|x|<\rho$.
+		\item[b)] Polynome, Exponentialfunktionen, Logarithmen, Wurzelfunktionen sind stetig auf ihrem gesamten Definitionsbereich.
+		\item[c)] $\sin(x), \cos(x), \tan(x), \cot(x)$ ebenso (vgl. PÜ 7*).
+	\end{itemize}
+	\subsection{Bemerkung/Definition (Rationale Funktionen)}
+	\begin{align*}
+		f\colon D&\rightarrow\R\\x&\mapsto\frac{p(x)}{q(x)}
+	\end{align*}
+	sei rationale Funktion mit $D=\R\setminus\{x\in\R|q(x)=0\}$.\\
+	Dann ist $f$ stetig auf ganz D.\\
+	Lässt sich $f$ auf ganz $\R$ definieren ("fortsetzen"), so dass man eine auf ganz $\R$ stetige Funktion erhält?\\
+	\underline{Beispiel:}\\
+	\begin{itemize}
+		\item[a)] \begin{align*}
+			f\colon D=\R\setminus\{1\}&\rightarrow \R\\
+			f(x)&=\frac{x^2-1}{x-1}
+		\end{align*}
+		ist stetig auf D.\\
+		Setze $f$ auf $\R$ fort.\\
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{align*}
+			\tilde{f}\colon \R&\rightarrow\R\\
+			\tilde{f}(x)&=\begin{cases}\frac{x^2-1}{x-1}&\textrm{falls }x\neq1\\
+			b&\textrm{falls }x=1
+			\end{cases}
+			\end{align*}
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-0.2,0) -- (4.2,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+			\draw[color=blue]
+			(0,2) node[left]{$b$}
+			(1,0) node[below]{$1$};
+			\draw[color=blue] (1,2) circle [radius=5pt] node[right] {};
+			\draw[color=blue, domain=-0.5:0.9, ultra thick]
+			plot(\x,\x+1) node[right]{};
+			\draw[color=blue, domain=1.1:3.5, ultra thick]
+			plot(\x,\x+1) node[right]{$f(x)$};
+			\end{tikzpicture}
+		\end{minipage}\\
+		$\tilde{f}$ ist stetig in $x_0=1$ genau dann, wenn $b=2$ gewählt wird,\\ denn $\lim\limits_{x\rightarrow1}f(x)=2$.\\
+		$x_0=1$ ist eine \underline{(stetig) hebbare Definitionskücke} von $f$\\
+		Allgemein:\\
+		Sei $f\colon\R\setminus\{x_0\}\rightarrow\R$, es existiert $\lim\limits_{x\rightarrow x_0}f(x)\eqqcolon r\quad r\in\R$, dann ist $x_0$ stetig hebbare Definitionslücke von $f$, die Funktion
+		\begin{align*}
+			\tilde{f}\colon \R&\rightarrow\R\\
+			\tilde{f}(x)&=\begin{cases}f(x)&\textrm{ für }x\neq x_0\\
+			r&\textrm{ für }x=x_0
+			\end{cases}
+		\end{align*}
+		ist dann die stetige Fortsetzung von $f$ auf $\R$.
+		\item[b)] $f\colon\R\setminus\{1\}\rightarrow\R,\quad f(x)=\frac{(x^2-1)(x-1)}{(x-1)}$\\
+		Definitionslücke $x_0=1$ hebbar durch $0=\lim\limits_{x\rightarrow1}f(x)$,\\
+		$\tilde{f}\colon\R\rightarrow\R\quad\tilde{f}(x)=\begin{cases}f(x)&x\neq 1\\0&x=1
+		\end{cases}$ stetig.
+		\item[c)] $f\colon\R\setminus\{1\}\rightarrow\R,\quad f(x)=\frac{x^2}{(x-1)^2}=\frac{x+1}{x-1}$\\
+		Definitionslücke $x_0=1$ nicht hebbar: $\lim\limits_{x\rightarrow1}f(x)$ existiert nicht
+		\item[d)] Gilt für die Nullstelle $x_0$ des Nenners einer rationalen Funktion $f(x)\rightarrow\pm\infty$ für $x\rightarrow x_0\mp$, so nennt man $x_0$ \underline{Polstelle}.\\
+		Z.B. $f,g\colon\R\setminus\{0\}\rightarrow\R,\quad f(x)=\frac{1}{x},\quad g(x)=\frac{1}{x^2}$\\
+		$x_0=0$\\
+		\begin{itemize}
+			\item $f(x)\rightarrow\infty$ für $x\rightarrow0+$
+			\item $f(x)\rightarrow-\infty$ für $x\rightarrow0-$
+			\item $g(x)\rightarrow\infty$ für $x\rightarrow0+$ und $x\rightarrow0-$
+		\end{itemize}
+		\item[e)] $f\colon\R\setminus\{0\}\rightarrow\R,\quad f(x)=\sin(\frac{1}{x})$ hat bei $x_0=0$ \underline{Oszillationsstelle}:
+		\begin{itemize}
+			\item für $(x_n)_n=(\frac{1}{n\pi})_n$ ist $f(x_n)=\sin(n\pi)=0\rightarrow0$
+			\item für $(x_n)_n=(\frac{1}{\frac{\pi}{2}+2\pi n})_n$ ist $f(x_n)=\sin(\frac{\pi}{2}+2\pi n)=1\rightarrow1$
+		\end{itemize}
+		d.h. $\lim\limits_{x\rightarrow0}f(x)$ existiert nicht
+	\end{itemize}
+	
+	
+	
+	
+	
+	
 	
 \end{document}
