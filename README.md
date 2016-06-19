@@ -2,7 +2,7 @@
 
 Skript zur Mathematikvorlesung im SS 2016 bei Britta Dorn, Uni Tübingen
 
-Stand: VL vom 01.05.2016
+Stand: VL vom 15.06.2016
 
 -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
 

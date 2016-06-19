@@ -13,7 +13,7 @@
 
 \begin{titlepage}
 	\title{Mathematik II}
-	\date{04.06.2016}
+	\date{15.06.2016}
 \end{titlepage}
 
 \newcommand{\R}{\mathds{R}}
@@ -25,10 +25,17 @@
 \newcommand{\limsuperior}[1]{\lim\limits_{#1}\sup}
 \newcommand{\liminferior}[1]{\lim\limits_{#1}\inf}
 
+\renewenvironment{rcases}{% 
+	\left.\renewcommand*\lbrace.% 
+	\begin{cases}}% 
+	{\end{cases}\right\rbrace}
+
+\renewcommand{\>}{\rightarrow}
 \renewcommand{\*}{\cdot}
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\limsup}[1]{\underset{#1}{\overline{\lim}}}
 \renewcommand{\liminf}[1]{\underset{#1}{\underline{\lim}}}
+\renewcommand{\dfrac}[2]{\frac{\boldsymbol{d}#1}{\boldsymbol{d}#2}}
 
 \begin{document}
 	\maketitle
@@ -37,7 +44,7 @@
 	\section{Reelle Funktionen}
 	\subsection{Wiederholung Mathe 1: Funktionen}
 	\subsubsection*{Definition}
-		Eine \underline{Funktion/Abbildung} $f\colon A\rightarrow B$ besteht aus
+		Eine \underline{Funktion/Abbildung} $f\colon A\> B$ besteht aus
 		\begin{itemize}
 			\item zwei Mengen:
 			\begin{itemize}
@@ -49,14 +56,14 @@
 		Wir schreiben dann $b=f(a)$, nennen $b$ das \underline{Bild}/den \underline{Funktionswert} von $a$ (unter $f$) sowie $a$ (ein) \underline{Urbild} von $b$ (unter $f$).
 	\subsubsection*{Notation}
 		\vspace{-1cm}\begin{align*}
-			f\colon A&\rightarrow B\\
+			f\colon A&\> B\\
 			a&\mapsto f(a)
 		\end{align*}
 	\subsubsection*{Beispiel}
-		$\rightarrow$ Folien 11.04.2016
+		$\>$ Folien 11.04.2016
 	\subsection{Reelle Funktionen}
 	\subsubsection*{Definition}
-	Eine \underline{reelle Funktion} einer \underline{Veränderlichen} ist eine Abbildung $f\colon D\rightarrow \R$, wobei $D\subseteq \R$ (oft ist $D$ endliche Vereinigung von Intervallen, z.B.
+	Eine \underline{reelle Funktion} einer \underline{Veränderlichen} ist eine Abbildung $f\colon D\> \R$, wobei $D\subseteq \R$ (oft ist $D$ endliche Vereinigung von Intervallen, z.B.
 	\begin{itemize}
 		\item $ D=(-\infty,a]=\{x\in \R|x\leq a\} $
 		\item $ D=\R^+_0=[0,\infty)=\{x\in\R|x\geq 0\}$
@@ -65,12 +72,12 @@
 	\end{itemize}
 	\subsection{Neue Funktionen aus Alten, Kompositionen}
 	\subsubsection*{Definition}
-	Seien $f,g\colon D\rightarrow \R$ reelle Funktionen.
+	Seien $f,g\colon D\> \R$ reelle Funktionen.
 	\begin{itemize}
 		\item[a)] $(f\pm g)(x)\coloneqq f(x)\pm g(x)\qquad \forall x\in D$\\
 				  \underline{Summe/Differenz} von $f$ und $g$\\
 				  (genauer:\vspace{-0.5cm} \begin{align*}
-				  	f\pm g\colon D&\rightarrow \R\\
+				  	f\pm g\colon D&\> \R\\
 				  	x&\mapsto (f\pm g)(x)=f(x)\pm g(x) \textrm{\qquad )}\end{align*}
 		\item[b)] $(f\* g)(x)\coloneqq f(x)\* g(x)\qquad \forall x\in D$\\
 		\underline{Produkt} von $f$ und $g$
@@ -78,15 +85,15 @@
 		$(\frac{f}{g})(x)\coloneqq\frac{f(x)}{g(x)}\qquad \forall x\in D$\\
 		\underline{Quotient} von $f$ und $g$
 		\item[d)] \underline{Komposition/Hintereinanderausführung}\\
-		$f\colon D_f\rightarrow \R,\quad g\colon D_g\rightarrow\R\textrm{, wobei } f(D_f)\subseteq D_g$\\
+		$f\colon D_f\> \R,\quad g\colon D_g\>\R\textrm{, wobei } f(D_f)\subseteq D_g$\\
 		\vspace{-0.5cm}\begin{align*}
-			g\circ f\colon D_f&\rightarrow\R\\
+			g\circ f\colon D_f&\>\R\\
 			x&\mapsto g(f(x))
 		\end{align*}
 	\end{itemize}
 	\subsection{Beispiel}
 	\begin{align*}
-		f,g&\colon \R\rightarrow\R\\
+		f,g&\colon \R\>\R\\
 		f(x)&=x^2\\
 		g(x)&=x-1\\
 		\\
@@ -99,14 +106,14 @@
 		\Rightarrow (g\circ f)(x)&\neq (f\circ g)(x)
 	\end{align*}
 	\subsection{Wiederholung Mathe 1: Injektivität, Surjektivität, Bijektivität; Umkehrfunktion}
-	$\rightarrow$ Folien 13.04.2016	
+	$\>$ Folien 13.04.2016	
 	\subsection{Elementare Funktionen (naive Einführung)}
 	\begin{itemize}
 		\item[a)] \underline{Konstante Funktionen}\\
 		für $c\in\R$ (fest):\\
 		\begin{minipage}[c]{0.5\textwidth}
 			\begin{align*}
-				f\colon \R&\rightarrow\R\\
+				f\colon \R&\>\R\\
 				x&\mapsto c
 			\end{align*}
 		\end{minipage}
@@ -123,7 +130,7 @@
 		\item[b)] \underline{Die identische Funktion (Identität)}\\
 		\begin{minipage}[c]{0.5\textwidth}
 			\begin{align*}
-				f\colon \R&\rightarrow \R\\
+				f\colon \R&\> \R\\
 				x&\mapsto x
 			\end{align*}
 		\end{minipage}
@@ -143,13 +150,13 @@
 		\item[c)] \underline{Potenzen (Monome)}\\
 		für $n\in\N_0$ (fest):
 		\begin{align*}
-			f\colon \R&\rightarrow\R\\
+			f\colon \R&\>\R\\
 			x&\mapsto x^n
 		\end{align*}
 		\begin{itemize}
 			\item $n=0$: die konstante 1-Funktion
 			\begin{align*}
-				f\colon \R&\rightarrow\R\\
+				f\colon \R&\>\R\\
 				x&\mapsto x^0=1
 			\end{align*}\\
 			\item $n$ ungerade:\\
@@ -191,7 +198,7 @@
 				$y\in\R$ genau ein $x\in\R$ mit $x^n=y$. Dieses wird die $n$-te Wurzel aus $y$ genannt:\\ $x=\sqrt[n]{y}$.\\
 				\vspace{-0.5cm}
 				\begin{align*}
-					\sqrt[n]{\quad}\colon \R&\rightarrow\R\\
+					\sqrt[n]{\quad}\colon \R&\>\R\\
 					x&\mapsto\sqrt[n]{x}
 				\end{align*}
 			\end{minipage}
@@ -219,7 +226,7 @@
 				\begin{minipage}[c]{0.5\textwidth}
 					Die \underline{positive} Lösung wird hier dann als $n$-te Wurzel bezeichnet:
 					\begin{align*}
-					\sqrt[n]{\quad}\colon\R_0^+&\rightarrow\R_0^+\\
+					\sqrt[n]{\quad}\colon\R_0^+&\>\R_0^+\\
 					x&\mapsto\sqrt[n]{x}
 					\end{align*}
 				\end{minipage}
@@ -243,21 +250,21 @@
 		$a_0,\quad...\quad,a_n\in\R$ (Koeffizienten)\\
 		Ein Polynom ist eine Funktion $p$ mit 
 		\begin{align*}
-			p\colon \R&\rightarrow\R\\
+			p\colon \R&\>\R\\
 			x&\mapsto a_nx^n+a_{n-1}x^{n-1}+...+a_1x^1+a_0x^0=\sum_{k=0}^{n}{a_kx^k}
 		\end{align*}
 		Falls $a_n\neq 0$ ist, heißt $n$ \underline{Grad} des Polynoms.
 		\item[f)] \underline{Rationale Funktionen}\\
 		Rationale Funktionen sind Quotienten von Polynomen (mit $p,q$...Polynome):
 		\begin{align*}
-			f\colon D&\rightarrow\R\\
+			f\colon D&\>\R\\
 			x&\mapsto\frac{p(x)}{q(x)}
 		\end{align*}
 		mit $D=\{x\in\R|q(x)\neq 0\}$
 		\item[g)] \underline{Exponentialfunktionen}\\
 		Exponentialfunktionen sind Funktionen
 		\begin{align*}
-			f\colon\R&\rightarrow\R^+\\
+			f\colon\R&\>\R^+\\
 			x&\mapsto q^x
 		\end{align*} wobei die Basis $\R\ni q>0$, $q\neq 1$ vorgegeben ist.
 		\begin{align*}
@@ -278,7 +285,7 @@
 		Informatik: oft Basis 2\\
 		\begin{minipage}[c]{0.5\textwidth}
 			\begin{align*}
-			\textrm{exp}\colon\R&\rightarrow\R^+\\
+			\textrm{exp}\colon\R&\>\R^+\\
 			x&\mapsto \e^x\\
 			\\
 			\textrm{exp}(0)&=\e^0=1\\
@@ -298,7 +305,7 @@
 		\item[h)] \underline{Logarithmen}\\
 		Die Exponentialfunktion
 		\begin{align*}
-			\textrm{exp}(x)\colon\R&\rightarrow\R^+\\
+			\textrm{exp}(x)\colon\R&\>\R^+\\
 			x&\mapsto \e^x
 		\end{align*} ist bijektiv.\\
 		Um sie umzukehren, muss zu gegebenem $y\in\R^+$ die Gleichung $\e^x=y$ gelöst werden.\\
@@ -306,7 +313,7 @@
 		In $\R$ ist die Gleichung für $y\leq 0$ unlösbar.\\
 		\begin{minipage}[c]{0.5\textwidth}
 			\begin{align*}
-			\ln\colon\R^+&\rightarrow\R\\
+			\ln\colon\R^+&\>\R\\
 			x&\mapsto\ln x
 			\end{align*}
 		\end{minipage}
@@ -324,7 +331,7 @@
 		\end{minipage}
 		Analoges gilt für andere Exponentialfunktionen.
 		\begin{align*}
-			f:\R&\rightarrow\R^+\\
+			f:\R&\>\R^+\\
 			x&\mapsto q^x\quad (q>0,q\neq 1)
 		\end{align*}
 		Es gilt: $q^x=y\Leftrightarrow x=\log_qy$ (Logarithmus zur Basis $q$).\\
@@ -347,7 +354,7 @@
 	\begin{align*}
 	\ln(x\* y)=\ln(\e^{u+v})=u+v=\ln x+\ln y\quad\textrm{.}
 	\end{align*}
-	Genauso kann man mit beliebiger Basis $q>0$, $q\neq1$ verfahren, wir erhalten für jede Logarithmusfunktion $\log\colon\R^+\rightarrow\R$:
+	Genauso kann man mit beliebiger Basis $q>0$, $q\neq1$ verfahren, wir erhalten für jede Logarithmusfunktion $\log\colon\R^+\>\R$:
 	\begin{itemize}
 		\item $\log(x\*y)=\log x+\log y\quad\forall x,y>0$
 		\item $\log(\frac{x}{y})=\log x-\log y\quad\forall x,y>0$
@@ -391,10 +398,10 @@
 	\end{align*}
 	So lassen sich die Funktionen $\cos$ und $\sin$ definieren:
 	\begin{align*}
-		\cos\colon\R&\rightarrow[-1;1]\\
+		\cos\colon\R&\>[-1;1]\\
 		x&\mapsto\cos x\\
 		\\
-		\sin\colon\R&\rightarrow[-1;1]\\
+		\sin\colon\R&\>[-1;1]\\
 		x&\mapsto\sin x
 	\end{align*}
 	und weiter
@@ -534,12 +541,12 @@
 		(kurz: $\forall\epsilon>0\quad\exists N\in\N\quad\forall n\geq N\colon|a_n-a|<\epsilon$)
 		\item[b)] Die Zahl a heißt dann \underline{Grenzwert} oder \underline{Limes} der Folge, wir schreiben:\\
 		 $\lim\limits_{\infn}a_n=a$ oder\\
-		 $a_n\rightarrow a$ für $\infn$ ($a_n$ strebt gegen $a$)
+		 $a_n\> a$ für $\infn$ ($a_n$ strebt gegen $a$)
 		 \item[c)] Eine Folge, die gegen $0$ konvergiert, heißt \underline{Nullfolge}.
 		 \item[d)] Eine Folge, die nicht konvergiert, heißt \underline{divergent} (die Folge divergiert).
 	\end{itemize}
 	\subsection{Bemerkung}
-	$\rightarrow$ Folien 20.04.16\\
+	$\>$ Folien 20.04.16\\
 	\subsection{Beispiel}
 	\begin{itemize}
 		\item[a)] $a_n=\frac{1}{n}$ ist Nulfolge, d.h. $\lim\limits_{\infn}\frac{1}{n}=a=0$, denn:\\
@@ -591,7 +598,7 @@
 	\end{cases}$\\
 	Die Folge $(q^n)_n\in\N$ divergiert, falls $q=-1$ oder $|q|>1$.\\
 	Beweis: \begin{itemize}
-		\item[1. Fall] $|q|<1$ (zu zeigen $q^n\rightarrow 0$ für $\infn$)\\
+		\item[1. Fall] $|q|<1$ (zu zeigen $q^n\> 0$ für $\infn$)\\
 		Sei $\epsilon>0$ beliebig. Dann ist
 		\begin{align*}
 			|q^n-0|=|q^n|=|q|^n&<\epsilon\\
@@ -599,10 +606,10 @@
 			\Leftrightarrow n \qquad &\mathclap{\overset{da |q|<1}{\geq}}\qquad \frac{\ln\epsilon}{\ln|q|}
 		\end{align*}
 		Wähle $\N\ni N>\frac{\ln\epsilon}{\ln|q|}$, dann ist also $|q|^n<\epsilon\quad\forall n\geq N$.
-		\item[2. Fall] $q=1$ $\rightarrow$ konstante 1-Folge, konvergiert, s. 2.7 c)
+		\item[2. Fall] $q=1$ $\>$ konstante 1-Folge, konvergiert, s. 2.7 c)
 		\item[3. Fall] $|q|\geq 1, q\neq 1$\\
 		Für $|q|>1$ ist $(q^n)$ unbeschränkt, also divergent (s. 2,9/2.10).\\
-		Für $q=-1$: können wir erst später beweisen ($\rightarrow$ Cauchy-Folgen)
+		Für $q=-1$: können wir erst später beweisen ($\>$ Cauchy-Folgen)
 	\end{itemize}
 	\subsection{Beispiel}
 	Nach 2.11 sind die Folgen $((\frac{1}{2})^n)_{n\in\N}=(\frac{1}{2^n})_{n\in\N},\quad ((-\frac{7}{8})^n)_n\in\N$ Nullfolgen.
@@ -612,7 +619,7 @@
 		\item[a)] Die Folge $(c\*a_n)$ konvergiert gegen $c\*a, c\in\R$.
 		\item[b)] Die Folge $(a_n\pm b_n)$ konvergiert gegen $a\pm b$.
 		\item[c)] Die Folge $(a_n\*b_n)$ konvergiert gegen $a\*b$.
-		\item[d)] Die Folge $(\frac{a_n}{b_n})$ konvergiert gegen $\frac{a}{b}$, falls $b_n, b\neq0$ und $|a_n|\rightarrow|a|$.
+		\item[d)] Die Folge $(\frac{a_n}{b_n})$ konvergiert gegen $\frac{a}{b}$, falls $b_n, b\neq0$ und $|a_n|\>|a|$.
 	\end{itemize}
 	Seien weiter $(d_n), (e_n)$ reelle Folgen mit $\lim\limits_{\infn}d_n=0$, dann gilt:
 	\begin{itemize}
@@ -622,11 +629,11 @@
 	Beweis [exemplarisch für a) und b), Rest s. Moodle]:\\
 	\begin{itemize}
 		\item[a)] Falls $c=0$: klar, konstante 0-Folge.\\
-		Falls $c\neq 0$: Sei $\epsilon>0$ beliebig. Dann existiert $N\in\N$, so dass $|a_n-a|<\frac{\epsilon}{|c|}\quad\forall n\in\N$ (denn $a_n\rightarrow a$)\\
-		Dann ist aber $|c\*a_n-c\*a|=|c\*(a_n-a)|=|c|\*\overbrace{|a_n-a|}^{<\frac{\epsilon}{|c|}}<\epsilon\quad\forall n\geq N$, also $c\*a_n\rightarrow c\*a$
+		Falls $c\neq 0$: Sei $\epsilon>0$ beliebig. Dann existiert $N\in\N$, so dass $|a_n-a|<\frac{\epsilon}{|c|}\quad\forall n\in\N$ (denn $a_n\> a$)\\
+		Dann ist aber $|c\*a_n-c\*a|=|c\*(a_n-a)|=|c|\*\overbrace{|a_n-a|}^{<\frac{\epsilon}{|c|}}<\epsilon\quad\forall n\geq N$, also $c\*a_n\> c\*a$
 		\item[b)] Sei $\epsilon>0$ beliebig.\\
-		Dann $\exists N_1\in\N$, so dass $|a_n-a|<\frac{\epsilon}{2}\quad\forall n\geq N_1$ (denn $a_n\rightarrow a$)\\
-		und $\exists N_2\in\N$, so dass $|b_n-b|<\frac{\epsilon}{2}\quad\forall n\geq N_2$ (denn $b_n\rightarrow b$).\\
+		Dann $\exists N_1\in\N$, so dass $|a_n-a|<\frac{\epsilon}{2}\quad\forall n\geq N_1$ (denn $a_n\> a$)\\
+		und $\exists N_2\in\N$, so dass $|b_n-b|<\frac{\epsilon}{2}\quad\forall n\geq N_2$ (denn $b_n\> b$).\\
 		Dann gilt:
 		\begin{align*}
 			|(a_n+b_n)-(a+b)&|=|\overbrace{(a_n-a)}^{<\frac{\epsilon}{2}}+\overbrace{(b_n-b)}^{<\frac{\epsilon}{2}}|\overset{\triangle\textrm{-Ungleichung}}{\leq}|a_n-a|+|b_n-b|\\
@@ -634,12 +641,12 @@
 		\end{align*}
 		(also z.B. für $n\geq N\coloneqq\max\{N_1,N_2\}$).\\
 		\\
-		Also gilt $(a_n+b_n)\rightarrow a+b$.\hfill$\square$
+		Also gilt $(a_n+b_n)\> a+b$.\hfill$\square$
 	\end{itemize}
 	\subsection{Beispiel}
 	\begin{itemize}
-		\item[a)] $\frac{(-1)^n+5}{n}\rightarrow0$ für $\infn$, denn $\frac{1}{n}\rightarrow0$ für $\infn$ und $(-1)^n+5$ ist beschränkt: $|(-1)^n+5|\leq6\quad\forall n\in\N$ (nach 2.13 d)
-		\item[b)] $\frac{3n^2-2n+1}{-n^2+n}\rightarrow-3$ für $\infn$, denn\\ $\frac{3n^2-2n+1}{-n^2+n}=\frac{n^2\*(3-\frac{2}{n}+\frac{1}{n^2})}{n^2\*(-1+\frac{1}{n})}=\frac{3-\bmark{\frac{2}{n}}+\bmark{\frac{1}{n^2}}}{-1+\bmark{\frac{1}{n}}}\quad\gmark{\frac{\rightarrow3\textrm{ für }\infn}{\rightarrow-1\textrm{ für }\infn}}\longrightarrow\frac{3}{-1}$ für $\infn$ (nach 2.13 b,d)\begin{tiny}
+		\item[a)] $\frac{(-1)^n+5}{n}\>0$ für $\infn$, denn $\frac{1}{n}\>0$ für $\infn$ und $(-1)^n+5$ ist beschränkt: $|(-1)^n+5|\leq6\quad\forall n\in\N$ (nach 2.13 d)
+		\item[b)] $\frac{3n^2-2n+1}{-n^2+n}\>-3$ für $\infn$, denn\\ $\frac{3n^2-2n+1}{-n^2+n}=\frac{n^2\*(3-\frac{2}{n}+\frac{1}{n^2})}{n^2\*(-1+\frac{1}{n})}=\frac{3-\bmark{\frac{2}{n}}+\bmark{\frac{1}{n^2}}}{-1+\bmark{\frac{1}{n}}}\quad\gmark{\frac{\>3\textrm{ für }\infn}{\>-1\textrm{ für }\infn}}\longrightarrow\frac{3}{-1}$ für $\infn$ (nach 2.13 b,d)\begin{tiny}
 			[\bmark{Nullfolgen}]
 		\end{tiny}
 		\item[c)] \underline{Wichtiges Beispiel}\\
@@ -652,10 +659,10 @@
 		\end{align*}
 		Damit gilt:
 		\begin{align*}
-			|n^k\*x^n|=|\frac{n^k}{(1+t)^n}|\leq\frac{n^k}{\binom{n}{k+1}t^{k+1}}=\frac{n^k}{n^{k+1}+...}\rightarrow 0
+			|n^k\*x^n|=|\frac{n^k}{(1+t)^n}|\leq\frac{n^k}{\binom{n}{k+1}t^{k+1}}=\frac{n^k}{n^{k+1}+...}\> 0
 		\end{align*}
 		für $\infn$.\\
-		Es gilt also z.B. ($k=10000, x=\frac{1}{2}$): $\frac{n^{10000}}{2^{n}} \rightarrow 0$ für $\infn$\\
+		Es gilt also z.B. ($k=10000, x=\frac{1}{2}$): $\frac{n^{10000}}{2^{n}} \> 0$ für $\infn$\\
 		$\Rightarrow \overset{\textrm{Exponentialfkt.}}{(1+t)^n}$ wächst schneller als jede Potenz $\overset{Polynom}{n^k}$ !
 	\end{itemize}
 	\subsection{Anmerkung (Landau-Symbole, $\mathcal{O}$-Notation)}
@@ -672,10 +679,10 @@
 	Beispiel:
 	\begin{itemize}
 		\item $(2n^2+5n+1)_n\in\mathcal{O}(n^2)$, denn\\
-		$(\frac{2n^2+5n+1}{n^2})=\frac{n^2\*(2+\frac{5}{n}+\frac{1}{n^2})}{n^2}\rightarrow2$ für $\infn$, beschränkt
+		$(\frac{2n^2+5n+1}{n^2})=\frac{n^2\*(2+\frac{5}{n}+\frac{1}{n^2})}{n^2}\>2$ für $\infn$, beschränkt
 		\item $(n^2)\in o(n^3)$
 		\item $(n^3)\in o(2^n)$
-		\item $(n13-3)\sim(n^3)$, denn $(\frac{n^3}{n^3-3})=(\frac{n^3\*(1)}{n^3\*(1-\frac{3}{n^3})})\rightarrow1$ für $\infn$
+		\item $(n13-3)\sim(n^3)$, denn $(\frac{n^3}{n^3-3})=(\frac{n^3\*(1)}{n^3\*(1-\frac{3}{n^3})})\>1$ für $\infn$
 		\item häufig auch laxe Schreibweise
 		\begin{align*}
 			2n^2+5n+1&=\mathcal{O}(n^2)\\
@@ -722,7 +729,7 @@
 		\Rightarrow \{a_n\colon n\in\N\}&\subseteq\quad\textrm{ ist beschränkt}\\
 		\overset{\overset{\textrm{Vollst.-Axiom}}{\textrm{Mathe 1, 8.16}}}{\Rightarrow}S&\coloneqq\sup\{a_n\colon n\in\N\}\quad\textrm{ existiert.}
 	\end{align*}
-	Wir zeigen: $a_n\rightarrow S$ für $\infn$.\\
+	Wir zeigen: $a_n\> S$ für $\infn$.\\
 	Sei $\epsilon>0$ beliebig. Zu zeigen ist $\exists N\in\N$ mit $|a_n-S|<\epsilon\quad\forall n\geq N$.\\
 	Es gilt $a_n\leq S\quad\forall n\in\N$, also zu zeigen: $S-a_n<\epsilon\quad\forall n\geq N$.\\
 	$S$ ist \underline{kleinste} obere Schranke, d.h. $S-\epsilon$ ist \underline{keine} obere Schranke\\
@@ -733,7 +740,7 @@
 	$(a_n)\searrow$ analog\hfill$\square$
 	\subsection{Beispiel}
 	\begin{itemize}
-		\item[a)] $x\in\R^+$, dann $(x^n)\in o(n!)\qquad(x^n=o(n!))$, d.h. $a_n=\frac{x^n}{n!}\rightarrow 0$ für $\infn$
+		\item[a)] $x\in\R^+$, dann $(x^n)\in o(n!)\qquad(x^n=o(n!))$, d.h. $a_n=\frac{x^n}{n!}\> 0$ für $\infn$
 		\begin{itemize}
 			\item $a_n>0$
 			\item $\frac{a_{n+1}}{a_n}=\frac{x^{n+1}\*n!}{(n+1)!\*x^n}=\frac{x}{n+1}\leq 1$ für $n+1\geq x$, also gilt $a_{n+1}\leq a_n$, d.h. $(a_n)\searrow$ und $(a_n)$ ist beschränkt
@@ -768,7 +775,7 @@
 		\item $(a_n)\nearrow$ (= linke Intervallgrenze)
 		\item $(b_n)\searrow$ (= rechte Intervallgrenze)
 		\item $a_n\leq b_n\quad\forall n\in\N$
-		\item $b_n-a_n\rightarrow 0$ für $\infn$
+		\item $b_n-a_n\> 0$ für $\infn$
 	\end{itemize}
 	Dann sind beide Folgen konvergent und besitzen denselben Limes.\\
 	\\
@@ -783,7 +790,7 @@
 	\subsection{Beispiel (vgl. Beispiel 2.20 b))}
 	$a_n=(1+\frac{1}{n})^n$, $b_n=(1+\frac{1}{n})^{n+1}$\\
 	Man kann zeigen: $(a_n)\nearrow$, $(b_n)\searrow$\\
-	$a_n\leq b_n$, $b_n-a_n\rightarrow 0$, also $\exists\lim\limits_{\infn}(1+\frac{1}{n})^n=\lim\limits_{\infn}(1+\frac{1}{n})^{n+1}$\\
+	$a_n\leq b_n$, $b_n-a_n\> 0$, also $\exists\lim\limits_{\infn}(1+\frac{1}{n})^n=\lim\limits_{\infn}(1+\frac{1}{n})^{n+1}$\\
 	\\
 	Ähnlich zeigt man $\lim\limits_{\infn}(1+\frac{x}{n})^n$ existiert $\forall x\in\R$\\
 	So definiert man $\e^x\coloneqq\lim\limits_{\infn}(1+\frac{x}{n})^n$\\
@@ -830,9 +837,9 @@
 		\item $A_k\leq a_{n_k}\leq B_k$
 		\item $(A_k)_{k\in\N}\nearrow,\qquad(B_k)_{k\in\N}\searrow$
 		\item $A_k\leq B_k$
-		\item $B_k-A_k\rightarrow 0$ für $k\rightarrow\infty$. 
+		\item $B_k-A_k\> 0$ für $k\>\infty$. 
 	\end{itemize}
-	Damit sind alle Voraussetzungen für Satz 2.21 (Intervallschachtelungsprinzip) erfüllt. Die Folgen $(A_k)_{k\in\N}$ und $(B_k)_{k\in\N}$ sind also konvergent und besitzen denselben Limes $a$. Damit gilt auch $a_{n_k}\rightarrow a$ für $k\rightarrow\infty$.\hfill$\square$
+	Damit sind alle Voraussetzungen für Satz 2.21 (Intervallschachtelungsprinzip) erfüllt. Die Folgen $(A_k)_{k\in\N}$ und $(B_k)_{k\in\N}$ sind also konvergent und besitzen denselben Limes $a$. Damit gilt auch $a_{n_k}\> a$ für $k\>\infty$.\hfill$\square$
 	\subsection{Bemerkung/Definition}
 	Sei $(a_n)$ reell und beschränkt, dann gibt es inen größten und einen kleinsten Häufungspunkt, den
 	\begin{itemize}
@@ -843,11 +850,11 @@
 	\begin{itemize}
 		\item $\limsup{\infn}a_n\coloneqq\begin{cases}
 			\infty\textrm{, wenn }(a_n)\textrm{ nicht nach oben beschränkt ist}\\
-			-\infty\textrm{, wenn }(a_n)\rightarrow-\infty\textrm{ gilt, d.h. }\forall K>0\quad\exists N\in\N\colon a_n\leq-K\quad\forall n\geq N 
+			-\infty\textrm{, wenn }(a_n)\>-\infty\textrm{ gilt, d.h. }\forall K>0\quad\exists N\in\N\colon a_n\leq-K\quad\forall n\geq N 
 		\end{cases}$
 		\item $\liminf{\infn}a_n\coloneqq\begin{cases}
 		-\infty\textrm{, wenn }(a_n)\textrm{ nicht nach unten beschränkt ist}\\
-		\infty\textrm{, wenn }(a_n)\rightarrow\infty\textrm{ gilt, d.h. }\forall K>0\quad\exists N\in\N\colon a_n\geq K\quad\forall n\geq N
+		\infty\textrm{, wenn }(a_n)\>\infty\textrm{ gilt, d.h. }\forall K>0\quad\exists N\in\N\colon a_n\geq K\quad\forall n\geq N
 		\end{cases}$
 	\end{itemize}
 	\underline{Achtung:} $-\infty,\infty$ sind keine reellen Zahlen!\\
@@ -878,7 +885,7 @@
 		zeige: Limes der Teilfolge ist Limes der Folge
 	\end{itemize}
 	\subsection{Anwendung (Banachscher Fixpunktsatz)}
-	Sei $f\colon[a,b]\rightarrow[a,b]$ eine Abbildung mit\\
+	Sei $f\colon[a,b]\>[a,b]$ eine Abbildung mit\\
 	$\underbrace{|f(x)-f(y)|}_{\textrm{Abstand der Bildpunkte}}<\underbrace{|x-y|}_{\textrm{Abstand von 2 Punkten}}\qquad\forall x,y\in[a,b]$\\
 	("$f$ ist strikte Kontraktion")\\
 	Dann hat $f$ genau einen Fixpunkt, d.h.\\
@@ -937,7 +944,7 @@
 		\end{align*}
 		Geometrische Folge. Also gilt:
 		\begin{align*}
-			&S_n\rightarrow\frac{1-0}{1-q}=\frac{1}{1-q}\qquad\textrm{ für }\infn\\
+			&S_n\>\frac{1-0}{1-q}=\frac{1}{1-q}\qquad\textrm{ für }\infn\\
 			&\sum_{k=0}^{\infty}q^k\qquad\textrm{ divergiert für }|q|\geq 1
 		\end{align*}
 		Nochmal Beispiel d)\\
@@ -968,11 +975,11 @@
 		$|S_m-S_n|$\\
 		(folgt aus 2.31/Cauchykriterium für Folgen)\\
 		Daraus ergibt sich:\\
-		Ist $\sum_{k=1}^{\infty}a_k$ konvergent, so ist $(a_n)_n$ Nullfolge (wähle $m=n+1$, dann $|a_{n+1}|<\epsilon$, d.h. $a_n\rightarrow0$).\\
+		Ist $\sum_{k=1}^{\infty}a_k$ konvergent, so ist $(a_n)_n$ Nullfolge (wähle $m=n+1$, dann $|a_{n+1}|<\epsilon$, d.h. $a_n\>0$).\\
 		$\Rightarrow$[3]
 		\item[\fbox{3}] \underline{Divergenzkriterium}\\
 		Ist $(a_n)_n$ keine Nullfolge, so ist $\sum_{k=1}^{\infty}a_k$ divergent.\\
-		Bsp: $\sum_{k=1}^{\infty}\underbrace{(1+\frac{1}{k})}_{\rightarrow1\textrm{ für }k\rightarrow\infty\textrm{, keine Nullfolge!}}$ divergiert
+		Bsp: $\sum_{k=1}^{\infty}\underbrace{(1+\frac{1}{k})}_{\>1\textrm{ für }k\>\infty\textrm{, keine Nullfolge!}}$ divergiert
 		\item[\fbox{4}] \underline{Majorantenkriterium}\\
 		Seien $(a_n),(b_n)$ Folgen mit $|a_n|\leq b_n\quad\forall n\in\N$ (für fast alle $n$, d.h. für alle bis auf endlich viele)\\
 		Dann gilt:\\
@@ -1062,7 +1069,7 @@
  \end{itemize}%\fbox{numbers}
  \subsection{Bemerkung}
  Umordnung einer Reihe, Konvergenzverhalten\\
- $\rightarrow$ s. Folien 11.05.2016
+ $\>$ s. Folien 11.05.2016
  \newpage
  \section{Potenzreihen}
  \subsection{Definition}
@@ -1126,7 +1133,7 @@
 		\end{align*}
 		hat Konvergenzradius $\rho=\infty$ nach Euler, d.h. Reihe konvergiert für \underline{alle} $x\in\R$, deshalb kann man für $x\in\R$ die folgende Funktion definieren (Exponentialfunktion):
 		\begin{align*}
-			\exp\colon&\R\rightarrow\R\\
+			\exp\colon&\R\>\R\\
 			x\mapsto \exp(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!}
 		\end{align*}
 		Es gilt (vgl. Präsenzübungsblatt 6) (Cauchyprodukt):\\
@@ -1140,36 +1147,36 @@
 	\end{itemize}
 	\section{Funktionsgrenzwerte und Stetigkeit}
 	\subsection{Definition}
-	Sei $D\subseteq\R$, $f\colon D\rightarrow\R$ eine Funktion, $x_0,a\in\R$.
+	Sei $D\subseteq\R$, $f\colon D\>\R$ eine Funktion, $x_0,a\in\R$.
 	\begin{itemize}
 		\item[a)] $f$ heißt \underline{konvergent gegen $a$ für $x$ gegen $x_0$}, wenn gilt:\\
-		Für \underline{alle} Folgen $\underbrace{(x_n)_n\textrm{ aus }D\setminus\{x_0\}}_{\textrm{d.h. Glieder der Folge sind alle aus } D\setminus\{x_0\}}$, die gegen $x_0$ konvergieren, konvergieren die Funktionswerte $f(x_n)\rightarrow a$, also $f(x_n)\rightarrow a$ für $x_n\rightarrow x_0$ (Schreibweise: $\lim\limits_{x\rightarrow x_0}f(x)=a$).
-		\item[b)] Analog lässt sich der Grenzwert für $x\rightarrow\infty$ oder für $x\rightarrow-\infty$ definieren:\\
+		Für \underline{alle} Folgen $\underbrace{(x_n)_n\textrm{ aus }D\setminus\{x_0\}}_{\textrm{d.h. Glieder der Folge sind alle aus } D\setminus\{x_0\}}$, die gegen $x_0$ konvergieren, konvergieren die Funktionswerte $f(x_n)\> a$, also $f(x_n)\> a$ für $x_n\> x_0$ (Schreibweise: $\lim\limits_{x\> x_0}f(x)=a$).
+		\item[b)] Analog lässt sich der Grenzwert für $x\>\infty$ oder für $x\>-\infty$ definieren:\\
 		$f$ konvergiert gegen $a$ für
 		$\begin{array}{l}
-		x\rightarrow\infty\\
-		x\rightarrow-\infty
+		x\>\infty\\
+		x\>-\infty
 		\end{array}$ falls für alle Folgen $(x_n)_n$ mit $\underbrace{\begin{array}{l}
-		x_n\rightarrow\infty\\
-		x_n\rightarrow-\infty
-		\end{array}}_{\textrm{d.h. }\forall k\in\N\exists N\in\N\colon x_n>k\forall n\geq N}$ gilt: $f(x_n)\rightarrow a$ ($\lim\limits_{x\rightarrow\infty}=a$ bzw. $\lim\limits_{x\rightarrow-\infty}f(x)=a$)
+		x_n\>\infty\\
+		x_n\>-\infty
+		\end{array}}_{\textrm{d.h. }\forall k\in\N\exists N\in\N\colon x_n>k\forall n\geq N}$ gilt: $f(x_n)\> a$ ($\lim\limits_{x\>\infty}=a$ bzw. $\lim\limits_{x\>-\infty}f(x)=a$)
 	\end{itemize}
 	\subsection{Beispiel}
 	\begin{itemize}
 		\item[zu a)] \begin{align*}
-			f\colon D=&\R\rightarrow\R\qquad\quad x_0\in\R\\
-			&x\rightarrow x^2
+			f\colon D=&\R\>\R\qquad\quad x_0\in\R\\
+			&x\> x^2
 		\end{align*}
-		Was ist $\lim\limits_{x\rightarrow x_0}f(x)$?\\
+		Was ist $\lim\limits_{x\> x_0}f(x)$?\\
 		Sei $(x_n)_n$ Folge mit $\lim\limits_{\infn}x_n=x_0$. Nach den Rechenregeln für Folgen (Satz 2.13) gilt:\\
-		$f(x_n)=x^2_n\rightarrow x^2_0$ (Voraussetzung $x_n\rightarrow x_0$, aus Rechenregeln $x^2_n\rightarrow x^2_0$), also ist $\lim\limits_{x\rightarrow x_0}f(x)=x^2_0\eqqcolon a$\\
-		(Bemerkung: allgemein gilt: $\lim\limits_{x\rightarrow x_0}f(x)=f(x_0)$ für alle Polynome)
+		$f(x_n)=x^2_n\> x^2_0$ (Voraussetzung $x_n\> x_0$, aus Rechenregeln $x^2_n\> x^2_0$), also ist $\lim\limits_{x\> x_0}f(x)=x^2_0\eqqcolon a$\\
+		(Bemerkung: allgemein gilt: $\lim\limits_{x\> x_0}f(x)=f(x_0)$ für alle Polynome)
 		\item[zu b)] \begin{align*}
-			f\colon (0,\infty)=&\R^+\rightarrow\R\\&x\mapsto\frac{1}{x}
+			f\colon (0,\infty)=&\R^+\>\R\\&x\mapsto\frac{1}{x}
 		\end{align*}
-		Was ist $\lim\limits_{x\rightarrow\infty}f(x)$?\\
-		Für alle $(x_n)_n$ mit $x_n\rightarrow\infty$ für $\infn$ gilt:\\
-		$f(x_n)=\frac{1}{x_n}\rightarrow0$, also $\lim\limits_{x\rightarrow\infty}f(x)=0$
+		Was ist $\lim\limits_{x\>\infty}f(x)$?\\
+		Für alle $(x_n)_n$ mit $x_n\>\infty$ für $\infn$ gilt:\\
+		$f(x_n)=\frac{1}{x_n}\>0$, also $\lim\limits_{x\>\infty}f(x)=0$
 	\end{itemize}
 	\subsection{Bemerkung/Definition}
 	Definition 5.1 ist nur interessant für die Punkte $x_0\in\R$, für die es Folgen $(x_n)_n$ aus $D\setminus\{x_0\}$ gibt, die gegen $x_0$ konvergieren.\\
@@ -1188,7 +1195,7 @@
 		\item[d)] Es gilt: $\overline{\mathds{Q}}=\R$ 
 	\end{itemize}
 	\subsection{Bemerkung/Definition}
-	In Definition 5.1 muss $f(x_n)\rightarrow a$ für \underline{alle} Folgen $(x_n)_n$ aus $D\setminus\{x_0\}$, die gegen $x_0$ konvergieren, gelten; also insbesondere für Folgen, die \underline{von links} ($x_n\rightarrow x_0$ mit $x_n<x_0\forall n$) und für Folgen, die \underline{von rechts} ($x_n\rightarrow x_0$ mit $x_n>x_0\forall n$) gegen $x_0$ konvergieren (falls möglich).\\
+	In Definition 5.1 muss $f(x_n)\> a$ für \underline{alle} Folgen $(x_n)_n$ aus $D\setminus\{x_0\}$, die gegen $x_0$ konvergieren, gelten; also insbesondere für Folgen, die \underline{von links} ($x_n\> x_0$ mit $x_n<x_0\forall n$) und für Folgen, die \underline{von rechts} ($x_n\> x_0$ mit $x_n>x_0\forall n$) gegen $x_0$ konvergieren (falls möglich).\\
 	\\
 	Man spricht vom \underline{links- bzw. rechtsseitigen Grenzwert}. Schreibweise:\\
 	\\
@@ -1198,7 +1205,7 @@
 		$\lim\limits_{x\nearrow x_0}f(x)=a$\\
 		\\
 		oder\\
-		$\lim\limits_{x\rightarrow x_0-}$
+		$\lim\limits_{x\> x_0-}$
 	\end{minipage}
 	\begin{minipage}[c]{0.5\textwidth}
 		rechts:\\
@@ -1206,7 +1213,7 @@
 		$\lim\limits_{x\searrow x_0}f(x)=a$\\
 		\\
 		oder\\
-		$\lim\limits_{x\rightarrow x_0+}$
+		$\lim\limits_{x\> x_0+}$
 	\end{minipage}
 	\subsection{Beispiel}
 	\begin{itemize}
@@ -1219,7 +1226,7 @@
 		\item[b)] Heavisidefunktion (Schwellenwertfunktion)\\
 		\begin{minipage}[c]{0.5\textwidth}
 			\begin{align*}
-				f\colon\R&\rightarrow\R\\
+				f\colon\R&\>\R\\
 				f(x)&=\begin{cases}
 				0\textrm{, }x<0\\
 				1\textrm{, }x\geq0
@@ -1240,41 +1247,41 @@
 			\draw[color=blue] (0,0) circle [radius=5pt] node[right] {};
 			\end{tikzpicture}
 		\end{minipage}\\
-		$\lim\limits_{x\rightarrow0}f(x)=$?
+		$\lim\limits_{x\>0}f(x)=$?
 		\begin{itemize}
-			\item für $(x_n)_n=(\frac{1}{n})_n$ gilt $f(x_n)=f(\frac{1}{n})=1\rightarrow1$
-			\item für $(x_n)_n=(-\frac{1}{n})_n$ gilt $f(x_n)=f(-\frac{1}{n})=0\rightarrow0$
+			\item für $(x_n)_n=(\frac{1}{n})_n$ gilt $f(x_n)=f(\frac{1}{n})=1\>1$
+			\item für $(x_n)_n=(-\frac{1}{n})_n$ gilt $f(x_n)=f(-\frac{1}{n})=0\>0$
 		\end{itemize}
-		Also gibt es kein $a$, so dass \underline{alle} Folgen  mit $x_n\rightarrow x_0$ die Bedingung $f(x_n)\rightarrow a$ erfüllen.\\
-		$\lim\limits_{x\rightarrow 0}f(x)$ existiert hier nicht!
+		Also gibt es kein $a$, so dass \underline{alle} Folgen  mit $x_n\> x_0$ die Bedingung $f(x_n)\> a$ erfüllen.\\
+		$\lim\limits_{x\> 0}f(x)$ existiert hier nicht!
 	\end{itemize}
 	\subsection{Bemerkung/Definition}
-	Sei $f\colon D\rightarrow\R,\quad x_0\in\overline{D}$.\\
-	Falls für alle Folgen $(x_n)_n\in D\setminus\{x_0\}$ mit $x_n\rightarrow x_0$ gilt:
+	Sei $f\colon D\>\R,\quad x_0\in\overline{D}$.\\
+	Falls für alle Folgen $(x_n)_n\in D\setminus\{x_0\}$ mit $x_n\> x_0$ gilt:
 	\begin{align*}
-		f(x_n)\rightarrow \pm\infty\quad\textrm{ , }
+		f(x_n)\> \pm\infty\quad\textrm{ , }
 	\end{align*}
-	so sagt man, \underline{$f$ divergiert bestimmt gegen $\pm\infty$} für $x\rightarrow x_0$ (analog für $x\rightarrow\pm\infty$).\\
+	so sagt man, \underline{$f$ divergiert bestimmt gegen $\pm\infty$} für $x\> x_0$ (analog für $x\>\pm\infty$).\\
 	\\
 	\underline{Beispiel:}
 	\begin{align*}
-		f\colon D&\rightarrow\R\\
+		f\colon D&\>\R\\
 		x&\mapsto\frac{1}{x}
 	\end{align*}
 	\begin{itemize}
 		\item falls $D=(0,\infty)$:\\
-		$f(x)$ divergiert bestimmt gegen $\infty$ für $x\rightarrow 0$ 
+		$f(x)$ divergiert bestimmt gegen $\infty$ für $x\> 0$ 
 		\item falls $D=(-\infty,0)$:\\
-		$f(x)$ divergiert bestimmt gegen $-\infty$ für $x\rightarrow 0$
+		$f(x)$ divergiert bestimmt gegen $-\infty$ für $x\> 0$
 		\item falls $D=\R\setminus\{0\}$:\\
-		dann existiert $\lim\limits_{x\rightarrow0}f(x)$ nicht und $f(x)$ divergiert auch nicht bestimmt.
+		dann existiert $\lim\limits_{x\>0}f(x)$ nicht und $f(x)$ divergiert auch nicht bestimmt.
 	\end{itemize}
 	\subsection{Definition (Stetigkeit)}
-	Sei $f(x)$ eine reelle Funktion $f\colon D\rightarrow\R$.\\
-	Die Funktion heißt \underline{stetig an der Stelle $x_0\in D$}, falls $\lim\limits_{x\rightarrow x_0}f(x)=f(x_0)$ gilt.\\
+	Sei $f(x)$ eine reelle Funktion $f\colon D\>\R$.\\
+	Die Funktion heißt \underline{stetig an der Stelle $x_0\in D$}, falls $\lim\limits_{x\> x_0}f(x)=f(x_0)$ gilt.\\
 	Die Funktion heißt (überall) \underline{stetig in D}, falls $f(x)$ in jedem Punkt $x_0\in D$ stetig ist.
 	\subsection{Bemerkung}
-	Sei $f\colon D\rightarrow\R$.
+	Sei $f\colon D\>\R$.
 	\begin{itemize}
 		\item[a)] Äquivalente Definition der Stetigkeit: $\epsilon$-$\delta$-Kriterium, siehe z.B. WHK 6.17:
 		\begin{align*}
@@ -1289,10 +1296,10 @@
 	\subsection{Beispiel}
 	\begin{itemize}
 		\item[a)] \begin{align*}
-			f\colon\R&\rightarrow\R\\
+			f\colon\R&\>\R\\
 			x&\mapsto x^2
 		\end{align*}
-		$f(x)$ ist stetig auf $\R$ ($\lim\limits_{x\rightarrow x_0}f(x)$ existiert [vgl. Bsp. 5.2 a)] und ist gleich $f(x_0)\quad\forall x_0\in\R$)
+		$f(x)$ ist stetig auf $\R$ ($\lim\limits_{x\> x_0}f(x)$ existiert [vgl. Bsp. 5.2 a)] und ist gleich $f(x_0)\quad\forall x_0\in\R$)
 		\item[b)]
 		\begin{itemize}
 			\item[(1)] Bild:\\
@@ -1306,7 +1313,7 @@
 				\draw[->]
 				(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
 				\draw[color=blue]
-				(0,2.75) node[left]{$\lim\limits_{x\rightarrow x_0}f(x)=f(x_0)$}
+				(0,2.75) node[left]{$\lim\limits_{x\> x_0}f(x)=f(x_0)$}
 				(2.3,0) node[below]{$x_0$};
 				\draw[style=dotted, color=blue]
 				(0,2.75)--(2.3,2.75);
@@ -1319,7 +1326,7 @@
 			\item[(2)] Bild:\\
 			\begin{minipage}[c]{0.5\textwidth}
 				$f(x)$ ist nicht stetig in $x_0$:\\
-				$\lim\limits_{x\rightarrow x_0}$ existiert nicht!
+				$\lim\limits_{x\> x_0}$ existiert nicht!
 			\end{minipage}
 			\begin{minipage}[c]{0.5\textwidth}
 				\begin{tikzpicture}[scale=0.5]
@@ -1345,7 +1352,7 @@
 			\item[(3)] Bild:\\
 			\begin{minipage}[c]{0.5\textwidth}
 				$f(x)$ ist nicht stetig in $x_0$:\\
-				$\lim\limits_{x\rightarrow x_0}$ existiert, ist aber ungleich $f(x_0)$.
+				$\lim\limits_{x\> x_0}$ existiert, ist aber ungleich $f(x_0)$.
 			\end{minipage}
 			\begin{minipage}[c]{0.5\textwidth}
 				\begin{tikzpicture}[scale=0.5]
@@ -1356,7 +1363,7 @@
 				\draw[color=blue]
 				(0,3.6) node[left]{$f(x_0)$}
 				(2,0) node[below]{$x_0$}
-				(0,2) node[left]{$\lim\limits_{x\rightarrow x_0}f(x)$};
+				(0,2) node[left]{$\lim\limits_{x\> x_0}f(x)$};
 				\draw[style=dotted, color=blue]
 				(2,0)--(2,3.6);
 				\draw[color=blue, style=dotted]
@@ -1374,7 +1381,7 @@
 		\end{itemize}
 		\item[c)]
 		\begin{align*}
-			f\colon\R&\rightarrow\R\\
+			f\colon\R&\>\R\\
 			x&\mapsto|x|
 		\end{align*}
 		ist stetig auf $\R$
@@ -1387,12 +1394,12 @@
 	\begin{itemize}
 		\item[a)]
 		\begin{align*}
-			f\colon D=\R\setminus\{0\}&\rightarrow\R\\x&\mapsto\frac{1}{x}
+			f\colon D=\R\setminus\{0\}&\>\R\\x&\mapsto\frac{1}{x}
 		\end{align*}
 		Die Funktion ist stetig auf $D$, weil die $0$ ausgenommen wurde.
 		\item[b)] Dirichlet-Funktion
 		\begin{align*}
-			f\colon\R&\rightarrow\R\\
+			f\colon\R&\>\R\\
 			x&\mapsto\begin{cases}1\quad&\textrm{falls }x\in\mathds{Q}\\
 			0\quad&\textrm{falls }x\in\R\setminus\mathds{Q}
 			\end{cases}
@@ -1404,7 +1411,7 @@
 	\end{itemize}
 	\subsection{Satz (Rechenregeln für stetige Funktionen)}
 	\begin{itemize}
-		\item[a)] Seien $f, g\colon D\rightarrow\R$ stetig in $x_0$, $c\in\R$. Dann sind auch
+		\item[a)] Seien $f, g\colon D\>\R$ stetig in $x_0$, $c\in\R$. Dann sind auch
 		\begin{itemize}
 			\item $c\* f$
 			\item $f+g$
@@ -1416,18 +1423,18 @@
 		\item[b)] Die Komposition zweier stetiger Funktionen ist stetig.
 		\begin{align*}
 			D,D'&\subseteq\R\\
-			f\colon D&\rightarrow\R\\
-			g\colon D'&\rightarrow\R\\
+			f\colon D&\>\R\\
+			g\colon D'&\>\R\\
 			f(D)&\subseteq D'\\
 			f,g&\textrm{ stetig}\\
 			&\Rightarrow\\
-			(g\circ f)\colon D\rightarrow\R&\textrm{ ist stetig}
+			(g\circ f)\colon D\>\R&\textrm{ ist stetig}
 		\end{align*}
 		\underline{Beweis} folgt direkt aus Def. 5.1, 5.7 und den Rechenregeln für Folgen 2.13.
 	\end{itemize}
 	\subsection{Bemerkung}
-	Es gilt: $D\subseteq\R$ Intervall, $f\colon D\rightarrow f(D)$ bijektiv, stetig.\\
-	Dann ist auch die Umkehrfunktion $f^{-1}\colon f(D)\rightarrow D$ stetig.
+	Es gilt: $D\subseteq\R$ Intervall, $f\colon D\> f(D)$ bijektiv, stetig.\\
+	Dann ist auch die Umkehrfunktion $f^{-1}\colon f(D)\> D$ stetig.
 	\subsection{Bemerkung}
 	Man kann zeigen (u.a. mit 5.11), dass
 	\begin{itemize}
@@ -1437,7 +1444,7 @@
 	\end{itemize}
 	\subsection{Bemerkung/Definition (Rationale Funktionen)}
 	\begin{align*}
-		f\colon D&\rightarrow\R\\x&\mapsto\frac{p(x)}{q(x)}
+		f\colon D&\>\R\\x&\mapsto\frac{p(x)}{q(x)}
 	\end{align*}
 	sei rationale Funktion mit $D=\R\setminus\{x\in\R|q(x)=0\}$.\\
 	Dann ist $f$ stetig auf ganz D.\\
@@ -1445,14 +1452,14 @@
 	\underline{Beispiel:}\\
 	\begin{itemize}
 		\item[a)] \begin{align*}
-			f\colon D=\R\setminus\{1\}&\rightarrow \R\\
+			f\colon D=\R\setminus\{1\}&\> \R\\
 			f(x)&=\frac{x^2-1}{x-1}
 		\end{align*}
 		ist stetig auf D.\\
 		Setze $f$ auf $\R$ fort.\\
 		\begin{minipage}[c]{0.5\textwidth}
 			\begin{align*}
-			\tilde{f}\colon \R&\rightarrow\R\\
+			\tilde{f}\colon \R&\>\R\\
 			\tilde{f}(x)&=\begin{cases}\frac{x^2-1}{x-1}&\textrm{falls }x\neq1\\
 			b&\textrm{falls }x=1
 			\end{cases}
@@ -1474,43 +1481,599 @@
 			plot(\x,\x+1) node[right]{$f(x)$};
 			\end{tikzpicture}
 		\end{minipage}\\
-		$\tilde{f}$ ist stetig in $x_0=1$ genau dann, wenn $b=2$ gewählt wird,\\ denn $\lim\limits_{x\rightarrow1}f(x)=2$.\\
+		$\tilde{f}$ ist stetig in $x_0=1$ genau dann, wenn $b=2$ gewählt wird,\\ denn $\lim\limits_{x\>1}f(x)=2$.\\
 		$x_0=1$ ist eine \underline{(stetig) hebbare Definitionskücke} von $f$\\
 		Allgemein:\\
-		Sei $f\colon\R\setminus\{x_0\}\rightarrow\R$, es existiert $\lim\limits_{x\rightarrow x_0}f(x)\eqqcolon r\quad r\in\R$, dann ist $x_0$ stetig hebbare Definitionslücke von $f$, die Funktion
+		Sei $f\colon\R\setminus\{x_0\}\>\R$, es existiert $\lim\limits_{x\> x_0}f(x)\eqqcolon r\quad r\in\R$, dann ist $x_0$ stetig hebbare Definitionslücke von $f$, die Funktion
 		\begin{align*}
-			\tilde{f}\colon \R&\rightarrow\R\\
+			\tilde{f}\colon \R&\>\R\\
 			\tilde{f}(x)&=\begin{cases}f(x)&\textrm{ für }x\neq x_0\\
 			r&\textrm{ für }x=x_0
 			\end{cases}
 		\end{align*}
 		ist dann die stetige Fortsetzung von $f$ auf $\R$.
-		\item[b)] $f\colon\R\setminus\{1\}\rightarrow\R,\quad f(x)=\frac{(x^2-1)(x-1)}{(x-1)}$\\
-		Definitionslücke $x_0=1$ hebbar durch $0=\lim\limits_{x\rightarrow1}f(x)$,\\
-		$\tilde{f}\colon\R\rightarrow\R\quad\tilde{f}(x)=\begin{cases}f(x)&x\neq 1\\0&x=1
+		\item[b)] $f\colon\R\setminus\{1\}\>\R,\quad f(x)=\frac{(x^2-1)(x-1)}{(x-1)}$\\
+		Definitionslücke $x_0=1$ hebbar durch $0=\lim\limits_{x\>1}f(x)$,\\
+		$\tilde{f}\colon\R\>\R\quad\tilde{f}(x)=\begin{cases}f(x)&x\neq 1\\0&x=1
 		\end{cases}$ stetig.
-		\item[c)] $f\colon\R\setminus\{1\}\rightarrow\R,\quad f(x)=\frac{x^2}{(x-1)^2}=\frac{x+1}{x-1}$\\
-		Definitionslücke $x_0=1$ nicht hebbar: $\lim\limits_{x\rightarrow1}f(x)$ existiert nicht
-		\item[d)] Gilt für die Nullstelle $x_0$ des Nenners einer rationalen Funktion $f(x)\rightarrow\pm\infty$ für $x\rightarrow x_0\mp$, so nennt man $x_0$ \underline{Polstelle}.\\
-		Z.B. $f,g\colon\R\setminus\{0\}\rightarrow\R,\quad f(x)=\frac{1}{x},\quad g(x)=\frac{1}{x^2}$\\
+		\item[c)] $f\colon\R\setminus\{1\}\>\R,\quad f(x)=\frac{x^2}{(x-1)^2}=\frac{x+1}{x-1}$\\
+		Definitionslücke $x_0=1$ nicht hebbar: $\lim\limits_{x\>1}f(x)$ existiert nicht
+		\item[d)] Gilt für die Nullstelle $x_0$ des Nenners einer rationalen Funktion $f(x)\>\pm\infty$ für $x\> x_0\mp$, so nennt man $x_0$ \underline{Polstelle}.\\
+		Z.B. $f,g\colon\R\setminus\{0\}\>\R,\quad f(x)=\frac{1}{x},\quad g(x)=\frac{1}{x^2}$\\
 		$x_0=0$\\
 		\begin{itemize}
-			\item $f(x)\rightarrow\infty$ für $x\rightarrow0+$
-			\item $f(x)\rightarrow-\infty$ für $x\rightarrow0-$
-			\item $g(x)\rightarrow\infty$ für $x\rightarrow0+$ und $x\rightarrow0-$
+			\item $f(x)\>\infty$ für $x\>0+$
+			\item $f(x)\>-\infty$ für $x\>0-$
+			\item $g(x)\>\infty$ für $x\>0+$ und $x\>0-$
 		\end{itemize}
-		\item[e)] $f\colon\R\setminus\{0\}\rightarrow\R,\quad f(x)=\sin(\frac{1}{x})$ hat bei $x_0=0$ \underline{Oszillationsstelle}:
+		\item[e)] $f\colon\R\setminus\{0\}\>\R,\quad f(x)=\sin(\frac{1}{x})$ hat bei $x_0=0$ \underline{Oszillationsstelle}:
 		\begin{itemize}
-			\item für $(x_n)_n=(\frac{1}{n\pi})_n$ ist $f(x_n)=\sin(n\pi)=0\rightarrow0$
-			\item für $(x_n)_n=(\frac{1}{\frac{\pi}{2}+2\pi n})_n$ ist $f(x_n)=\sin(\frac{\pi}{2}+2\pi n)=1\rightarrow1$
+			\item für $(x_n)_n=(\frac{1}{n\pi})_n$ ist $f(x_n)=\sin(n\pi)=0\>0$
+			\item für $(x_n)_n=(\frac{1}{\frac{\pi}{2}+2\pi n})_n$ ist $f(x_n)=\sin(\frac{\pi}{2}+2\pi n)=1\>1$
 		\end{itemize}
-		d.h. $\lim\limits_{x\rightarrow0}f(x)$ existiert nicht
+		d.h. $\lim\limits_{x\>0}f(x)$ existiert nicht
+		\item[f)] Es gilt aber:\\
+		$f(x)=x\*\sin(\frac{1}{x})\>0$ für $x\>0$ (vgl. ÜB 7)\\
+		stetig hebbare Definitionslücke, hebbar durch 0
+		\item[g)] \underline{Wichtig:} (ohne Beweis hier, später)\\
+		$f(x)=\frac{\sin(x)}{x}\>1$ für $x\>0$\\
+		stetig hebbare Definitionslücke, hebbar durch 1
 	\end{itemize}
-	
-	
-	
-	
-	
-	
-	
+	Stetige Funktionen auf abgeschlossenen Intervallen  ($f\colon[a,b]\>\R$) besitzen wichtige Eigenschaften, u.a.:
+	\begin{itemize}
+		\item Zwischenwerteigenschaft
+		\item Existenz von Minimum und Maximum
+	\end{itemize}
+	\subsection{Satz (Zwischenwertsatz von Bolzano, Nullstellensatz, ZWS, IVT [Intermediate Value Theorem])}
+	$f\colon[a,b]\>\R$ stetig, $f(a)<0$ und $f(b)>0$\\
+	(genauso: $f(a)>0$ und $f(b)<0$ bzw. "$f(a)-f(b)<0$")\\
+	\\
+	Dann existiert ein $c\in[a,b]$ mit $f(c)=0$, d.h. $f$ hat Nullstelle in $[a,b]$.\\
+	Anschaulich klar:\\
+	\begin{minipage}[c]{0.5\textwidth}
+		$f$ stetig ('ohne absetzen'), keine Sprünge möglich
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		\begin{tikzpicture}[scale=0.5]
+		\draw[->]
+		(-0.2,0) -- (4.2,0) node[right] {$x$};
+		\draw[->]
+		(0,-2.2) -- (0,4.2) node[above] {$f(x)$};
+		\draw[color=blue]
+		(0.5,0) node[above]{$a$}
+		(3,0) node[below]{$b$}
+		(2,0) node[below, color=purple]{$c$}
+		(0,-1.5) node[left]{$f(a)$}
+		(0,1) node[left]{$f(b)$};
+		\draw[color=blue, style=dotted]
+		(0,1)--(3,1)--(3,0);
+		\draw[color=blue, style=dotted]
+		(0,-1.5)--(0.5,-1.5)--(0.5,0);
+		\draw[color=blue, domain=0.1:3.9, ultra thick]
+		plot(\x,\x-2) node[right]{$f(x)$};
+		\end{tikzpicture}
+	\end{minipage}
+	\underline{Beweis:} mittels Bisektionsverfahren\\
+	\subsubsection*{Start:}
+	$[a,b]\eqqcolon[a_1,b_1]$\\
+	\\
+	\begin{minipage}[c]{0.5\textwidth}
+	\subsubsection*{Schritt 1:}
+	halbiere das Intervall\\
+	berechne $y_1=f(\frac{a_1+b_1}{2})$
+	\begin{itemize}
+		\item $y_1<0$\\
+		neues Intervall: $[a_2,b_2]\coloneqq[\frac{a_1+b_1}{2},b_1]$
+		\item $y_1>0$\\
+		neues Intervall:$[a_2,b_2]\coloneqq[a_1,\frac{a_1+b_1}{2}]$
+		\item $y_1=0$\\
+		habe $c$ schon gefunden, $c=\frac{a_1+b_1}{2}$
+	\end{itemize}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		\begin{tikzpicture}[scale=0.5]
+		\draw[->]
+		(-0.2,0) -- (8,0) node[right] {$x$};
+		\draw[->]
+		(0,-5) -- (0,5) node[above] {$f(x)$};
+		\draw[color=blue]
+		(6,0)node[above, color=black]{$c$}
+		(0.5,0)node[above]{$a_1$}
+		(0,-1)node[left]{$f(a_1)$}
+		(7.8,0) node[below]{$b_1$}
+		(7.8,0) node[above left, color=red]{$b_2$}
+		(0,3.5)node[left]{$f(b_1)$}
+		(4,0)node[above, color=red]{$a_2$}
+		(0,-2.5)node[left, color=blue]{$y_1$};
+		\draw[color=red, style=dotted]
+		(4,0)--(4,-2.5)--(0,-2.5);
+		\draw[color=blue, style=dotted]
+		(0,3.5)--(7.8,3.5)--(7.8,0);
+		\draw[color=blue, style=dotted]
+		(0.5,0)--(0.5,-1)--(0,-1);
+		\draw[color=blue, domain=0.1:7.9, ultra thick]
+		plot(\x,0.25*\x*\x-1.5*\x-0.5) node[right]{$f(x)$};
+		\draw[color=blue, domain=0.1:7.9]
+		plot(\x,-3) node[right]{Intervall Schritt 1};
+		\draw[color=red, domain=4:7.9]
+		plot(\x,-5) node[right]{Intervall Schritt 2};
+		\end{tikzpicture}
+	\end{minipage}\\
+	\\
+	Nach Schritt 1 gilt:\\
+	$[a_2,b_2]$ (neues Intervall) ist halb so groß wie $[a_1,b_1]$, und (hier)\\ $f(a_2)<0,\quad f(b_2)>0$
+	\subsubsection*{Schritt 2:}
+	halbiere Intervall, berechne $y_2=f(\frac{a_2+b_2}{2})$
+	\begin{itemize}
+		\item $y_2<0\Rightarrow[a_3,b_3]\coloneqq[\frac{a_2+b_2}{2},b_2]$
+		\item $y_2>0\Rightarrow[a_3,b_3]\coloneqq ...$
+		\item $y_2=0\Rightarrow ...$
+	\end{itemize}
+	usw.\\
+	\\
+	Für die Folge $([a_n,b_n])_n$ gilt:\\
+	\\
+	$\begin{rcases}
+	(a_n)\nearrow\quad\textrm{(monoton steigend)}\\
+	(b_n)\searrow\quad\textrm{(monoton fallend)}\\
+	(b_n-a_n)\>0\textrm{ für }\infn
+	\end{rcases}\Rightarrow$ (Intervallschachtelungsprinzip)\\
+	\\
+	$\lim\limits_{\infn}a_n=\lim\limits_{\infn}b_n\eqqcolon c$\\
+	\\
+	Es ist $f(a_n)\leq0,\qquad f(b_n)\geq0$\\
+	Da $f$ stetig ist, gilt:\\
+	\\
+	$\begin{rcases}
+	\underbrace{\lim\limits_{\infn}f(a_n)}_{\leq0}\overset{\textrm{Def. Stetigkeit}}{=}f(c)\leq 0\\
+	\underbrace{\lim\limits_{\infn}f(b_n)}_{\geq0}\overset{\textrm{Def. Stetigkeit}}{=}f(c)\geq0
+	\end{rcases}\Rightarrow f(c)=0$, also hat $f$ Nullstelle bei $c$\\
+	\hspace*{\fill}$\square$\\
+	\\
+	Dieses Verfahren wird auch zur Berechnung von Nullstellen verwendet.\\
+	Folgerung: 5.16
+	\subsection{Satz (ZWS allgemein)}
+	Sei $f\colon[a,b]\>\R$ stetig, $y$ eine Zahl zwischen $f(a)$ und $f(b)$.\\
+	Dann gibt es ein $\overline{x}\in[a,b]$ mit $f(\overline{x})=y$ ($f$ nimmt auf dem Intervall $[a,b]$ jeden zwischen $f(a)$ und $f(b)$ liegenden Wert an).\\
+	\subsubsection*{Beweis}
+	OBdA sei $f(a)\leq y\leq f(b)$.\\
+	Definiere Hilfsfunktion
+	\begin{align*}
+		g\colon[a,b]&\>\R\\
+		x&\mapsto f(x)-y
+	\end{align*}\\
+	\newpage
+	Dann ist\\
+	$\begin{rcases}
+	\underbrace{g(a)}_{f(a)-y,\quad f(a)\leq y}\leq0\\
+	\\
+	\underbrace{g(b)}_{f(b)-y,\quad f(b)\geq y}\geq0\\
+	\\
+	g\textrm{ ist stetig}\\
+	\textrm{  (als Verknüpfung stetiger Funktionen)}
+	\end{rcases}\overset{5.15\textrm{/ZWS}}{\Rightarrow}\exists c\in[a,b]$ mit $g(c)=0$\\
+	\\
+	$g(c)=f(c)-y=0$, dann ist $f(c)=g(c)+y=0+y=y$\\
+	\hspace*{\fill}$\square$
+	\subsection{Anwendung}
+	\begin{itemize}
+		\item[a)] Existenz von Nullstellen, Bsp $\pi$ (s. PÜ)
+		\item[b)] Existenz von Lösungen einer Gleichung (PÜ 8)
+		\item[c)] Kamel, Antipoden, Käsebrot, Tisch (s. Folien 06.06.2016)
+		\item[d)] Der ZWS liefert auch ein Kriterium zur Existenz von stetigen Umkehrfunktionen.
+	\end{itemize}
+	\subsection{Definition}
+	$f\colon D\>\R$ heißt \underline{(streng) monoton fallend [wachsend]}, falls gilt:\\
+	Sind $x,y\in D,\quad x<y$, dann ist $f(x)\overset{(<)}{\leq} f(y)\quad[f(x)\overset{(>)}{\geq}f(y)]$.\\
+	Wenn $f$ (streng) monoton wachsend oder fallend: $f$ ist (streng) monoton.
+	\subsection{Satz}
+	$D$ Intervall, $f\colon D\>\R$ stetig.\\
+	Dann gilt: $f$ ist injektiv auf $D\Leftrightarrow\quad f$ streng monoton auf $D$.\\
+	\subsubsection*{Beweis}
+	\begin{itemize}
+		\item["$\Leftarrow$":] Sei $x\neq y$, also etwa $x<y$.\\
+		$f$ streng monoton $\Rightarrow\quad f(x)<f(y)$ bzw. $f(x)>f(y)$, also $f(x)\neq f(y)$; also $f$ injektiv.
+		\item["$\Rightarrow$":](Achtung: falls $f$ nicht stetig: injektiv $\nRightarrow$ streng monoton, z.B. \begin{minipage}{0.15\textwidth}
+			\begin{tikzpicture}[scale=0.2]
+			\draw[->]
+			(-0.2,0) -- (5,0) node[right] {};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {};
+			\draw[color=blue, domain=0:2]
+			plot(\x,\x) node[]{};
+			\draw[color=blue, domain=2:4]
+			plot(\x,6-\x) node[]{};
+			\draw[color=blue] (2,4) circle [radius=8pt] node[right] {};
+			\filldraw[color=blue] (2,2) circle [radius=5pt] node[right] {};
+			\end{tikzpicture}
+		\end{minipage})\\
+		Wir zeigen (Kontraposition):\\
+		$f$ nicht stetig$\Rightarrow$ $f$ nicht injektiv\\
+		Sei $f$ nicht streng monoton, dann gilt für ein $y$ mit $x<y<z$ aus $D$:\\
+		\begin{minipage}{0.25\textwidth}
+			\begin{tikzpicture}[scale=0.25]
+				\draw[->]
+				(-0.2,0) -- (5,0) node[right] {};
+				\draw[->]
+				(0,-0.5) -- (0,5) node[above] {};
+				\draw[color=blue, domain=0.7:3.5]
+				plot(\x,-2*\x*\x+7.6*\x-4) node[]{};
+				\draw[color=blue]
+				(0.74,0) node[below]{$x$}
+				(2,0) node[below]	{$y$}
+				(3.25,0)node[below right]{$z$};
+			\end{tikzpicture}
+		\end{minipage} $f(x)\underset{\geq}{\leq} f(y),\quad f(y)\underset{\leq}{\geq}f(z)$\\
+		Nach ZWS: $f$ nimmt in $[x,y]$ jeden Wert zwischen $f(x)$ und $f(y)$ an, $f$ nimmt in $[y,z]$ jeden Wert zwischen $f(y)$ und $f(z)$ an.\\
+		$\Rightarrow$ mind. ein Wert wird doppelt angenommen\\
+		$\Rightarrow$ $f$ ist nicht injektiv
+		\hfill$\square$
+	\end{itemize}
+	\subsection{Satz (Minimax-Theorem von Weierstraß)}
+	Jede stetige Funktion $f\colon[a,b]\>\R$
+	\begin{itemize}
+		\item[(i)] ist beschränkt (d.h. $\exists K\in\N$, so dass $f(x)\in[-K,K]\quad\forall x\in[a,b]$)
+		\item[(ii)] besitzt sowohl Minimum als auch Maximum, d.h. $\exists x_*,x^*\in[a,b]$ mit\\
+		 $f(x_*)\leq f(x)\leq f(x^*)\quad\forall x\in[a,b]$\\
+		($x_*$ heißt dann $\overset{\textrm{Minimum-}}{\textrm{Minimal}}$stelle, $x^*$ heißt $\overset{\textrm{Maximum-}}{\textrm{Maximal}}$stelle)
+	\end{itemize}
+	\underline{Beweis} nutzt wieder Bisektionsverfahren, s. WHK Theorem 6.24\hfill$\square$\\
+	(Achtung: Aussage über \underline{globale Maxima/Minima} nicht eindeutig)
+	\subsection{Beispiel/Gegenbeispiel}
+	\begin{itemize}
+		\item[a)] \begin{minipage}[c]{0.15\textwidth}
+			\begin{tikzpicture}[scale=0.25]
+			\draw[->]
+			(-0.2,0) -- (8,0) node[right] {$x$};
+			\draw[->]
+			(0,-5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=blue, domain=1:7.9, ultra thick]
+			plot(\x,0.25*\x*\x-1.5*\x-0.5) node[right]{};
+			\filldraw[color=blue] (3,-2.75) circle [radius=5pt] node[below] {Min};
+			\filldraw[color=blue] (8,3.5) circle [radius=5pt] node[left] {Max};
+			\draw[color=blue]
+			(1,0)node[below]{$a$}
+			(8,0)node[below]{$b$};
+			\end{tikzpicture}
+		\end{minipage}
+		\item[b)]\begin{minipage}[c]{0.25\textwidth}
+			\begin{tikzpicture}[scale=0.25]
+			\draw[->]
+			(-0.2,0) -- (7,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=blue, domain=2:5, ultra thick]
+			plot(\x,2.5) node[right]{};
+			\draw[color=blue]
+			(2,0)node[below]{$a$}
+			(5,0)node[below]{$b$};
+			\end{tikzpicture}
+		\end{minipage}
+		Für $f(x)=c$: Alle $x\in[a,b]$ sind Maximal-/Minimalstellen!
+		\item[c)]\begin{minipage}[c]{0.25\textwidth}
+			\begin{tikzpicture}[scale=0.25]
+			\draw[->]
+			(-0.2,0) -- (7,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=red, domain=-0.2:7, samples=50]
+			plot(\x,{sin(2*\x r)+2}) node[]{};
+			\draw[color=blue]
+			(2,0)node[below]{$a$}
+			(5,0)node[below]{$b$};
+			\end{tikzpicture}
+		\end{minipage}
+		$f(x)=\sin (x)+c$, $D=[0,n\*\pi]$: mehrere Maximal-/Mininmalstellen
+		\item[d)] Falls nicht alle Voraussetzungen erfüllt sind, gilt der Satz i.A. nicht, z.B.
+		\begin{itemize}
+			\item $f$ nicht stetig:\\
+			\begin{minipage}[c]{0.5\textwidth}
+				\begin{tikzpicture}[scale=0.25]
+				\draw[->]
+				(-0.2,0) -- (8,0) node[right] {$x$};
+				\draw[->]
+				(0,-0.5) -- (0,5) node[above] {$f(x)$};
+				\draw[color=blue, domain=0:4, ultra thick]
+				plot(\x,0.25*\x*\x) node[]{};
+				\draw[color=blue, domain=4:8, ultra thick]
+				plot(\x,0) node[]{};
+				\filldraw[color=blue] (4,0) circle [radius=8pt] node[left] {};
+				\draw[color=blue] (4,4) circle [radius=8pt] node[left] {};
+				\end{tikzpicture}
+			\end{minipage}
+			\begin{minipage}[c]{0.35\textwidth}
+				$f(x)=\begin{cases}
+				x^2&x<1\\
+				0&x\geq1
+				\end{cases}$ auf $[0,2]$\\
+				$f$ hat kein Maximum auf $[0,2]$
+			\end{minipage}
+			\item Definitionsbereich von $f$ nicht abgeschlossen\\
+				\begin{minipage}[c]{0.5\textwidth}
+					\begin{tikzpicture}[scale=0.25]
+					\draw[->]
+					(-0.2,0) -- (8,0) node[right] {$x$};
+					\draw[->]
+					(0,-0.5) -- (0,5) node[above] {$f(x)$};
+					\draw[color=blue, domain=0:4, ultra thick]
+					plot(\x,\x) node[]{};
+					\filldraw[color=blue] (0,0) circle [radius=8pt] node[left] {};
+					\draw[color=blue] (4,4) circle [radius=8pt] node[left] {};
+					\end{tikzpicture}
+				\end{minipage}
+				\begin{minipage}[c]{0.35\textwidth}
+					\begin{align*}
+						f\colon[0,3)&\>\R\\
+						x&\mapsto x
+					\end{align*}
+					kein Maximum
+				\end{minipage}
+				\item Definitionsbereich von $f$ nicht beschränkt:\\
+				\begin{minipage}[c]{0.5\textwidth}
+					\begin{tikzpicture}[scale=0.25]
+					\draw[->]
+					(-0.2,0) -- (8,0) node[right] {$x$};
+					\draw[->]
+					(0,-0.5) -- (0,5) node[above] {$f(x)$};
+					\draw[color=blue, domain=0.25:8, ultra thick]
+					plot(\x,1/\x) node[]{};
+					\end{tikzpicture}
+				\end{minipage}
+				\begin{minipage}[c]{0.35\textwidth}
+					\begin{align*}
+						f\colon(0,\infty)&\>(0,\infty)\\
+						x&\mapsto \frac{1}{x}
+					\end{align*}
+					kein Maximum/Minimum
+				\end{minipage}
+		\end{itemize}
+		Bemerkung: Es gibt aber auch nicht stetige Funktionen, die Maximum/Minimum besitzen! Z.B.\begin{minipage}{0.15\textwidth}
+			\begin{tikzpicture}[scale=0.2]
+			\draw[->]
+			(-0.2,0) -- (7,0) node[right] {};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {};
+			\draw[color=blue, domain=1:3.5]
+			plot(\x,2) node[]{};
+			\draw[color=blue, domain=3.5:6]
+			plot(\x,4) node[]{};
+			\draw[color=blue] (3.5,2) circle [radius=8pt] node[right] {};
+			\filldraw[color=blue] (3.5,4) circle [radius=5pt] node[right] {};
+			\end{tikzpicture}
+		\end{minipage}
+	\end{itemize}
+	\subsection{Bemerkung}
+	Satz 5.20 liefert nur die Existenz von Maxima/Minima, aber keine Aussage darüber, wie man Maximum-/Minimumstelle (insbesondere "lokale") finden kann!\\
+	$\>$ 6 Differentialrechnung
+	\newpage
+	\section{Differenzierbare Funktionen}
+	\subsection{Vorbemerkung}
+	s. Folien\\
+	Idee:\\
+	\begin{tikzpicture}[scale=0.7]
+	\draw[->]
+	(-0.2,0) -- (7,0) node[right] {};
+	\draw[->]
+	(0,-0.2) -- (0,5) node[above] {};
+	\draw[color=blue, domain=0:5.2]
+	plot(\x,\x*\x*0.2) node[above]{f};
+	\draw[color=red, domain=1:5.2]
+	plot(\x,1.3*\x-1.5) node[right]{\textrm{Sekante}};
+	\draw[color=black]
+	(1.5,0) node[below]{$x_0$}
+	(3,-1)node[below]{$x_0+$kleineres $h$}
+	(5,0) node[below]{$x_0+h$};
+	\draw[color=black, style=dotted]
+	(1.5,0)--(1.5,0.45)
+	(5,0)--(5,5);
+	\draw[color=green, domain=1:5.2]
+	plot(\x,0.9*\x-0.9)node[right]{\textrm{bessere Sekante}};
+	\draw[color=green, style=dotted]
+	(3,0)--(3,1.8);
+	\end{tikzpicture}\\
+	Die Gerade (Sekante) durch die Punkte $(x_0|f(x_0))$ und $(x_0+h|f(x_0+h))$ hat die Steigung $\frac{f(x_0+h)-f(x_0)}{x_0+h-x_0}$ ('Differenzenquotient').\\
+	Je kleiner $h$, desto besser beschreibt die Sekante die 'Steigung von $f$ in $x_0$'.\\
+	Für $h\>0$ erhält man (falls Grenzwert existiert) die \underline{Tangente} in $x_0$ mit Steigung $\lim\limits_{h\>0}\frac{f(x_0+h)-f(x_0)}{h}$.\\
+	\\
+	In diesem Kapitel ist $I\subseteq\R$ ein offenes Intervall.
+	\subsection{Definition}
+	$f\colon I\>\R,\qquad x_0\in I$
+	\begin{itemize}
+		\item[a)] $f$ heißt \underline{differenzierbar (diffbar)} in $x_0$ (an der Stelle $x_0$), falls $\lim\limits_{h\>0}\frac{f(x_0+h)-f(x_0)}{h}$ existiert. Dieser Grenzwert  heißt \underline{erste Ableitung von $f$ an der Stelle $x_0$} und wird mit $f^\prime(x_0)$ ['$f$ Strich'] oder $\dfrac{f}{x}(x_0)$ bezeichnet.
+		\item[b)] Ist $f$ in jedem $x_0\in I$ diffbar, so heißt $f$ \underline{differenzierbar (auf $I$)} und man nennt die Funktion $f^\prime\colon I\>\R,\qquad x\mapsto f^\prime(x)$ die \underline{Ableitung(-sfunktion) von $f$}.
+	\end{itemize}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] \begin{align*}
+			f\colon\R&\>\R\\
+			x&\mapsto x^2,\qquad x_0=2\\
+			&\\
+			f^\prime(2)&=\lim\limits_{h\>0}\frac{f(2+h)-f(2)}{h}\\
+			&=\lim\limits_{h\>0}\frac{(2+h)^2-2^2}{h}\\
+			&=\lim\limits_{h\>0}\frac{4+4h+h^2-4}{h}\\
+			&=\lim\limits_{h\>0}(4+h)\\
+			&=4
+		\end{align*}
+		allgemein für $x^2$:
+		\begin{align*}
+			f^\prime(x)&=\lim\limits_{h\>0}\frac{f(x+h)-f(x)}{h}\\
+			&=\lim\limits_{h\>0}\frac{(x+h)^2-x^2}{h}\\
+			&=\lim\limits_{h\>0}\frac{x^2+2xh+h^2-x^2}{h}\\
+			&=\lim\limits_{h\>0}(2x+h)\\
+			&=2x\qquad\forall x\in\R
+		\end{align*}
+		\underline{Bemerkung:} '$\lim\limits_{h\>0}$' nicht weglassen/vergessen!
+		\item[b)] konstante Fkt:\begin{align*}
+			f(x)&=c\qquad\forall x\in\R\\
+			&\\
+			f^\prime(x)&=\lim\limits_{h\>0}\frac{f(x+h)-f(x)}{h}\\
+			&=\lim\limits_{h\>0}\frac{c-c}{h}\\
+			&=\lim\limits_{h\>0}\frac{0}{h}\\
+			&=0
+		\end{align*}
+		\item[c)] $f(x)=x^n\qquad (n\in\N)$\\
+		$\Rightarrow f^\prime(x)=n\*x^{n-1}$\\
+		(Beweis durch vollst. Induktion)
+		\item[d)] \begin{align*}
+			f\colon\R^+&\>\R\\
+			f(x)&=\frac{1}{x}\\
+			&\\
+			f^\prime(x)&=\lim\limits_{h\>0}\frac{f(x+h)-f(x)}{h}\\
+			&=\lim\limits_{h\>0}\frac{\frac{1}{x+h}-\frac{1}{x}}{h}\\
+			&=\lim\limits_{h\>0}\frac{x-(x+h)}{x\*(x+h)}\*\frac{1}{h}\\
+			&=\lim\limits_{h\>0}\frac{-h}{x^2+xh}\*\frac{1}{h}\\
+			&=\lim\limits_{h\>0}\frac{-1}{x\*(x+h)}\\
+			&=-\frac{1}{x^2}
+		\end{align*}
+		\item[e)] \begin{align*}
+			f(x)&=\sin x\\
+			&\\
+			f^\prime(x)&=\lim\limits_{h\>0}\frac{\sin(x+h)-\sin x}{h}\\
+			&=\lim\limits_{h\>0}\frac{\overbrace{\sin x\*\cos x+\cos x\*\sin x}^{\textrm{Additionstheorem}}-\sin x}{h}\\
+			&=\lim\limits_{h\>0}\sin x\*\underbrace{\frac{\cos (h)+1}{h}}_{\>0\textrm{, Mitteilung oder Übung}}+\cos x\*\underbrace{\frac{\sin h}{h}}_{\>1\textrm{, Bsp. 5.14 g}}\\
+			&=\sin (x)\*0+\cos(x)\*1\\
+			&=\cos x
+		\end{align*}
+		\item[f)] $f(x)=\cos x$\\
+		$f^\prime(x)=-\sin x\qquad$(Übung)
+	\end{itemize}
+	\subsection{Satz}
+	$f\colon I\>\R,\qquad x_0\in I$\\
+	Dann sind äquivalent:
+	\begin{itemize}
+		\item[a)] $f$ ist in $x_0$ diffbar.
+		\item[b)] Es gibt eine Funktion $R\colon I\>\R$ stetig in $x_0$, $R(x_0)=0$, und ein $m\in\R$, so dass gilt:\\
+		$f(x)=\underbrace{\overbrace{f(x_0)}^{\textrm{Zahl}}+m(x-x_0)}_{\textrm{Gerade durch }(x_0|f(x_0)\textrm{ mit Steigung }m\textrm{ = Tangente})}+\underbrace{R(x)(x-x_0)}_{\textrm{wird 0 an der Stelle  }x_0\textrm{, wird klein in der Nähe von }x_0}$\\
+		Gilt b), so ist $m=f^\prime(x_0)$ (d.h. die \underline{Ableitung ist die Steigung der Tangente}).\\
+		b) besagt: $f$ lässt sich in der Nähe von $x_0$ gut durch eine (affin-)lineare Funktion (Gerade) approximieren.	
+	\end{itemize}
+	\subsubsection*{Beweis:}
+	\begin{itemize}
+		\item[a$\Rightarrow$b:] Setze $R(x)=\begin{cases}
+		\frac{f(x)-f(x_0)}{x-x_0}-f^\prime(x_0)&\quad x\neq x_0\\
+		0&\quad x=x_0
+		\end{cases}$, dann ist nach Voraussetzung \begin{align*}
+			\lim\limits_{x\>x_0}R(x)&=\lim\limits_{h\>0}R(x_0+h)\\
+			&=\underbrace{\lim\limits_{h\>0}\frac{f(x_0+h)-f(x_0)}{x_0+h-x_0}}_{\textrm{existiert, da }f\textrm{ diffbar und }=f^\prime(x_0)}-f^\prime(x_0)\\
+			&=0
+		\end{align*} nach Definition 6.2, weil $f$ diffbar in $x_0$;\\
+		also ist $R$ stetig mit $R(x_0)=0$.
+		\item[b$\Rightarrow$a:] Sei $f(x)=f(x_0)+m(x-x_0)+R(x)(x-x_0)$ (Voraussetzung)\\
+		$\Rightarrow\quad f(x_0+h)=f(x_0)+m(x_0+h-x_0)+R(x_0+h-x_0)$\\
+		$\Leftrightarrow\quad \frac{f(x_0+h)-f(x_0)}{h}=m+R(x_0+h)$\\
+		$\Rightarrow\quad \lim\limits_{h\>0}\frac{f(x_0+h)-f(x_0)}{h}=\lim\limits_{h\>0}m+R(x_0+h)$\\
+		$\qquad\qquad=m+\underbrace{R(x_0)}_{=0\textrm{ (Voraussetzung)}}$\\
+		$\qquad\qquad=m$\\
+		D.h. $\lim$ existiert, $f$ ist diffbar in $x_0$, $f^\prime(x_0)=m$
+	\end{itemize}
+	\hfill$\square$
+	\subsection{Korollar (Folgerung)}
+	Ist $f\colon I\>\R$ diffbar in $x_0\in I$, dann ist $f$ auch stetig in $x_0$ (Beweis folgt aus 6.4 b).
+	\subsection{Bemerkung/Beispiel}
+	Umkehrung von 6.5 gilt nicht!\\
+	\\
+	Die Betragsfunktion $f\colon \R\>\R,\quad x\mapsto |x|$ ist bei $x_0=0$ stetig, aber nicht diffbar!\\
+	$f(x)=\begin{cases}x&\qquad x\geq0\\
+	-x&\qquad x<0
+	\end{cases}$\\
+	Denn: $\lim\limits_{h\>0}\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\>0}\frac{|x+h|-|x|}{h}$ existiert nicht für $x=0$!
+	\begin{itemize}
+		\item $\lim\limits_{h\>0+}\frac{|0+h|-0}{h}=\lim\limits_{h\>0+}\frac{h}{h}=1$
+		\item $\lim\limits_{h\>0-}\frac{|0+h|-0}{h}=\lim\limits_{h\>0-}\frac{-h}{h}=-1$
+		\item $\Rightarrow 1\neq-1$
+	\end{itemize}
+	Also: stetig $\nRightarrow$ differenzierbar\\
+	${}^{}\qquad\qquad{}^{}\quad\Leftarrow$
+	\subsection{Satz (Ableitungsregeln)}
+	$f,g\colon I\>\R$ diffbar in $x\in I$. Dann sind auch
+	\begin{itemize}
+		\item $c\*f$, $c\in\R$
+		\item $f\pm g$
+		\item $f\*g$ und
+		\item $\frac{f}{g}$ (falls $g(x)\neq0$)
+	\end{itemize}
+	diffbar in $x$ mit
+	\begin{itemize}
+		\item[a)] $(c\*f)'(x)=c\*f^\prime(x)$
+		\item[b)] $(f\pm g)'(x)=f^\prime(x)\pm g^\prime(x)$
+		\item[c)] $(f\*g^\prime)(x)=f^\prime(x)\*g(x)+f(x)\*g^\prime(x)$ [Produktregel]
+		\item[d)] $(\frac{f}{g})'(x)=\frac{f^\prime(x)\*g(x)-f(x)\*g^\prime(x)}{g^2(x)}$ [Quotientenregel]
+	\end{itemize}
+	\subsubsection*{Beweis:}
+	(nur a,c; Rest ähnlich)
+	\begin{itemize}
+		\item[a)] $\frac{c\*f(x+h)-c\*f(x)}{h}=c\*\underbrace{\frac{f(x+h)-f(x)}{h}}_{\>f^\prime(x)\textrm{ für }h\>0}$\\
+		${}^{}\qquad\qquad{}^{}\quad\overset{h\>0}{\>}c\*f^\prime(x)$
+		\item[c)] \begin{align*}
+			\frac{(f\*g)(x+h)-(f\*g)(x)}{h}\quad&\overset{\textrm{Regeln für Fkt.}}{=}\quad\frac{f(x+h)\*g(x+h)-f(x)\*g(x)}{h}\\
+			\>\textrm{Einschiebetrick: }&-f(x)\*g(x+h)+f(x)\*g(x+h)\\
+			&=\underbrace{\frac{f(x+h)-f(x)}{h}}_{\overset{h\>0}{\>f^\prime(x)}}\*\underbrace{g(x+h)}_{\overset{h\>0}{\>}g(x)\textrm{ (da stetig)}}\\
+			&\qquad+\underbrace{\frac{g(x+h)-g(x)}{h}}_{\overset{h\>0}{\>}g^\prime(x)}\*f(x)\\
+			&\overset{h\>0}{\>}f^\prime(x)\*g(x)+f(x)\*g^\prime(x)
+		\end{align*}
+	\end{itemize}
+	\hfill$\square$
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] Jedes Polynom ist diffbar (wegen a, b, c); jede rationale Funktion ist diffbar (a, b, d).
+		\item[b)] $(4x^3+7x+5)^\prime=4\*3x^2+7+0=12x^2+7$
+		\item[c)] $(\frac{3}{x})^\prime=\frac{0\*x-3\*1}{x^2}=-\frac{3}{x^2}$
+		\item[d)] $(\frac{1}{x^2})^\prime=(\frac{1}{x}\*\frac{1}{x})^\prime=-\frac{1}{x^2}\*\frac{1}{x}+\frac{1}{x}\*(-\frac{1}{x^2})$\\
+		${}^{}\qquad=-\frac{2}{x^3}$
+		\item[e)] Allgemein:\\
+		$f(x)=x^{-n}=\frac{1}{x^n},\qquad n\in\N$\\
+		$\Rightarrow f^\prime(x)=-n\*x^{-n-1}=-\frac{n}{x^{n+1}}$
+		\item[f)]$(\frac{\sin x}{x})^\prime=\frac{\cos(x)\*x-\sin(x)\*1}{x^2}$
+		${}^{}\qquad\frac{x\*\cos(x)-\sin x}{x^2}$
+		\item[g)] \begin{align*}
+			(\tan x)^\prime&=(\frac{\sin x}{\cos x})^\prime\\
+			&=\frac{\cos x\*\cos x-\sin x\*(-\sin x)}{(\cos x)^2}\\
+			&\overset{\textrm{Additionstheoreme}}{=}\quad\frac{1}{(\cos x)^2}\\
+			\textrm{oder (kürzen, aufspalten) }&=\frac{(\cos x)^2}{(\cos x)^2}+\frac{(\sin x)^2}{(\sin x)^2}\\
+			&=1+(\tan x)^2
+		\end{align*}
+	\end{itemize}
+	\subsection{Satz (Kettenregel)}
+	Die Komposition $f\circ g$ zweier diffbarer Funktionen $f,g$ ist diffbar und es gilt:\\
+	$(f\circ g)^\prime=(f^\prime\circ g)\*g^\prime$\\
+	Beweis ähnlich wie Satz 6.7\hfill$\square$\\
+	Zum Merken:\\
+	$(f\circ g)(x)=\overset{\textrm{'äußere'}}{f}(\overset{'innere' Funktion}{g(x)})$\\
+	$\>\qquad (f\circ g)^\prime(x)=f^\prime(g(x))\*g^\prime(x)$
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $((3x^2-x)^5)^\prime=5\*(3x^2-x)^4\*(6x-1)$\\
+		innere Fkt: $g(x)=3x^2-x$\\
+		äußere Fkt: $f(x)=x^5$
+		\item[b)] $(\sin(3x))^\prime=(\cos 3x)\*3$\\
+		innere Fkt: $g(x)=3x$\\
+		äußere Fkt: $f(x)=\sin x$
+	\end{itemize}
+	\subsection{Satz (Ableitung der Umkehrfunktion)}
+	$I, J\subseteq\R$ Intervalle, $f\colon I\>J$ bijektiv, diffbar in $x_0\in I$ mit $f^\prime(x_0)\neq0$\\
+	Dann ist auch die Umkehrfunktion $f^{-1}\colon J\>I$ diffbar in $y_0=f(x_0)$ und es gilt:\\
+	$(f^{-1})^\prime(y_0)=\underbrace{\frac{1}{f^\prime(x_0)}}_{f^\prime(x_0)\neq0}=\frac{1}{f^\prime(f^{-1}(y_0))}$\\
+	Beweis mittels Definition der Ableitung (Differenzenquotient), hier nur Merkregel.
+	\begin{align*}
+		&&y&=f(f^{-1}(y))\\
+		&\mathclap{\overset{\textrm{nach }y\textrm{ ableiten mit 6.9}}{\Rightarrow}}&1&=f^\prime(f^{-1}(y))\*(f^{-1})^\prime(y)\\
+		&\Leftrightarrow&(f^{-1}(y))&=\frac{1}{f^\prime(f^{-1}(y))}
+	\end{align*}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $f\colon\R1+\>\R^+,\qquad f(x)=\sqrt{x}$\\
+		Was ist $f^\prime(x)$?\\
+		$f$ ist Umkehrfunktion $h^{-1}$ von $h\colon\R^+\>\R^+,\qquad h(x)=x^2$. $h^\prime(x)=2x$
+		\begin{align*}
+			(h^{-1})^\prime(y)&=\frac{1}{h^\prime(h^{-1}(y))}\\
+			&=\frac{1}{2\*\sqrt{y}}\\
+			&\\
+			\Rightarrow f^\prime(x)&=\frac{1}{2\sqrt{x}}
+		\end{align*}
+		\item[b)] $f(x)=\sqrt[3]{x}=x^\frac{1}{3}$ ist $h^{-1}$ von $h(x)=x^3$.\\
+		...\\
+		$\Rightarrow f^\prime(x)=\frac{1}{3}x^{-\frac{2}{3}}$\\
+		da:\\
+		$h^\prime(x)=3x^2,\qquad (h^{-1})^\prime(y)=\frac{1}{3(\sqrt[3]{y})^2}=\frac{1}{3(y^\frac{1}{3})^2}$
+	\end{itemize}
 \end{document}
