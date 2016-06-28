@@ -2074,6 +2074,244 @@
 		...\\
 		$\Rightarrow f^\prime(x)=\frac{1}{3}x^{-\frac{2}{3}}$\\
 		da:\\
-		$h^\prime(x)=3x^2,\qquad (h^{-1})^\prime(y)=\frac{1}{3(\sqrt[3]{y})^2}=\frac{1}{3(y^\frac{1}{3})^2}$
+		$h^\prime(x)=3x^2,\qquad (h^{-1})^\prime(y)=\frac{1}{3(\sqrt[3]{y})^2}=\frac{1}{3(y^\frac{1}{3})^2}$\\
+		$h^\prime(0)=0\Rightarrow$ Ableitung von $h^{-1}$ existiert nicht in $x=0$\\
+		$\Rightarrow \quad y\in\R\setminus\{0\}$
+		\item[c)] \begin{align*}
+			f\colon \R&\>\R_{>0}\qquad f(y)=\e^y\\
+			f^{-1}\colon \R_{>0}&\>\R\qquad f^{-1}(x)=\ln x\\
+			\Rightarrow\qquad (\ln x)^\prime&=\frac{1}{f^\prime(f^{-1}(x))}\\
+			&=\frac{1}{\e^{\ln x}}=\frac{1}{x}\\
+			\Rightarrow\qquad (\ln|x|)^\prime&=\begin{cases}\frac{1}{x}\qquad x>0\\
+			\frac{1}{-x}\*(-1)=\frac{1}{x}\qquad x<0\textrm{(Kettenregel)}
+			\end{cases}\\
+			&=\frac{1}{x}\qquad x\neq 0
+		\end{align*}
 	\end{itemize}
+	Wir nutzen 6.12 c, um Produkte von Funktionen abzuleiten
+	\subsection{Bemerkung (Logarithmische Ableitung)}
+	Für $f\colon\R\>\R_{>0}$, $f$ diffbar ist $(\ln f(x))^\prime=\frac{f^\prime(x)}{f(x)}$ (6.12c, Kettenregel).\\
+	\subsubsection*{Beispiel}
+	\begin{align*}
+		f(x)&=\e^x(\sin(x)+2)\*x^5\qquad x>0\quad(\Rightarrow f(x)>0)\\
+		\ln f(x)&=x+\ln(\sin(x)+2)+5\*\ln x\\
+		(\ln f(x))^\prime&=1+\frac{\cos x}{\sin(x)+2}+5\*\frac{1}{x}=\frac{f^\prime(x)}{f(x)}\\
+		f^\prime(x)&=(1+\frac{\cos x}{\sin(x)+2}+\frac{5}{x})(\e^x(\sin(x)+2)\*x^5)\\
+		&=\e^x[(\sin(x)+2)\*x^5+\cos(x)\*x^5+(\sin(x)+2)\*5x^4]
+	\end{align*}
+	\subsubsection*{Bemerkung}
+	Man kann zeigen, dass die logarithmische Ableitung auch auf Funktionen mit Werten in ganz $\R$ anwendbar ist (berechne $(\ln|f(x)|)^\prime$ und stetige Fortsetzung in $x$ mit $f(x)=0$).\\
+	$\Rightarrow$ Beispiel gilt sogar $\forall x\in \R$
+	\subsection{Satz (Ableitungen der elementaren Funktionen)}
+	\begin{itemize}
+		\item $(a^x)^\prime=(\ln a)a^x\qquad a\in\R_{>0}$
+		\item $(x^\alpha)^\prime=\alpha x^{\alpha-1}\qquad\alpha\in\R,\quad x>0$
+		\item $(x^x)^\prime=(1+\ln x)x^x\qquad x>0$
+	\end{itemize}
+	\subsubsection*{Beweis}
+	\begin{itemize}
+		\item $(a^x)^\prime\overset{\textrm{Logarithmus}}{=}(\e^{\ln(a^x)})^\prime=(\e^{x\*\ln a})^\prime\overset{\textrm{Kettenregel}}{=}(\ln a)a^x$
+		\item Rest analog
+	\end{itemize}
+	Ab jetzt:
+	\subsubsection*{Kurvendiskussion}
+	\subsection{Definition}
+	$f\colon D\>\R$ besitzt in $x_0\in D$ ein \underline{lokales} $\overset{\textrm{\underline{Extremum}}}{\textrm{\underline{Maximum/Minimum}}}$, wenn es ein Intervall $U=(x_0-s,x_0+s)\subseteq D, s>0$ gibt, so dass $f(x_0)\underset{\geq}{\leq}f(x)\quad\forall x\in U$ ($U$ heißt Umgebung von $x_0$).\\
+	$f$ besitzt ein \underline{globales Maximum/Minimum} in $x_0$, wenn $f(x_0)\underset{\geq}{\leq}f(x)\quad\forall x\in\R$
+	\subsection{Satz (notwendige Bedingungen für lokale Extrema)}
+	Sei $f\colon D\>\R$ diffbar. Falls $f$ in $x_0\in D$ ein Extremum besitzt, dann ist $f^\prime(x_0)=0$.\\
+	\subsubsection*{Beweis}
+	Sei $U=(x_0-s,x_0+s),\quad s>0,\quad U\subseteq D$ und $\underbrace{f(x_0)\geq f(x)}_{\textrm{Maximum}}\qquad\forall x\in U$.\\
+	$\underset{f\textrm{ diffbar}}{\Rightarrow}f^\prime(x_0)=\lim\limits_{h\>0}\frac{f(x_0+h)-f(x_0)}{h}$\\
+	Da $f(x_0)\geq f(x_0+h)\quad\forall h<s$, ist $f(x_0+h)-f(x_0)\leq 0\quad\forall h<s$\\
+	$\Rightarrow\lim\limits_{h\>0+}\frac{\overbrace{f(x_0+h)-f(x_0)}^{\leq0}}{\underbrace{h}_{\geq 0}}\leq0$ und $\lim\limits_{h\>0-}\frac{\overbrace{f(x_0+h)-f(x_0)}^{\leq0}}{\underbrace{h}_{\leq0}}\geq0$\\
+	$\Rightarrow f^\prime(x_0)=0$ (für Minimum analog)\hfill$\square$
+	\subsection{Bemerkung}
+	$f^\prime(x_0)=0$ notwendige, aber nicht hinreichende Bedingung
+	\subsubsection*{Beispiel}
+	\begin{minipage}[c]{0.5\textwidth}
+		$f(x)=x^3$ hat in $x=0$ Sattelpunkt mit Steigung 0
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		\begin{tikzpicture}[scale=0.5]
+		\draw[->]
+		(-4.2,0) -- (4.2,0) node[right] {$x$};
+		\draw[->]
+		(0,-4.2) -- (0,4.2) node[above] {$f(x)$};
+		\draw[color=blue, domain=-2:2]
+		plot(\x,\x*\x*\x*0.5) node[right]{$f(x)=x^3$};
+		\end{tikzpicture}
+	\end{minipage}
+	$f$ hat lokales Extremum in $x_0$ $\underset{\nLeftarrow}{\Rightarrow}f^\prime(x_0)=0$\\
+	Für hinreichende Bedingung und weitere Ergebnisse der Kurvendiskussion: die zentralen Sätze der Differentialrechnung
+	\subsection{Satz (Mittelwertsätze, Satz von Rolle)}
+	Seien $f,g\colon[a,b]\>\R$ stetig und diffbar auf $(a,b)$; $g^\prime(x)\neq0\quad\forall x\in(a,b)$.
+	\begin{itemize}
+		\item[1)] [Skizze folgt]\\
+		$\Rightarrow\quad\exists\xi\in(a,b)\colon\frac{f(b)-f(a)}{b-a}=f^\prime(\xi)$\\
+		1. Mittelwertsatz
+		\item[2)] $f(a)=f(b)\Rightarrow \quad\exists\xi\in(a,b)\colon f^\prime(\xi)=0$\\
+		Satz von Rolle
+		\item[3)] $\Rightarrow \quad\exists\xi\in(a,b)\colon\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f^\prime(\xi)}{g^\prime(\xi)}$\\
+		2. Mittelwertsatz
+	\end{itemize}
+	\subsubsection*{Beweis}
+	\begin{itemize}
+		\item[2)] $f$ stetig auf $[a,b]\Rightarrow\quad f$ besitzt Maximum/Minimum $M\in\R/m\in\R$ in $[a,b]$, d.h. $m\leq f(x)\leq M$
+		\begin{itemize}
+			\item[1. Fall] Beide Extreme werden auf Rand angenommen\\
+			$f(a)=f(b)\Rightarrow m=M$\\
+			$\Rightarrow\quad f$ konstant $\Rightarrow$ $f^\prime(\xi)=0\quad\forall\xi\in(a,b)$
+			\item[2. Fall] Ein Extremum wird nicht auf Rand angenommen\\
+			$\Rightarrow\quad\exists\xi\in(a,b)\colon\xi$ ist Extremstelle\\
+			$\overset{\textrm{6.16}}{\Rightarrow}f^\prime(\xi)=0$
+		\end{itemize} 
+		\item[3)] Es ist $g(b)\neq g(a)$, denn sonst gäbe es $x\in(a,b)$ mit $g^\prime(x)=0$ (in Voraussetzung ausgeschlossen, Rolle).\\
+		Hilfsfunktion $h(x)=f(x)-\frac{f(b)-f(a)}{g(b)-g(a)}\*g(x)$\\
+		Man kann nachrechnen, dass $h(a)=h(b)$\\
+		$h$ stetig auf $[a,b]$ und $h$ diffbar auf $(a,b)$\\
+		$\underset{\textrm{Rolle}}{\Rightarrow}\exists\xi\in(a,b)\colon f^\prime(\xi)=0$\\
+		$\Rightarrow \frac{f^\prime(\xi)}{g^\prime(\xi)}=\frac{f(b)-f(a)}{g(b)-g(a)}$
+		\item[1)] folgt aus 3) für $g(x)=x$
+	\end{itemize}
+	\hfill$\square$
+	\subsection{Satz (Monotoniekriterium)}
+	Sei $f\colon[a,b]\>\R$ stetig und auf $(a,b)$ diffbar.
+	\begin{itemize}
+		\item[i)] $f^\prime(x)\underset{\leq}{\geq}0\quad\forall x\in(a,b)\Leftrightarrow f$ monoton $\underset{\textrm{fallend}}{\textrm{wachsend}}$ auf $[a,b]$
+		\item[ii)] $f^\prime(x)\underset{<}{>}0\quad\forall x\in(a,b) \overset{\nLeftarrow}{\Rightarrow} f$ streng monoton $\underset{\textrm{fallend}}{wachsen}$ auf $[a,b]$
+		\item[iii)] $f^\prime(x)=0\quad\forall x\in(a,b)\Leftrightarrow f$ konstant auf $[a,b]$		
+	\end{itemize}
+	\subsubsection*{Beweis}
+	\begin{itemize}
+		\item[i)] \begin{itemize}
+			\item['$\Rightarrow$'] Sei $a\leq x_1<x_2\leq b$\\
+			$\Rightarrow\exists\xi\in(x_1,x_2)\colon f(x_2)\*f(x_1)=\underbrace{\underbrace{f^\prime(\xi)}_{>0}\*\underbrace{(x_2-x_1)}_{>0}}_{>0}$\\
+			$\Rightarrow f(x_2)\geq f(x_1)$
+			\item['$\Leftarrow$'] Sei $f$ monoton wachsend auf $[a,b], f$ diffbar auf $(a,b)$\\
+			$\Rightarrow f^\prime(x)=\lim\limits_{h\>0}\frac{f(x+h)-f(x)}{h}\quad\forall x\in(a,b)$\\
+			Da $\frac{\overbrace{f(x+h)-f(x)}^{\geq0}}{\underbrace{h}_{>0}}\geq0$ für $h>0$ und\\
+			$\frac{\overbrace{f(x+h)-f(x)}^{\leq0}}{\underbrace{h}_{<0}}\geq0$ für $h<0$, ist $f^\prime(x)\geq0\quad\forall x\in(a,b)$.
+		\end{itemize}
+		\item[ii), iii)] analog
+	\end{itemize}
+	\hfill$\square$
+	\subsection{Satz (Hinreichende Bedingung für lokale Extrema I)}
+	[Skizze folgt]\\
+	Sei $f\colon(a,b)\>\R$ diffbar auf $(a,b)$ und sei $x_0\in(a,b)$ mit $f(x_0)=0$
+	\begin{itemize}
+		\item[i)] $f^\prime(x)\underset{\geq}{\leq}0\quad\forall x\in(x_0-s,x_0)$ und\\
+		$f^\prime(x)\underset{\leq}{\geq}0\quad\forall x\in(x_0,x_0+s)$, $s>0$\\
+		$\Rightarrow f$ hat lokales $\underset{\textrm{Maximum}}{\textrm{Minimum}}$ in $x_0$\\
+		Vorzeichenwechsel
+		\item[ii)] $f^\prime(x)\underset{>}{<}0\quad\forall x\in(x_0-s,x_0)\cap(x_0,x_0+s)$, $s>0$\\
+		$\Rightarrow f$ hat kein lokales Extremum in $x_0$
+	\end{itemize}
+	\subsubsection*{Beweis (für Minimum)}
+	Zu zeigen: $f(x)\geq f(x_0)\quad\forall x\in(x_0-s,x_0+s)=U$\\
+	Sei $x\in U\setminus\{x_0\}$. Wegen 1. MWS: $\exists\xi\in(x,x_0)$\\
+	(*) $f(x)-f(x_0)=f^\prime(\xi)(x-x_0)$
+	\begin{itemize}
+		\item[1. Fall] $x\in(x_0-s,x_0)$\\
+		$\Rightarrow x-x_0<0,\quad f^\prime(\xi)\leq0$ nach Voraussetzung\\
+		$\overset{*}{\Rightarrow} f(x)-f(x_0)\geq0$\\
+		$\Rightarrow f(x)\geq f(x_0)$
+		\item[2. Fall] $x\in(x_0,x_0+s)$\\
+		$\Rightarrow x-x_0>0,\quad f^\prime(\xi)\geq0$ nach Voraussetzung\\
+		$\overset{*}{\Rightarrow} f(x)-f(x_0)\geq0$\\
+		$\Rightarrow f(x)\geq f(x_0)$
+	\end{itemize}
+	Insgesamt also $f(x)\geq f(x_0)\quad\forall x\in U$\\
+	Rest analog\hfill$\square$
+	\subsection{Bemerkung}
+	[Skizze folgt]\\
+	Steigung von $f^\prime$ ist positiv in $x_0$, d.h. $f^{\prime\prime}(x_0)>0$\\
+	Wenn $f^{\prime\prime}(x_0)=0$, ist keine Aussage über Vorzeichenwechsel möglich, z.b. [Skizze folgt]
+	\subsection{Satz (Hinreichende Bedingung für lokale Extrema II)}
+	Sei $f\colon(a,b)\>\R$ diffbar auf $(a,b)$ und in $x_0\in(a,b)$ 2-mal diffbar\\
+	$[f^\prime(x_0)=0\textrm{ und }f^{\prime\prime}(x_0)\underset{<}{>}]\Rightarrow f$ besitzt in $x_0$ lokales $\underset{\textrm{Maximum}}{\textrm{Minimum}}$
+	\subsubsection*{Beweis (für Minimum)}
+	Es ist $\lim\limits_{h\>0}\frac{f^\prime(x_0+h)-\overbrace{f(x_0)}^{=0}}{h}=\lim\limits_{h\>0}\frac{f^\prime(x_0+h)}{h}\overset{h\>0}{\>}f^{\prime\prime}(x_0)>0$\\
+	$\Rightarrow \exists s>0\colon\frac{\overbrace{f^\prime(x_0+h)}^{*}}{h}>0\forall|h|<s,h\neq0$
+	\begin{itemize}
+		\item[1. Fall] $-s<h<0$\\
+		$\overset{*}{\Rightarrow}f^\prime(x_0+h)<0$
+		\item[2. Fall] $0<h<s$\\
+		$\overset{*}{\Rightarrow}f^\prime(x_0+h)>0$
+	\end{itemize}
+	$\underset{\textrm{6.20}}{\Rightarrow}$ lokales Minimum in $x_0$\\
+	(Anm.: Für Randpunkte: Monotonieargumente, notwendige Bedingung gilt nicht)
+	\subsubsection*{Die regeln von l'Hospital}
+	Problem: Grenzwerte vom Typ $\frac{0}{0},\frac{\infty}{\infty},0\*\infty$ usw.
+	\subsubsection*{Beispiel}
+	\begin{itemize}
+		\item	$\frac{\sin x}{x}\underset{x\>0}{\>}?$ [Skizze folgt]\\
+	$f(x)=\sin x$ und $g(x)=x$ haben in $x=0$ dieselbe Tangente ($t(x)=x$)\\
+	$\Rightarrow f,g$ konvergieren mit derselben Geschwindigkeit gegen 0 für $x\>0$\\
+	$\Rightarrow \frac{\sin x}{x}\underset{x\>0}{\>}1$
+	\item $\frac{\sin x}{x^2}\underset{x\>0}{\>}?$ [Skizze folgt]\\
+	$f(x)=\sin x$, $g(x)=x^2$: $f,g$ haben unterschiedliche Tangenten in $x_0=0$, $x^2$ konvergiert schneller gegen 0 als $\sin x$\\
+	$\Rightarrow \frac{\sin x}{x^2}\begin{cases}
+	\underset{x\>0+}{\>}\infty\\
+	\underset{x\>0-}{\>}-\infty
+	\end{cases}$
+	\end{itemize}
+	\subsubsection*{Grundidee}
+	Wenn $f(a)=g(a)=0$, $f,g$ diffbar mit $g^\prime(x)\neq0$, dann
+	\begin{align*}
+		\frac{f(a+h)}{g(a+h)}&=\frac{f(a+h)-\overbrace{f(a)}^{=0}}{g(a+h)-\underbrace{g(a)}_{=0}}=\frac{\frac{f(a+h)-f(a)}{h}}{\frac{g(a+h)-g(a)}{h}}\\
+		&\underset{h\>0}{\>}\frac{f^\prime(a)}{g^\prime(a)}
+	\end{align*}
+	Im Beispiel: $\lim\limits_{x\>0}\frac{\sin x}{x}=\lim\limits_{x\>0}\frac{(\sin x)^\prime}{(x)^\prime}=\lim\limits_{x\>0}\frac{\cos x}{1}=1$
+	\subsection{Satz (l'Hospital)}
+	$f,g\colon(a,b)\>\R$ seien diffbar auf $(a,b)$ mit $a,b\in\R\cup\{-\infty,\infty\}$ und es sei $g^\prime(x)\neq0\quad\forall x\in(a,b)$ gilt:\\
+	$\lim\limits_{x\>a+}f(x)=\lim\limits_{x\>a+}g(x)=\begin{cases}
+	0\textrm{ oder}\\
+	\infty\textrm{ oder}\\
+	-\infty
+	\end{cases}$ und weiter existiert $\lim\limits_{x\>a+}\frac{f^\prime(x)}{g^\prime(x)}$, so existiert auch\\
+	$\lim\limits_{x\>a+}\frac{f(x)}{g(x)}$ und es gilt\\
+	$\lim\limits_{x\>a+}\frac{f(x)}{g(x)}=\lim\limits_{x\>a+}\frac{f^\prime(x)}{g^\prime(x)}$\\
+	Entsprechendes gilt für $x\>b-$	
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $\lim\limits_{x\>0}\frac{\overbrace{\sin x}^{\>0}}{\underbrace{x}_{\>0}}\overset{\textrm{6.23}}{=}\lim\limits_{x\>0}\frac{(\sin x)^\prime}{(x)^\prime}=\lim\limits_{x\>0}\frac{\cos x}{1}=\frac{1}{1}=1$\\
+		(vgl. 5.14g, hier ist jetzt der Beweis)
+		\item[b)] $\lim\limits_{x\>0}\frac{\overbrace{1-\cos x}^{\>0}}{\underbrace{x^2}_{\>0}}\overset{\textrm{6.23}}{=}\underbracket{\lim\limits_{x\>0}}_{\textrm{nicht vergessen!}}\frac{\overbrace{\sin x}^{\>0}}{\underbrace{2x}_{\>0}}\overset{\textrm{6.23}}{=}\lim\limits_{x\>0}\frac{\cos x}{2}=\frac{1}{2}$
+		\item[c)] $\lim\limits_{x\>0}\frac{\sin(x)-x}{x^3}=$...3x 6.23 anwenden...$=-\frac{1}{6}$
+		\item[d)] $\lim\limits_{x\>\infty}\frac{\overbrace{\ln x}^{\>\infty}}{\underbrace{\sqrt{x}}_{\>\infty}}\overset{\textrm{6.23}}{=}\lim\limits_{x\>\infty}\frac{\frac{1}{x}}{\frac{1}{2\sqrt{x}}}=\lim\limits_{x\>\infty}\frac{2\sqrt{x}}{x}=\lim\limits_{x\>\infty}\frac{2}{\sqrt{x}}=0$
+	\end{itemize}
+	Allgemein kann man zeigen: $\lim\limits_{x\>\infty}\frac{\ln x}{x^\alpha}=0,\quad\alpha>0$, d.h. $\ln x$ geht langsamer gegen $\infty$ als jede Potenz von $x$
+	\begin{itemize}
+		\item[e)] $\lim\limits_{x\>\infty}\frac{\overbrace{x^2}^{\>\infty}}{\underbrace{\e^x}_{\>\infty}}\overset{\textrm{6.23}}{=}\lim\limits_{x\>\infty}\frac{2x}{\e^x}\overset{\textrm{6.23}}{=}\lim\limits_{x\>\infty}\frac{2}{\e^x}=0$
+	\end{itemize}
+	Allgemein: $\lim\limits_{x\>\infty}\frac{x^n}{\e^{ax}}=0$, d.h. jede Exponentialfunktion ($a>0$) geht schneller gegen $\infty$ als jede Potenz von $x$
+	\begin{itemize}
+		\item[f)] $\lim\limits_{x\>0+}\underbrace{x\*\ln x}_{\underbrace{\textrm{Informationstheorie}}_{\textrm{Begriff der Entropie}}}=\lim\limits_{x\>0+}\frac{\overbrace{\ln x}^{\>-\infty}}{\underbrace{-\frac{1}{x}}_{\>\infty}}\overset{\textrm{6.23}}{=}\lim\limits_{x\>0+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}=\lim\limits_{x\>0+}\frac{-x^2}{x}=0$
+		\item[g)] Achtung! $\lim\limits_{x\>1}\frac{(x-1)^2}{x^2-1}=0$\\
+		mit falsche Anwendung von 6.23 erhält man z.B.\\
+		$\lim\limits_{x\>1}\frac{(x-1)^2}{x^2-1}\overset{\textrm{6.23}}{=}\lim\limits_{x\>1}\frac{2(x-1)}{2x}\underset{\textrm{Vor. l'Hospital wird nicht erfüllt}}{\neq}\lim\limits_{x\>1}\frac{2}{2}=1$\\
+		Wo steckt der Fehler?
+	\end{itemize}
+	\newpage
+	\section{Integralrechnung}
+	\subsubsection*{Berechnung von Flächen, das Bestimmte Integral}
+	\subsection{Motivation/Herleitung}
+	$\>$s. Folien/Blatt 27.06.2016
+	\subsection{Definition (Riemannintegral)}
+	Sei $f\colon[a,b]\>\R$.\\
+	Konvergieren $U_n$ (Untersumme) und $O_n$ (Obersumme) für jede Folge von Zerlegungen $(Z_n)_n$ mit $\lim\limits_{\infn}\mu(Z_n)=0$ (Feinheit der Zerlegung) für $\infn$ gegen denselben Wert $A$, so heißt $f$ \underline{(Riemann-)integrierbar} über $[a,b]$. Man nennt diesen Grenzwert $A$ auch \underline{Integral von $f$ über $[a,b]$} und bezeichnet ihn mit
+	\begin{align*}
+		\int_{a}^{b}f(x)\textrm{d}x
+	\end{align*}
+	(Name der Integrationsvariablen spielt keine Rolle, also z.B. auch $\int_{a}^{b}f(t)\textrm{d}t$ oder $\int_{a}^{b}f(\xi)\textrm{d}\xi$ etc.)\\
+	Wir legen fest:
+	\begin{align*}
+		\int_{a}^{a}f(x)\textrm{d}x&=0\\
+		\int_{b}^{a}f(x)\textrm{d}x&=-\int_{a}^{b}f(x)\textrm{d}x
+	\end{align*}
+	
+	
+	
+	
 \end{document}
