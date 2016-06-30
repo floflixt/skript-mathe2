@@ -13,7 +13,7 @@
 
 \begin{titlepage}
 	\title{Mathematik II}
-	\date{15.06.2016}
+	\date{29.06.2016}
 \end{titlepage}
 
 \newcommand{\R}{\mathds{R}}
@@ -2310,6 +2310,91 @@
 		\int_{a}^{a}f(x)\textrm{d}x&=0\\
 		\int_{b}^{a}f(x)\textrm{d}x&=-\int_{a}^{b}f(x)\textrm{d}x
 	\end{align*}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $f(x)=c\qquad\forall x \in[a,b]$, dann\\
+		$y_i=c=Y_i\quad\forall i=1...n$\\4
+		$U_n=\sum_{i=1}^{n}c\*(x_i-x_{i-1})=c\*\sum_{i=1}^{n}(x_i-x_{i-1})$\\
+		$\quad\overset{\textrm{Teleskopsumme}}{=}c\*(x_n-x_0)=c\*(b-a)$\\
+		$O_n=\sum_{i=1}^{n}c\*(x_i-x_{i-1})=...=c\*(b-a)$\\
+		Egal wie $x_i$ gewählt werden, $\lim\limits_{\infn}U_n=\lim\limits_{\infn}O_n=c\*(b-a)$
+		\item[b)] Es gibt auch Funktionen, die nicht integrierbar sind:\\
+		$f\colon[a,b]\>\R,\quad f(x)=\begin{cases}1&x\in\mathds{Q}\\
+		0&x\in\R\setminus\mathds{Q},\quad x\notin\R
+		\end{cases}$\\
+		Egal, wie Zerlegung $Z_n$ gewählt wird: es ist immer $\inf f(x)=0,$\\
+		$ \sup f(x)=1$ in den Teilintervallen\\
+		$\Rightarrow U_n=\sum_{i=1}^{n}(x_i-x_{i-1})\*0=0$\\
+		$\quad O_n=\sum_{i=1}^{n}(x_i-x_{i-1})\*1\overset{\textrm{Teleksops.}}{=}x_n-x_0=1-0=1$\\
+		$U_n$ und $O_n$ konvergieren \underline{nie} gegen denselben Wert!		
+	\end{itemize}
+	\subsection{Bemerkung}
+	$\int_{a}^{b}f(x)\textrm{d}x$ existiert beispielweise, wenn $f\colon[a,b]\>\R$
+	\begin{itemize}
+		\item stetig ist oder
+		\item monoton ist
+		\item beschränkt und 'fast überall' stetig ist (Graph von $f$ besitzt nur endlich viele Sprungstellen)
+	\end{itemize}
+	\subsection{Bemerkung}
+	Wir haben in 7.1 $f$ positiv gewählt.\\
+	In diesem Fall ist $\int_{a}^{b}f(x)\textrm{d}x$ der Flächeninhalt der von $f$ und der $x$-Achse begrenzten Fläche.\\
+	Andere Fälle: [Skizze folgt]
+	\begin{itemize}
+		\item $A=\underbrace{\int_{a}^{c}f(x)\textrm{d}x}_{f\textrm{ positiv}}+\underbrace{\int_{c}^{b}-f(x)\textrm{d}x}_{\textrm{hier ist }f\textrm{ negativ, also }-f\textrm{ positiv}}$\\
+		$\qquad=\int_{a}^{b}|f(x)|\textrm{d}x$
+		\item $A=\int_{a}^{b}f(x)\textrm{d}x-\int_{a}^{b}g(x)\textrm{d}x$, falls $f\geq g$ auf $[a,b]$
+	\end{itemize}
+	Die folgenden Regeln sind leicht nachzuprüfen:\subsection{Satz (Rechenregeln für Integrale)}
+	Seien $f,g$ auf $[a,b]$ integrierbar. Dann ist
+	\begin{itemize}
+		\item[a)] $\int_{a}^{b}\lambda\*f(x)\textrm{d}x=\lambda\*\int_{a}^{b}f(x)\textrm{d}x\qquad\forall\lambda\in\R$
+		\item[b)] $\int_{a}^{b}[f(x)+g(x)]\textrm{d}x=\int_{a}^{b}f(x)\textrm{d}x+\int_{a}^{b}g(x)\textrm{d}x$
+	\end{itemize}
+	a und b zusammen heißen Linearität.
+	\begin{itemize}
+		\item[c)] $\int_{a}^{b}f(x)\textrm{d}x=\int_{a}^{c}f(x)\textrm{d}x+\int_{c}^{b}f(x)\textrm{d}x\quad\forall c\in[a,b]$\\
+		(Zwischenstelle)
+		\item[d)] $f(x)\leq g(x)\quad\forall x$, dann auch\\
+		$\int_{a}^{b}f(x)\textrm{d}x\leq\int_{a}^{b}g(x)\textrm{d}x$\\
+		(Monotonie)
+		\item[e)] falls $m\leq f(x)\leq M\quad\forall x\in[a,b]$, dann ist \\
+		$m(b-a)\leq\int_{a}^{b}f(x)\textrm{d}x\leq M(b-a)$\\
+		%[Skizze folgt]
+	\end{itemize}
+	\subsection{Satz (Mittelwertsatz der Integralrechnung)}
+	$f\colon[a,b]\>\R$ stetig\\
+	Dann existiert $\xi\in[a,b]$ mit $\int_{a}^{b}f(x)\textrm{d}x=f(\xi)(b-a)$\\
+	%[Skizze folgt]
+	\subsubsection*{Beweis}
+	$f$ stetig auf $[a,b]\overset{\textrm{Minimaxth.}}{\underset{\textrm{5.20}}{\Rightarrow}}f$ nimmt auf $[a,b]$ Minimum $m$ und Maximum $M$ an, d.h.\\
+	\begin{align*}
+		&m\leq f(x)\leq M&&\\
+		&\overset{\textrm{7.6 d}}{\Rightarrow}m(b-a)&\leq\int_{a}^{b}f(x)\textrm{d}x&\leq M(b-a)\\
+		&\Rightarrow m&\leq\underbracket{\frac{1}{b-a}\*\int_{a}^{b}f(x)\textrm{d}x}_{y\textrm{ aus ZWS}}&\leq M\\
+		&\overset{\textrm{ZWS}}{\underset{\textrm{5.16}}{\Rightarrow}}&\exists\xi\in[a,b]\textrm{ mit }f(\xi)=\frac{1}{b-a}\*\int_{a}^{b}f(x)\textrm{d}x&
+	\end{align*}
+	\hfill$\square$
+	\subsubsection*{Stammfunktionen und der HDI (Haupdsatz der Differential- und Integralrechnung)}
+	Wir können Flächeninhalte bisher nur über Riemannsummen/-integrale ($U_n,O_n,\lim$ usw.) berechnen, das ist umständlich.
+	\subsection{Definition (Stammfunktion)}
+	Sei $f\colon[a,b]\>\R$. Dann nennt man jede auf $(a,b)$ diffbare Funktion $F\colon[a,b]\>\R$, für die $F^\prime(x)=f(x)\quad\forall x\in(a,b)$ gilt, eine \underline{Stammfunktion} von $f$ über $[a,b]$.
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $f(x)=3\qquad F(x)=3x$ oder $3x+1;\quad3x+2;$ etc.
+		\item[b)] $f(x)=x^2\qquad F(x)=\frac{1}{3}x^3+c$ für $c\in\R$\\
+		allgemein $f(x)=x^n\qquad F(x)=\frac{1}{n+1}x^{n+1}+c$
+		\item[c)] $f(x)=\sin x\qquad F(x)=-\cos x+c$ usw.
+	\end{itemize}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
