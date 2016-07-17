@@ -2377,7 +2377,18 @@
 	\subsubsection*{Stammfunktionen und der HDI (Haupdsatz der Differential- und Integralrechnung)}
 	Wir können Flächeninhalte bisher nur über Riemannsummen/-integrale ($U_n,O_n,\lim$ usw.) berechnen, das ist umständlich.
 	\subsection{Definition (Stammfunktion)}
-	Sei $f\colon[a,b]\>\R$. Dann nennt man jede auf $(a,b)$ diffbare Funktion $F\colon[a,b]\>\R$, für die $F^\prime(x)=f(x)\quad\forall x\in(a,b)$ gilt, eine \underline{Stammfunktion} von $f$ über $[a,b]$.
+	%Sei $f\colon[a,b]\>\R$. Dann nennt man jede auf $(a,b)$ diffbare Funktion $F\colon[a,b]\>\R$, für die $F^\prime(x)=f(x)\quad\forall x\in(a,b)$ gilt, eine \underline{Stammfunktion} von $f$ über $[a,b]$.[Korrigiert]
+	\begin{itemize}
+		\item[a)] Sei $g\colon[a,b\>\R]$ eine stetige Funktion. Der Grenzwert $\lim\limits_{h\>0^+}\frac{g(a+h)-g(a)}{h}\eqqcolon g^\prime_+(a)$ heißt (falls existent) \underline{rechtsseitige Ableitung} von $g$ in $a$.\\
+		Analog: $\lim\limits_{h\>0^-}\frac{g(b+h)-g(b)}{h}\eqqcolon g^\prime_-(b)$ ist \underline{linksseitige Ableitung} von $g$ in $b$.
+		\item[b) Stammfunktion] Sei $f\colon[a,b]\>\R$.\\Dann nennt man eine diffbare Funktion $F\colon[a,b]\>\R$ \underline{Stammfunktion} von $f$ über $[a,b]$, wenn gilt:
+		\begin{align*}
+			F^\prime(x)&=f(x)\qquad\forall x\in(a,b)\\
+			F^\prime_+(a)&=f(a)\\
+			F^\prime_-(b)&=f(b)
+		\end{align*}
+		[Korrektur: Unterschied: $F^\prime$ ist auch für $a,b$ definiert!]
+	\end{itemize}
 	\subsection{Beispiel}
 	\begin{itemize}
 		\item[a)] $f(x)=3\qquad F(x)=3x$ oder $3x+1;\quad3x+2;$ etc.
@@ -2385,18 +2396,166 @@
 		allgemein $f(x)=x^n\qquad F(x)=\frac{1}{n+1}x^{n+1}+c$
 		\item[c)] $f(x)=\sin x\qquad F(x)=-\cos x+c$ usw.
 	\end{itemize}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	\subsection{Bemerkung}
+	Stammfunktionen sind nicht eindeutig bestimmt!\\
+	Ist $F$ eine Stammfunktion von $f$, dann auch $F+c$ für ein beliebiges $c\in\R$ (denn: $F^\prime=f$ und $(F+c)^\prime=F^\prime+0=f$).\\
+	Sind $F$ und $G$ Stammfunktionen von $f$, so können sie sich nur durch eine Konstante unterscheiden:
+	\begin{align*}
+		(F-G)^\prime&=F^\prime-G^\prime=f-f=0\\
+		&\underset{\textrm{6.19 iii}}{\Rightarrow} F-G\textrm{ist konstant}
+	\end{align*}
+	Der Zusammenhang zwischen dem in 7.1/7.2 behandelten Integral von $f$ und einer Stammfunktion von $f$ wird im folgenden Satz hergestellt.
+	\subsection{Satz (HDI, Hauptsatz der Differential- und Integralrechnung)}
+	$f\colon[a,b]\>\R$ stetig.
+	\begin{itemize}
+		\item[a)] Dann ist $F(x)=\int_{a}^{x}f(t)\textrm{d}t\qquad x\in[a,b]$ eine Stammfunktion von $f$ (also diffbar, $F^\prime(x)=f(x)$) und es gilt:
+		\item[b)] $\underbrace{\int_{a}^{b}f(x)\textrm{d}x}_{\textrm{bish. Flächeninh., nur mit} U_n, O_n \textrm{berechenbar}}=F(b)-F(a)\overset{\textrm{Schreibweise}}{=}[F(x)]^{x=b}_{x=a}=[F(x)]^b_a$
+	\end{itemize}
+	\subsubsection*{Beweis:}
+	\begin{itemize}
+		\item[a)] (zu Zeigen: das so definierte $F$ ist Stammfunktion, also $F^\prime=f$)
+		\begin{align*}
+			\frac{F(x+h)-F(x)}{h}&=\frac{1}{h}\*(\int_{a}^{x+h}f(t)\textrm{d}t-\int_{a}^{x}f(t)\textrm{d}t)\\
+			&=\frac{1}{h}\*(\int_{x}^{a}f(t)\textrm{d}t+\int_{a}^{x+h}f(t)\textrm{d}t)\\
+			&\overset{\textrm{7.16 c}}{=}\frac{1}{h}\*\int_{x}^{x+h}f(t)\textrm{d}t
+		\end{align*}
+		Nach dem MWS der Integralrechnung (7.7) existiert ein $\xi\in[x,x+h]$ mit $\frac{F(x+h)-F(x)}{h}=f(\xi)$. Für $h\>0$ erhalten wir $(\xi\in[x,x+h])$ also $\xi\>0$ für $h\>0$:\\
+		$\underbrace{\frac{F(x+h)-F(x)}{h}}_{\>F^\prime(x)}=\underbrace{f(\xi)}_{\>f(x)}$ ($f$ ist stetig)\\
+		Also ist $F$ Stammfunktion von $f$
+		\item[b)] folgt aus a)
+	\end{itemize}
+	\hfill$\square$
+	\subsection{Beispiel}
+	Der HDI hilft bei der Berechnung von Integralen:
+	\begin{itemize}
+		\item[a)] $\int_{0}^{3}\underbrace{2}_{f(x)}\textrm{d}x=[\underbrace{2x}_{F(x)}]^3_0=\underbrace{2\*3}_{F(3)}-\underbrace{2\*0}_{F(0)}=6$
+		\item[b)] $\int_{1}^{2}x^2+x+1\textrm{d}x=[\frac{1}{3}x^3+\frac{1}{2}x^2+x]^2_1=(\frac{1}{3}\*2^3+\frac{1}{2}\*2^2+2)-(\frac{1}{3}\*1^3+\frac{1}{2}\*1^2+1)=\frac{29}{6}$
+		\item[c)] $\int_{0}^{\frac{\pi}{2}}\sin x\textrm{d}x=[-\cos x]^{\frac{\pi}{2}}_0=0-(-1)=1$
+	\end{itemize}
+	\subsection{Bemerkung}
+	\begin{itemize}
+		\item[a)] Der HDI besagt:\\
+		Die Integration ist die inverse Operation zur Differentiation.
+		\item[b)] Schreibweise:\\
+		Um auszudrücken, dass $F(x)$ eine Stammfunktion von $f(x)$ ist ($F^\prime(x)=f(x)$), schreibt man auch $F(x)\underbrace{=\int}_{\textrm{'ist Stammfunktion von'}}f(x)\textrm{d}x$\\
+		Ohne Grenzen heißt das auch 'unbestimmtes Integral'.\\
+		Beispiel: $\int5x^2\textrm{d}x=\frac{5}{3}x^3(+c)$; $\int\sin x\textrm{d}x=-\cos x$ usw.\\
+		Achtung:
+		\begin{align*}
+			\sin x&=\int\cos x\textrm{d}x&=\sin x+1\\
+			'\Rightarrow'0&&=1
+		\end{align*}
+	Gleichheitszeichen wird hier (in der Schreibweise) nicht im üblichen Sinne benutzt! Gleichheit gilt nur für ABleitungen
+	\item[c)] Es spielt keine Rolle, welche Stammfunktion man im HDI b) bei der Berechnung von $\int_{a}^{b}f(x)\textrm{d}x$ benutzt.\\
+	$F(b)+c-(F(a)+c)=F(b)-F(a)$
+	\end{itemize}
+	\subsubsection*{Techniken zur Bestimmung von Stammfunktionen}
+	\subsection{Stammfunktionen elementarer Funktionen}
+	(Beweis durch Differenzieren)
+	\begin{itemize}
+		\item $\int x^\alpha\textrm{d}x=\frac{1}{\alpha+1}x^{\alpha+1}\qquad a\neq -1$
+		\item $\int\frac{1}{x}\textrm{d}x=\ln|x|\qquad x\neq 0$
+		\item $\int\ln x\textrm{d}x=x\*\ln x-x\qquad\textrm{vgl. 7.15 c)}$
+		\item $\int\e^x\textrm{d}x=\e^x$
+		\item $\int a^x\textrm{d}x=\frac{1}{\ln a}a^x\qquad a>0,a\neq 1$
+		\item $\int\sin x\textrm{d}x=-\cos x$
+		\item $\int\cos x\textrm{d}x=\sin x$
+		\item $\int\frac{1}{\cos^2x}\textrm{d}x=\tan x$
+	\end{itemize}
+	\subsection{Partielle Integration}
+	Es gilt:
+	\begin{align*}
+		\int \underbracket{f^\prime(x)\*g(x)}_{2}\textrm{d}x=\underbracket{f(x)\*g(x)}_{1}-\underbracket{\int f(x)\*g^\prime(x)\textrm{d}x}_{3}
+	\end{align*}
+	Diese Methode ist abgeleitet von der Produktregel der Differentialrechnung:
+	\begin{align*}
+		(\underbracket{f(x)\*g(x)}_{1})^\prime=\underbracket{f^\prime(x)\*g(x)}_{2}+\underbracket{f(x)\*g^\prime(x)}_{3}
+	\end{align*}
+	Bem.: Polynome von kleinem Grad sind oft eine gute Wahl für $g(x)$, s. Beispiele
+	\subsubsection*{Beispiel}
+	\begin{itemize}
+		\item[a)] \begin{align*}
+		\int\underbrace{\sin x}_{f^\prime(x)}\*\underbrace{x}_{g(x)}\textrm{d}x&=(-\cos x)\*x-\int\underbrace{(-\cos x)}_{f^\prime(x)}\*\underbrace{1}_{g(x)}\textrm{d}x\\
+		&=(-\cos x)\*x+\sin x
+		\end{align*}
+		($f^\prime(x)=-\cos x, g^\prime(x)=1\>\textrm{ gut}$)
+		\item[b)] \begin{align*}
+			\int\underbrace{x^2}_{g(x)}\*\underbrace{\e^x}_{f^\prime(x)}\textrm{d}x&=\e^x\*x^2-\int\e^x\*2x\textrm{d}x\\
+			&=\e^x\*x^2-2\*\int\underbrace{\e^x}_{f^\prime(x)}\*\underbrace{x}_{g(x)}\textrm{d}x\\
+			&=\e^x\*x^2-2\*(\e^x\*x-\int\e^x\*1\textrm{d}x)\\
+			&=\e^x\*x^2-2\e^xx+2\e^x\\
+			&=\e^x\*(x^2-2x+2)
+		\end{align*}
+		\item[c)] \begin{align*}
+			\int\ln x\textrm{d}x&=\int\underbrace{1}_{f^\prime(x)}\*\underbrace{\ln x}_{g(x)}\textrm{d}x\\
+			&=x\*\ln x-\int x\*\frac{1}{x}\textrm{d}x\\
+			&=x\*\ln x-\int 1\textrm{d}x\\
+			&=x\*\ln x-x
+		\end{align*}
+		\item[d)] 'Phoenix aus der Asche'\\
+		Integral, das eine Funktion enthält, die beim partiellen Integrieren in absehbarer Zeit wieder erscheint (aus ihrer Asche wieder auftaucht).
+		\begin{align*}
+			\int\underbrace{\e^x}_{f^\prime(x)}\*\underbrace{\cos x}_{g(x)}\textrm{d}x&=\e^x\cos x+\int\underbrace{\e^x}_{f^\prime(x)}\*\underbrace{\sin x}_{g(x)}\textrm{d}x\\
+			&=\e^x\cos x+\e^x\sin x-\int\e^x\*\cos x\textrm{d}x\\
+			\Rightarrow2\*\int\e^x\cos x\textrm{d}x&=\e^x(\cos x+\sin x)\\
+			\Rightarrow \int\e^x\cos x\textrm{d}x&=\frac{\e^x(\cos x+\sin x)}{2}
+		\end{align*}
+	\end{itemize}
+	\subsection{Substitution}
+	Es gilt:
+	\begin{align*}
+		\int\underbracket{f^\prime(g(x))\*g^\prime(x)\textrm{d}x}_{2}=\underbracket{f(g(x))}_{1}
+	\end{align*}
+	Diese Methode ist aus der Kettenregel der Differentialrechnung abgeleitet:
+	\begin{align*}
+		(\underbracket{f(g(x))}_{1})^\prime=\underbracket{f^\prime(g(x))\*g^\prime(x)}_{2}
+	\end{align*}
+	Man hat mit ihr gute Aussichten auf Erfolg, wenn im Integral neben einer Funktion auch deren Ableitung vorkommt.
+	\subsubsection*{Beispiel}
+	\begin{itemize}
+		\item[a)] $\int\underbrace{\e^{\overbrace{x^2}^{g(x)}}}_{f(x)}\*\underbrace{2x}_{g^\prime(x)}\textrm{d}x=\e^x$, da:
+		innere Funktion: $g(x)=x^2$\\
+		$\qquad\quad g^\prime(x)=2x$\\
+		äußere Funktion: $f^\prime(u)=\e^u$\\
+		$\qquad\quad f^\prime(g(x))=\e^{x^2}$\\
+		$\Rightarrow\quad f(u)=\e^u$\\
+		$\qquad\quad f(g(x))=\e^{x^2}$\\
+	Falls nicht alles so gut passt wie hier: hinbiegen.\\
+	 Oft einfacher: formales Rezept
+		\begin{align*}
+			\int f^\prime(g(x))\*g^\prime(x)\textrm{d}x
+		\end{align*}
+		Substitution: $u=g(x)$; $\frac{\textrm{d}u}{\textrm{d}x}=g^\prime(x)$ ('leite die Funktion $u$ ab nach der Variablen $x$')\\
+		$\Leftrightarrow g^\prime(x)\textrm{d}x=\textrm{d}u$
+		\begin{align*}
+			\Rightarrow \int f^\prime(g(x))\*g^\prime(x)\textrm{d}x=\int f^\prime(u)\textrm{d}u=f(u)
+		\end{align*}
+		Rücksubstitution: $u=g(x)$\\
+		$\Rightarrow f(u)=f(g(x))$
+		\item[b)] $\int\underbracket{x}_{}\*\sqrt{2x^2+1}\underbracket{\textrm{d}x}_{}$\\
+		Substitution: $u=2x^2+1$; $\frac{\textrm{d}u}{\textrm{d}x}=4x\Leftrightarrow \textrm{d}u=4x\textrm{d}x$\\
+		$\frac{\textrm{d}u}{4}=\underbracket{x\textrm{d}x}_{}$
+		\begin{align*}
+			\int x\sqrt{2x^2+1}\textrm{d}x&=\int\sqrt{u}\frac{\textrm{d}u}{4}\\
+			&=\frac{1}{4}\int\underbrace{\sqrt{u}}_{u^{\frac{1}{2}}}\textrm{d}u\\
+			&=\frac{1}{4}\*\frac{2}{3}u^{\frac{3}{2}}
+		\end{align*}
+		Rücksubstitution: $u=2x^2+1$
+		\begin{align*}
+			&=\frac{1}{6}\*(2x^2+1)^{\frac{3}{2}}
+		\end{align*}
+		\item[c)] $\int\underbracket{g^\prime(x)}_{}\*g(x)\underbracket{\textrm{d}x}_{}$\\
+		Substitution: $u=g(x)$; $\frac{\textrm{d}u}{\textrm{d}x}=g^\prime(x)\Leftrightarrow \textrm{d}u=\underbracket{g^\prime(x)\textrm{d}x}_{}$\\
+		$\int g^\prime(x)\*g(x)\textrm{d}x=\int u\textrm{d}u=\frac{1}{2}u^2$\\
+		Rücksubstitution: $u=g(x)$\\
+		$\int g^\prime(x)g(x)\textrm{d}x=\frac{1}{2}(g(x))^2$
+		\item[d)] $\int\frac{g^\prime(x)}{g(x)}\textrm{d}x$: Übung
+	\end{itemize}
+	\subsection{Bemerkung (Bestimmtes Integral berechnen)}
+	z.B. $\int_{0}^{1}x\sqrt{2x^2+1}\textrm{d}x\qquad f(x)=x\sqrt{2x^2+1}$\\
+	bestimme zuerst Stammfunktion:\\
+	$\int x\sqrt{2x^2+1}\textrm{d}x\overset{\textrm{7.16 b)}}{=}\frac{1}{6}(2x^2+1)^{\frac{3}{2}}=F(x)$\\
+	Benutze den HDI:\\
+	$\int_{0}^{1}x\sqrt{2x^2+1}\textrm{d}x=F(1)-F(0)=\frac{1}{6}(3)^{\frac{3}{2}}-\frac{1}{6}(1)^{\frac{3}{2}}=\frac{\sqrt{3}}{2}-\frac{1}{6}$
+
 \end{document}
