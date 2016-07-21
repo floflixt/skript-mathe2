@@ -13,7 +13,7 @@
 
 \begin{titlepage}
 	\title{Mathematik II}
-	\date{29.06.2016}
+	\date{20.07.2016}
 \end{titlepage}
 
 \newcommand{\R}{\mathds{R}}
@@ -24,7 +24,9 @@
 \newcommand{\gmark}[1]{\textcolor{lightgray}{#1}}
 \newcommand{\limsuperior}[1]{\lim\limits_{#1}\sup}
 \newcommand{\liminferior}[1]{\lim\limits_{#1}\inf}
-
+\renewcommand{\vec}[1]{\left(\begin{array}{c}#1
+	\end{array}\right)}
+\renewcommand{\O}{\mathcal{O}}
 \renewenvironment{rcases}{% 
 	\left.\renewcommand*\lbrace.% 
 	\begin{cases}}% 
@@ -1145,6 +1147,7 @@
 		Daher schreibt man auch\\
 		$\e^x=\exp(x)$ für $x\in\R$
 	\end{itemize}
+	\newpage
 	\section{Funktionsgrenzwerte und Stetigkeit}
 	\subsection{Definition}
 	Sei $D\subseteq\R$, $f\colon D\>\R$ eine Funktion, $x_0,a\in\R$.
@@ -1756,7 +1759,7 @@
 			(-0.2,0) -- (7,0) node[right] {$x$};
 			\draw[->]
 			(0,-0.5) -- (0,5) node[above] {$f(x)$};
-			\draw[color=red, domain=-0.2:7, samples=50]
+			\draw[color=blue, domain=-0.2:7, samples=50, ultra thick]
 			plot(\x,{sin(2*\x r)+2}) node[]{};
 			\draw[color=blue]
 			(2,0)node[below]{$a$}
@@ -2557,5 +2560,233 @@
 	$\int x\sqrt{2x^2+1}\textrm{d}x\overset{\textrm{7.16 b)}}{=}\frac{1}{6}(2x^2+1)^{\frac{3}{2}}=F(x)$\\
 	Benutze den HDI:\\
 	$\int_{0}^{1}x\sqrt{2x^2+1}\textrm{d}x=F(1)-F(0)=\frac{1}{6}(3)^{\frac{3}{2}}-\frac{1}{6}(1)^{\frac{3}{2}}=\frac{\sqrt{3}}{2}-\frac{1}{6}$
-
+	\subsubsection*{Uneigentliche Integrale}
+	Bei der bestimmten Integration hatten wir vorausgesetzt, dass
+	\begin{itemize}
+		\item die zu integrierende Funktion beschränkt ist
+		\item die Intervall-(Integrations-)grenzen endlich sind.
+	\end{itemize}
+	Was passiert, wenn diese Voraussetzungen nicht erfüllt sind?\\
+	Z.B.: $\int_{0}^{1}\frac{1}{\sqrt{x}}\textrm{d}x$.\\
+	Für jedes beliebig kleine $\epsilon>0$ existiert $\int_{\epsilon}^{1}\frac{1}{\sqrt{x}}\textrm{d}x$, also kann man den Grenzwert $\lim\limits_{\epsilon\>0+}\int_{\epsilon}^{1}\frac{1}{\sqrt{x}}\textrm{d}x$ untersuchen:
+	\begin{align*}
+		\lim\limits_{\epsilon\>0+}\int_{\epsilon}^{1}\frac{1}{\sqrt{x}}\textrm{d}x&=\lim\limits_{\epsilon\>0+}\int_{\epsilon}^{1}x^{-\frac{1}{2}}\textrm{d}x\\
+		&=\lim\limits_{\epsilon\>0+}[2x^\frac{1}{2}]_\epsilon^1\\
+		&=\lim\limits_{\epsilon\>0+}(2-2\sqrt{\epsilon})\\
+		&=2
+	\end{align*}
+	\subsection{Definition (Uneigentliches Integral)}
+	Sei $f\colon(a,b]\>\R,\qquad a\in\R\cup\{-\infty\}$.\\
+	$f$ heißt über $(a,b]$ \underline{uneigentlich integrierbar}, falls der Grenzwert $\lim\limits_{T\>a+}\int_{T}^{b}f(x)\textrm{d}x$ existiert (und alle Integrale $\int_{T}^{b}f(x)\textrm{d}x$).\\
+	Entsprechend definiert man uneigentliche Integrale über $[a,b)$ mit $b\in\R\cup\{\infty\}$ als $\lim\limits_{T\>b-}\int_{a}^{T}f(x)\textrm{d}x$ und über $(a,b)$ als $\lim\limits_{T\>a+}\int_{T}^{c}f(x)\textrm{d}x+\lim\limits_{T\>b-}\int_{c}^{T}f(x)\textrm{d}x$ für ein festes $c\in(a,b)$.
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $\int_{0}^{1}\frac{1}{\sqrt{x}}\textrm{d}x=2$ (s.o.)
+		\item[b)] \begin{align*}
+			\int_{1}^{\infty}\frac{1}{x^2}\textrm{d}x&=\lim\limits_{T\>\infty}\int_{1}^{T}\frac{1}{x^2}\textrm{d}x\\
+			&=\lim\limits_{T\>\infty}[-\frac{1}{x}]_1^T\\
+			&=\lim\limits_{T\>\infty}(-\frac{1}{T}-(-\frac{1}{1}))\\
+			&=0+1\\
+			&=1
+		\end{align*}
+		\item[c)] \begin{align*}
+			\int_{1}^{\infty}\frac{1}{x}\textrm{d}x&=\lim\limits_{T\>\infty}\int_{1}^{T}\frac{1}{x}\textrm{d}x\\
+			&=\lim\limits_{T\>\infty}[\ln|x|]_1^T\\
+			&=\lim\limits_{T\>\infty}(\ln T-\underbrace{\ln 1}_{=0})
+		\end{align*}
+		existiert nicht ($\ln T\>\infty$ für $T\>\infty$), das Integral divergiert bestimmt gegen $\infty$, der Flächeninhalt ist unendlich groß.\\
+		Ebenso: $\int_{0}^{1}\frac{1}{x}\textrm{d}x$ divergiert.
+		\item[d)] allgemein gilt:\\
+		$\int_{0}^{1}\frac{1}{x^\alpha}\textrm{d}x\begin{cases}\textrm{divergiert für }&\alpha\geq1\\
+		=\frac{1}{1-\alpha}\textrm{ für }&\alpha<1
+		\end{cases}$\\
+		$\int_{1}^{\infty}\frac{1}{x^\alpha}\textrm{d}x\begin{cases}=\frac{1}{\alpha-1}\textrm{ für }&\alpha>1\\
+		\textrm{divergiert für }&\alpha\leq1
+		\end{cases}$
+	\end{itemize}
+	\newpage
+	\section{Vektorräume}
+	\subsection{Definition (Reelle Vektorräume)}
+	Ein \underline{$\R$-Vektorraum V} ist eine nichtleere Menge, deren Elemente \underline{Vektoren} genannt werden (Bezeichnung mittels kleiner lateinischer Buchstaben, $v,w,x,y,...$), auf der eine Addition $+$ definiert ist, $+\colon V\times V\>V$; und eine Multiplikation mit reellen Zahlen ('Skalare') (Bezeichnung mittels kleiner griechischer Buchstaben $\alpha, \beta, \gamma, \lambda,\mu,...$), $\*\colon\R\times V\>V$, so dass gilt:
+	\begin{itemize}
+		\item[(1.1)] $u+v+w=u+(v+w)\qquad\forall u,v,w\in V$
+		\item[(1.2)] Es existiert ein Vektor $\O\in V$ ('\underline{Nullvektor}') mit $v+\O=\O+v=v\qquad\forall v\in V$
+		\item[(1.3)] Zu jedem $v\in V$ existiert ein Vektor $-v\in V$ mit $v+(-v)=\O$
+		\item[(1.4)] $u+v=v+u\qquad\forall u,v\in V$
+	\end{itemize}
+	(Diese Eigenschaften (1.1) bis (1.4) kann man zusammenfassen als '$(V,+)$ ist eine kommutative Gruppe').
+	\begin{itemize}
+		\item[(2.1)] $\overset{\textrm{Addition in }\R}{(\lambda+\mu)}\*v=\lambda\*v\overset{\textrm{Addition in }V}{+}\mu\*v\qquad\forall\lambda,\mu\in\R,v\in V$
+		\item[(2.2)] $\lambda(v+w)=\lambda v+\lambda w\qquad\forall\lambda\in\R,v,w\in V$
+		\item[(2.3)] $\overset{\textrm{Multiplikation in }\R}{(\lambda\*\mu)}\*v=\lambda\*\overset{\textrm{Multiplikation mit Skalar}}{(\mu\*v)}\qquad\forall\lambda,\mu\in\R,v\in V$
+		\item[(2.4)] $1\*v=v\qquad\forall v\in V$
+	\end{itemize}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] trivialer Vektorraum Nullraum: $V=\{\O\}$\\
+		Es gilt $\O+\O\coloneqq\O,\quad\lambda\*\O\coloneqq\O\qquad\forall\lambda\in\R$
+		\item[b)] $V=\R^n$, Raum aller 'Spaltenvektoren' der Länge $n$ über $\R$, Elemente haben die Form $\vec{x_1\\...\\x_n}$ mit $x_1,...,x_n\in\R$.\\
+		$\O=\vec{0\\...\\0},\quad\vec{x_1\\...\\x_n}+\vec{y_1\\...\\y_n}=\vec{x_1+y_1\\...\\x_n+y_n},\quad\lambda\*\vec{x_1\\...\\x_n}=\vec{\lambda\*x_1\\...\\\lambda\*x_n}$
+		\item[c)] $\R$ ist ein $\R$-Vektorraum.\\
+		Vektoren: reelle Zahlen.\\
+		Skalare: reelle Zahlen.\\
+		$\O=0$
+		\item[d)] Funktionenraum:\\
+		$M\neq\emptyset$ Menge. $V=\mathcal{F}(M,\R)\coloneqq\{f\colon M\>\R\}$\\
+		Menge der auf $M$ definierten reellen Funktionen.\\
+		Für $f,g\in V,\quad\lambda\in\R$ sei
+		\begin{itemize}
+			\item $f+g\colon M\>\R,\quad(f+g)(x)=f(x)+g(x)\quad\forall x\in M$
+			\item $\lambda\*f\colon M\>\R,\quad(\lambda\*f)(x)=\lambda\*f(x)\quad\forall x\in M$
+		\end{itemize}
+		Dann ist $V$ mit $\R,+,\*$ ein Vektorraum. Nullvektor ist $f=0\colon M\>\R,\quad f(x)=0\qquad\forall x\in M$.\\
+		(kurz: $f\equiv0$, identisch Null)
+	\end{itemize}
+	\subsection{Lemma}
+	Sei $V$ ein $\R$-Vektorraum, $v\in V,\quad\lambda\in\R$
+	\begin{itemize}
+		\item[a)] $0\*v=\O$
+		\item[b)] $\lambda\*\O=\O$
+		\item[c)] Zu jedem $v\in V$ ist der Vektor $-v$ aus (1.3) in 8.1 eindeutig bestimmt.
+		\item[d)] $(-1)\*v=-v$
+	\end{itemize}
+	\subsubsection*{Beweis}
+	\begin{itemize}
+		\item[a)] \begin{align*}
+			\O\overset{\textrm{(1.3)}}{=}\overbrace{\underbracket{0\*v}_{}}^{x}+\overbrace{(-0\*v)}^{-x}&=\underbracket{(0+0)v}_{}+(-0\*v)\\
+			&\overset{\textrm{(2.1)}}{=}(0\*v+0\*v)+(-0\*v)\\
+			&\overset{\textrm{(1.1)}}{=}0\*v+(0*v+(-0\*v))\\
+			&\overset{\textrm{(1.3)}}{=}0\*v+\O\\
+			&\overset{\textrm{(1.2)}}{=}0\*v
+		\end{align*}
+		\item[b)] Wie a), starte mit $\O=\lambda\*\O+(-\lambda\*\O)$, erhalte $\O=\lambda\*\O$
+		\item[d)] \begin{align*}
+			\underbracket{v+(-1\*v)}_{}&=1\*v+(-1\*v)\\
+			&\overset{\textrm{(2.1)}}{=}(1+(-1))v\\
+			&=0\*v\\
+			&\overset{\textrm{a)}}{=}\O\\
+			&\overset{\textrm{(1.3)}}{=}v+(-v)
+		\end{align*}
+		Addiere auf beiden Seiten $-v$:
+		\begin{align*}
+			\underbracket{v+(-1)v}_{}+(-v)&=v+(-v)+(-v)\\
+			&\Rightarrow-1\*v=-v		
+		\end{align*}
+		\item[c)] Angenommen, zu $v\in V$ gibt es $-v$ und $-v^\prime$ mit $v+(-v)=\O$ und $v+(-v^\prime)=\O$. Dann ist $v+(-v)=v+(-v^\prime)\overset{+(-v)\textrm{auf beiden Seiten}}{\Rightarrow}-v=-v^\prime$
+	\end{itemize}
+	\hfill$\square$
+	\subsection{Definition}
+	Sei $V$ ein $\R$-Vektorraum.\\
+	Eine Teilmenge $U\subseteq V,\quad U\neq\emptyset$ heißt \underline{Unter(vektor)raum von $V$}, falls $U$ bezüglich der Addition auf $V$ und der Multiplikation mit Skalaren selbst ein Vektorraum ist.
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $V=\R^2,\quad U=\{\vec{0\\0}\}$ ist Unterraum von $V$
+		\item[b)] $V=\R^2,\quad U=\{\vec{1\\2}\}$ ist kein Unterraum von $V$, z.B. (1.2) ist verletzt, Addition funktioniert auch nicht: $\vec{1\\2}+\vec{1\\2}=\vec{2\\4}\notin U$
+		\item[c)] $V=\R^2,\quad U=\{\vec{\lambda\\0}|\lambda\in\R\}$ ist ein Unterraum von $V$ (prüfe alle Eigenschaften von Definition 8.1) $\>$ umständlich, einfacher geht es mit 8.6
+	\end{itemize}
+	\subsection{Satz (Unterraumkriterium)}
+	Sei $V$ ein $\R$-Vektorraum, sei $\emptyset\neq U\subseteq V$.\\
+	Dann ist $U$ Unterraum von $V$ genau dann, wenn gilt ($\Leftrightarrow$):
+	\begin{itemize}
+		\item[(1)] $v\in U,\quad\lambda\in\R\Rightarrow\lambda\*v\in U$
+		\item[(2)] $v,w\in U\Rightarrow v+w\in U$
+	\end{itemize}
+	(oder äquivalent: $\forall v,w\in U, \forall\lambda,\mu\in\R$ ist $\lambda\*v+\mu\*w\in U$)\\
+	Man sagt: $U$ ist abgeschlossen bezüglich der Vektoraddition und der Multiplikation mit Skalaren.
+	\subsubsection*{Beweis}
+	\begin{itemize}
+		\item[$\Rightarrow$] ist klar, da $U$ laut Definition 8.4 selbst Vektorraum
+		\item[$\Leftarrow$] rechne die Vektorraumaxiome nach (Definition 8.1, also z.B. $\O\in U$,...)
+	\end{itemize}
+	\hfill$\square$
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $V$ ist ein $\R$-Vektorraum, $\O\neq v\in V$.\\
+		Dann ist $G=\{\lambda\*v|\lambda\in\R\}$ ein Unterraum.\\
+		$V=\R^2,\R^3$: $G$ ist Gerade durch Nullpunkt (geometrisch), z.B. $v=\vec{2\\1},w=\vec{1\\2}$\\
+		Bild einfügen\\
+		Aber: $G^\prime=\{w+\lambda\*v|\lambda\in\R,\quad w\in V\}$ ist kein Unterraum für $w\neq \mu\*v,\quad \mu\in\R$. Warum? Z.B. $\O\notin G^\prime$
+	\item[b)] $V=\R^3,\qquad U_1=\{\vec{x_1\\x_2\\x_3}\in\R^3|x_1+x_2-x_3=0\}$ ist Unterraum. Wir zeigen (1), (2) aus 8.6:
+	\begin{itemize}
+		\item $U_1\neq\emptyset$, z.B. $\O=\vec{0\\0\\0}\in U_1$, denn $\overset{x_1}{0}+\overset{x_2}{0}-\overset{x_3}{0}=0$
+		\item[(1)] Sei $\lambda\in\R,\quad v=\vec{v_1\\v_2\\v_3}\in U_1$, d.h. $v_1+v_2-v_3=0$\\
+		Prüfe: Ist $\lambda\*v\in U_1$? $\lambda\*v=\vec{\lambda\*v_1\\\lambda\*v_2\\\lambda\*v_3}$
+		\begin{align*}
+			\lambda\*v_1+\lambda\*v_2-\lambda\*v_3&=\lambda(v_1+v_2-v_3)\\
+			&=\lambda\*0\\
+			&=0
+		\end{align*}
+		Also ist $\lambda\*v\in U_1$
+		\item[(2)] Seien $v=\vec{v_1\\v_"\\v_3},\quad w=\vec{w_1\\w_2\\w_3}\in U_1$, d.h. $v_1+v_2-v_3=0,\quad w_1+w_2-w_3=0$. Gilt $v+w\in U_1$? $v+w=\vec{v_1+w_1\\v_2+w_2\\v_3+w_3}$
+		\begin{align*}
+			(v_1+w_1)+(v_2+w_2)+(v_3+w_3)&=\underbrace{(v_1+v_2-v_3)}_{=0}+\underbrace{(w_1+w_2-w_3)}_{=0}\\
+			&=0
+		\end{align*}
+		Also $v+w\in U_1$
+		\item Geometrische Interpretation:\\ \begin{align*}
+		U_1&=\{\vec{x_1\\x_2\\x_1+x_2}|x_1,\quad x_2\in\R\}\\
+		&=\{x_1\*\vec{1\\0\\1}+x_2\*\vec{0\\1\\1}|x_1,\quad x_2\in\R\}
+		\end{align*}
+		D.h. $U_1$ ist die Ebene durch $O=\vec{0\\0\\0}$ mit den Richtungsvektoren $\vec{1\\0\\1}$ und $\vec{0\\1\\1}$
+	\end{itemize}
+	\item[c)] $U_2=\{\vec{x_1\\x_2\\x_3}\in\R^3|x_1+x_2-x_3=1\}$ ist kein Unterraum. Z.B. $\vec{0\\0\\0}=\O\notin U_2$: $0+0-0=0\neq1$.\\
+	Anderes Argument: Sei $\lambda\in\R,\quad x=\vec{x_1\\x_2\\x_3}\in U_2$, d.h. $x_1+x_2-x_3=1$. Gilt $\lambda\*x\in U_2$? $\lambda\*x=\vec{\lambda x_1\\\lambda x_2\\\lambda x_3}$
+	\begin{align*}
+		\lambda x_1+\lambda x_2-\lambda x_3&=\lambda\underbrace{(x_1+x_2-x_3)}_{=1}\\
+		&=\underbrace{\lambda=1}_{\textrm{nur für }\lambda=1}
+	\end{align*}
+	$\Rightarrow$ nicht erfüllt für $\lambda\neq1$.\\
+	Geometrische Interpretation:\\
+	\begin{align*}
+		U_2&=\{\vec{x_1\\x_2\\x_1+x_2-1}|x_1,\quad x_2\in\R\}\\
+		&=\{\vec{0\\0\\-1}+x_1\*\vec{1\\0\\1}+x_2\*\vec{0\\1\\1}|x_1,\quad x_2\in\R\}
+	\end{align*}
+	Ebene durch $\vec{0\\0\\-1}$ mit Richtungsvektoren $\vec{1\\0\\1}$ und $\vec{0\\1\\1}$
+	\item[d)] $U_3=\{\vec{x_1\\x_2\\x_3}\in\R^3|x_1^2+x_2^2+x_3^2\leq1\}$ ist kein Unterraum, z.B.\\
+	$\vec{1\\0\\0}\in U_3,\qquad1^2+0^2+^2\leq1\quad\checkmark$, aber\\
+	$2\*\vec{1\\0\\0}=\vec{2\\0\\0}\notin U_3$, denn $2^2+0^2+0^2\nleq1$\\
+	Geometrische Interpretation:\\
+	$U_3$ ist eine Kugel um $\vec{0\\0\\0}$ mit Radius 1
+	\item[e)] $I\subseteq\R$ Intervall\\Menge $C(I)$ ($C$: continuous, stetig) der stetigen Funktionen auf $I$ ist Unterraum von $\mathcal{F}(I,\R)$ (vgl. Beispiel 8.2d)).\\
+	Menge der diffbaren Funktionen auf $I$ ist Unterraum von $C(I)$.
+	\end{itemize}
+	\subsection{Satz}
+	$V$ ist ein $\R$.Vektorraum, $U_1,U_2$ sind Unterräume von $V$.
+	\begin{itemize}
+		\item[a)] $U_1\cap U_2=\{u\in V|u\in U_1\wedge u\in U_2\}$ ist Unterraum von $V$.
+		\item[b)] $U_1+U_2\coloneqq\{u_1+u_2|u_1\in U_1\wedge u_2\in U_2\}$ \underline{Summe} von $U_1,U_2$ ist Unterraum von $V$\\
+	(das ist nicht die Vereinigung $U_1\cap U_2$!)
+	\end{itemize}
+	\subsubsection*{Beweis}
+	Prüfe Unterraumkriterium 8.6
+	\begin{itemize}
+		\item[a)] Übung: Prüfe $\O\in U_1\cap U_2$? $\checkmark$, (1), (2)
+		\item[b)] \begin{itemize}
+			\item $U_1+U_2\neq\emptyset$, denn $U_1+U_2\ni\O=\underbrace{\O}_{\in U_1}+\underbrace{\O}_{\in U_2}$
+			\item Seien $v=u_1+u_2, \quad u_1\in U_1,\quad u_2\in U_2$ und\\
+			$w=u_1^\prime+u_2^\prime,\quad u_1^\prime\in U_1,\quad u_2^\prime\in U_2$,\\
+			also $v,w\in U_1+U_2$ und $\lambda,\mu\in\R$.\\
+			\begin{align*}
+				\Rightarrow\qquad\lambda v+\mu v&=\lambda(u_1+u_2)+\mu(u_1^\prime+u_2^\prime)\\
+				&=\underbrace{\lambda u_1+\mu u_1^\prime}_{\in U_1}+\underbrace{\lambda u_2+\mu u_2^\prime}_{\in U_2}
+				&\in U_1+U_2
+			\end{align*}
+		\end{itemize}
+	\end{itemize}
+	\subsection{Bemerkung}
+	\begin{itemize}
+		\item[a)] lässt sich für unendlich viele Unterräume ausweiten
+		\item[b)] lässt sich für endlich viele Unterräume ausweiten
+		\item $U_1\cup U_2$ ist im Allgemeinen \underline{kein} Unterraum
+	\end{itemize}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item $v=\vec{1\\0}\in\R^2\qquad\qquad G_1=\{\lambda v|\lambda\in\R\}$
+		\item $w=\vec{2\\1}\in\R^2\qquad\qquad G_2=\{\mu w|\mu\in\R\}$
+	\end{itemize}
+	(vgl. 8.7a), Geraden durch $\vec{0\\0}$, Unterräume
+	\begin{itemize}
+		\item $G_1+G_2$ ist Ebene
+		\item $G_1\cap G_2$ ist $\O=\vec{0\\0}$
+	\end{itemize}
 \end{document}
