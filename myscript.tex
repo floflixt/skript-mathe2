@@ -494,7 +494,7 @@
 	\end{align*}
 	$\tan$ ist $\pi$-periodisch:
 	\begin{align*}
-		\tan x&=\tan(x+\pi)\qquad\forall x\textrm{ auf Definitionsbereich}
+		\tan x&=\tan(x+\pi)\qquad\forall x\textrm{ aus Definitionsbereich}
 	\end{align*}
 	\end{itemize}
 	\newpage
@@ -568,7 +568,7 @@
 	Beispiel: $\lim\limits_{\infn}\frac{1}{n^3+n+5}=0$, [...]\\
 	$|\frac{1}{n^3+n+5}-0|=\frac{1}{n^3+n^+5}\leq\frac{1}{N^3+N+5}\overset{!}{<}\epsilon$. Für optimales $N$: $\frac{1}{N^3+N+5}<\epsilon$ nach $N$ auflösen, schwer.\\
 	Deshalb grob abschätzen, z.B. so:\\
-	$\frac{1}{N13+N+5}<\frac{1}{N}<\epsilon$, also wähle $N>\frac{1}{\epsilon}$.
+	$\frac{1}{N^3+N+5}<\frac{1}{N}<\epsilon$, also wähle $N>\frac{1}{\epsilon}$.
 	\subsection{Satz: Beschränktheit von Folgen}
 	Jede konvergente folge ist beschränkt.\\
 	\\
@@ -605,7 +605,7 @@
 		\begin{align*}
 			|q^n-0|=|q^n|=|q|^n&<\epsilon\\
 			\Leftrightarrow n\*\ln|q|&<\ln\epsilon\\
-			\Leftrightarrow n \qquad &\mathclap{\overset{da |q|<1}{\geq}}\qquad \frac{\ln\epsilon}{\ln|q|}
+			\Leftrightarrow n \qquad &\mathclap{\overset{\textrm{da}|q|<1}{\geq}}\qquad \frac{\ln\epsilon}{\ln|q|}
 		\end{align*}
 		Wähle $\N\ni N>\frac{\ln\epsilon}{\ln|q|}$, dann ist also $|q|^n<\epsilon\quad\forall n\geq N$.
 		\item[2. Fall] $q=1$ $\>$ konstante 1-Folge, konvergiert, s. 2.7 c)
@@ -684,7 +684,7 @@
 		$(\frac{2n^2+5n+1}{n^2})=\frac{n^2\*(2+\frac{5}{n}+\frac{1}{n^2})}{n^2}\>2$ für $\infn$, beschränkt
 		\item $(n^2)\in o(n^3)$
 		\item $(n^3)\in o(2^n)$
-		\item $(n13-3)\sim(n^3)$, denn $(\frac{n^3}{n^3-3})=(\frac{n^3\*(1)}{n^3\*(1-\frac{3}{n^3})})\>1$ für $\infn$
+		\item $(n^3-3)\sim(n^3)$, denn $(\frac{n^3}{n^3-3})=(\frac{n^3\*(1)}{n^3\*(1-\frac{3}{n^3})})\>1$ für $\infn$
 		\item häufig auch laxe Schreibweise
 		\begin{align*}
 			2n^2+5n+1&=\mathcal{O}(n^2)\\
@@ -726,9 +726,9 @@
 	\end{itemize}
 	Beweis:\\
 	\\
-	Sei $(a_n)\nearrow$ und beschrönkt.
+	Sei $(a_n)\nearrow$ und beschränkt.
 	\begin{align*}
-		\Rightarrow \{a_n\colon n\in\N\}&\subseteq\quad\textrm{ ist beschränkt}\\
+		\Rightarrow \{a_n\colon n\in\N\}&\subseteq\R\quad\textrm{ ist beschränkt}\\
 		\overset{\overset{\textrm{Vollst.-Axiom}}{\textrm{Mathe 1, 8.16}}}{\Rightarrow}S&\coloneqq\sup\{a_n\colon n\in\N\}\quad\textrm{ existiert.}
 	\end{align*}
 	Wir zeigen: $a_n\> S$ für $\infn$.\\
@@ -759,7 +759,7 @@
 			\item $(a_n)\nearrow$
 			\begin{align*}
 				\frac{a_n}{a_{n+1}}&=(\frac{1+n}{n})^n\*(\frac{n-1}{n})^{n-1}=(\frac{n+1}{n})^n\*(\frac{n-1}{n})^n\*(\frac{n-1}{n})^{-1}\geq 1\\
-				&=(\frac{n^2-1}{n^2})^n\*\frac{n}{n-1}\\
+				&=(\frac{n^2-1}{n^2})^n\*\frac{n}{n-1}\geq1\\
 				&=(1-\frac{1}{n^2})^n\*\frac{n}{n-1}\geq 1
 			\end{align*}
 			Benutze die \underline{Bernoulli-Ungleichung}, für $h\in\R,\quad n\in\N$ gilt $(1+h)^n\geq 1+nh$ für $h\geq -1$ (hier: $h=-\frac{1}{n^2}$)
@@ -799,7 +799,7 @@
 	\\
 	\underline{Bisher:}\\
 	$(a_n)$ konvergiert $\Rightarrow (a_n)$ beschränkt, Umkehrung gilt nicht; z.B. $((-1)^n)$\\
-	Allerdings besitzt diese Folge zwei konvergente Teilfolgen mit $\lim\quad+1$ und $\lim\quad-1$.
+	Allerdings besitzt diese Folge zwei konvergente Teilfolgen mit $\lim=+1$ und $\lim=-1$.
 	\subsection{Definition}
 	Sei $(a_n)_{n\in\N}$ eine Folge und $(n_k)_{k\in\N}$ ($n_1,n_2,...$) eine streng monoton steigende Folge von Indizes (d.h. $n_1<n_2<n_3<...$).\\
 	Dann heißt die Folge $(a_{n_k})_{k\in\N}$ \underline{Teilfolge} von $(a_n)_{n\in\N}$ ("Teilfolgen entstehen durch Streichung von Gliedern").
@@ -818,7 +818,7 @@
 	Eine Zahl $h\in\R$ heißt \underline{Häufungspunkt} von $(a_n)$, wenn es eine Teilfolge von $(a_N)$ gibt, die gegen $h$ konvergiert.
 	\subsection{Beispiel}
 	\begin{itemize}
-		\item $(a_n)=((-1)^n+\frac{1}{n})$ esitzt zwei Häufungspunkte $-1$ und $1$
+		\item $(a_n)=((-1)^n+\frac{1}{n})$ besitzt zwei Häufungspunkte $-1$ und $1$
 		\item $(a_n)=((-1)^n)$ besitzt die Häufungspunkte $-1$ und $1$
 	\end{itemize}
 	\subsection{Satz (Satz von Bolzano-Weierstraß)}
@@ -829,7 +829,7 @@
 	Beweis: Intervallschachtelungsprinzip/Bisektionsverfahren\\
 	(s. Folien/Blatt[$\leftarrow$s.u.])
 	\\
-	Wir verwenden das Intervallschachtelungsprinzip (Satz 2.21). Nach Voraussetzung ist $(a_n)_{n\in\N}$ beschränkt, es existiert also ein $K\in\N$, so dass ale Folgeglieder im Intervall $[-K,K]\eqqcolon[A_0,B_0]$ liegen. Halbiere dieses Intervall:
+	Wir verwenden das Intervallschachtelungsprinzip (Satz 2.21). Nach Voraussetzung ist $(a_n)_{n\in\N}$ beschränkt, es existiert also ein $K\in\N$, so dass alle Folgeglieder im Intervall $[-K,K]\eqqcolon[A_0,B_0]$ liegen. Halbiere dieses Intervall:
 	\begin{itemize}
 		\item Falls in der ersten Hälfte des Intervalls unendlich viele Folgenglieder liegen: wähle eines davon aus.
 		\item Falls nicht (also falls nur endlich viele Folgenglieder in der ersten Hälfte des Intervalls liegen), dann liegen in der zweiten Hälfte unendlich viele Folgenglieder. Wähle davon eines aus.
@@ -843,7 +843,7 @@
 	\end{itemize}
 	Damit sind alle Voraussetzungen für Satz 2.21 (Intervallschachtelungsprinzip) erfüllt. Die Folgen $(A_k)_{k\in\N}$ und $(B_k)_{k\in\N}$ sind also konvergent und besitzen denselben Limes $a$. Damit gilt auch $a_{n_k}\> a$ für $k\>\infty$.\hfill$\square$
 	\subsection{Bemerkung/Definition}
-	Sei $(a_n)$ reell und beschränkt, dann gibt es inen größten und einen kleinsten Häufungspunkt, den
+	Sei $(a_n)$ reell und beschränkt, dann gibt es einen größten und einen kleinsten Häufungspunkt, den
 	\begin{itemize}
 		\item \underline{Limes superior} von $(a_n)$: $\limsuperior{\infn}a_n$ oder $\limsup{\infn}a_n$ bzw. den
 		\item \underline{Limes inferior} von $(a_n)$: $\liminferior{\infn}a_n$ oder $\liminf{\infn}a_n$.
@@ -933,7 +933,7 @@
 			&>1+\frac{1}{2}+\quad\frac{1}{2}\quad+\qquad\frac{1}{2}\qquad+\qquad\frac{1}{2}\qquad+\quad...
 		\end{align*}
 		$\Rightarrow$ divergent (per Induktion: $S_{2^m}\geq1+\frac{m}{2}$)
-		\item[d)] $\sum_{k=0}^{\infty}\frac{1}{2^k}=1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+...\qquad$ it konvergent gegen den Grenzwert $\sum_{k=0}^{\infty}\frac{1}{2^k}=2$
+		\item[d)] $\sum_{k=0}^{\infty}\frac{1}{2^k}=1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+...\qquad$ ist konvergent gegen den Grenzwert $\sum_{k=0}^{\infty}\frac{1}{2^k}=2$
 		\item[e)] wichtiges Beispiel: \underline{Geometrische Reihe}\\
 		Für $q\in\R$ mit $|q|<1$ gilt
 		\begin{align*}
@@ -954,7 +954,7 @@
 		\\
 		Weitere Beispiele:
 		\begin{itemize}
-			\item $\sum_{k=0}^{\infty}\frac{(-1)^k}{2^k}=\sum_{k=0}^{\infty}(\frac{1}{2})^k=\frac{2}{3}$
+			\item $\sum_{k=0}^{\infty}\frac{(-1)^k}{2^k}=\sum_{k=0}^{\infty}(-\frac{1}{2})^k=\frac{2}{3}$
 			\item $\sum_{k=3}^{\infty}q^k=\sum_{k=0}^{\infty}q^{k+3}=q^3\*\sum_{k=0}^{\infty}q^k=\frac{q^3}{1-q}\qquad$ (falls $|q|<1$)
 		\end{itemize}
 	\end{itemize}
@@ -1108,7 +1108,7 @@
 		\item[a)] Für alle $x\in\R$ mit $|x|<\rho$ konvergiert $P(x)$ absolut (d.h. Reihe konvergiert für alle $x\in\R$, die im Konvergenzintervall $(-\rho,\rho)$ liegen.\\
 		Ist $\rho=\infty$, so heißt das für \underline{alle} $x\in\R$!).
 		\item[b)] Für alle $x$ mit $|x|>\rho$ divergiert $P(x)$.
-		\item[c)] Für $|x|=\rho$ ist keine allgemeine Aussage möglich (Konvergenzintervall kann also $(-\rho,\rho)$, $[-\rho,\rho]$, $[-\rho,rho)$, $(-\rho,\rho]$ sein).
+		\item[c)] Für $|x|=\rho$ ist keine allgemeine Aussage möglich (Konvergenzintervall kann also $(-\rho,\rho)$, $[-\rho,\rho]$, $[-\rho,\rho)$, $(-\rho,\rho]$ sein).
 	\end{itemize}
 	\underline{Beweis:}
 	\begin{itemize}
@@ -1128,7 +1128,7 @@
 	\subsection{Beispiel}
 	\begin{itemize}
 		\item[a)] Bsp. 4.2 mit der Formel für $\rho$ nachrechnen (Präsenzübungsblatt 6)
-		\item[b)] wichitges Beispiel: die Exponentialreihe
+		\item[b)] wichtiges Beispiel: die Exponentialreihe
 		\begin{align*}
 			\sum_{k=0}^{\infty}\frac{x^k}{x!}&\qquad(a_k=\frac{1}{k!},\quad b=0)\\
 			&=1+\frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+...
@@ -1139,7 +1139,7 @@
 			x\mapsto \exp(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!}
 		\end{align*}
 		Es gilt (vgl. Präsenzübungsblatt 6) (Cauchyprodukt):\\
-		$exp(x+y)=\exp(x)\*\exp(y)\qquad x,y\in\R$\\
+		$\exp(x+y)=\exp(x)\*\exp(y)\qquad x,y\in\R$\\
 		Für $x=1$ erhält man\\
 		$\exp(1)=\frac{1}{0!}+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+...$\\
 		Man kann zeigen: Dies ist $\e$ (Eulersche Zahl) $\lim\limits_{\infn}(1+\frac{1}{n})^n$.\\
@@ -1390,7 +1390,7 @@
 		ist stetig auf $\R$
 	\end{itemize}
 	\subsection{Bemerkung}
-	Eine Funktion $f(x)$ ist stetig, falls der Graph von $f$ keine "Sprungstelle" hat bzw. "man $f$ ohne abzusetzen zeichnen kann".\\
+	Eine Funktion $f(x)$ ist stetig, falls der Graph von $f$ keine 'Sprungstelle' hat bzw. "man $f$ ohne abzusetzen zeichnen kann".\\
 	$\Rightarrow$ in Ordnung für Intuition, aber unpräzise\\
 	\\
 	\underline{Beispiel dazu:}
@@ -1485,7 +1485,7 @@
 			\end{tikzpicture}
 		\end{minipage}\\
 		$\tilde{f}$ ist stetig in $x_0=1$ genau dann, wenn $b=2$ gewählt wird,\\ denn $\lim\limits_{x\>1}f(x)=2$.\\
-		$x_0=1$ ist eine \underline{(stetig) hebbare Definitionskücke} von $f$\\
+		$x_0=1$ ist eine \underline{(stetig) hebbare Definitionslücke} von $f$\\
 		Allgemein:\\
 		Sei $f\colon\R\setminus\{x_0\}\>\R$, es existiert $\lim\limits_{x\> x_0}f(x)\eqqcolon r\quad r\in\R$, dann ist $x_0$ stetig hebbare Definitionslücke von $f$, die Funktion
 		\begin{align*}
@@ -1645,7 +1645,6 @@
 		g\colon[a,b]&\>\R\\
 		x&\mapsto f(x)-y
 	\end{align*}\\
-	\newpage
 	Dann ist\\
 	$\begin{rcases}
 	\underbrace{g(a)}_{f(a)-y,\quad f(a)\leq y}\leq0\\
@@ -2060,11 +2059,11 @@
 	\begin{align*}
 		&&y&=f(f^{-1}(y))\\
 		&\mathclap{\overset{\textrm{nach }y\textrm{ ableiten mit 6.9}}{\Rightarrow}}&1&=f^\prime(f^{-1}(y))\*(f^{-1})^\prime(y)\\
-		&\Leftrightarrow&(f^{-1}(y))&=\frac{1}{f^\prime(f^{-1}(y))}
+		&\Leftrightarrow&(f^{-1})^\prime(y)&=\frac{1}{f^\prime(f^{-1}(y))}
 	\end{align*}
 	\subsection{Beispiel}
 	\begin{itemize}
-		\item[a)] $f\colon\R1+\>\R^+,\qquad f(x)=\sqrt{x}$\\
+		\item[a)] $f\colon\R^+\>\R^+,\qquad f(x)=\sqrt{x}$\\
 		Was ist $f^\prime(x)$?\\
 		$f$ ist Umkehrfunktion $h^{-1}$ von $h\colon\R^+\>\R^+,\qquad h(x)=x^2$. $h^\prime(x)=2x$
 		\begin{align*}
@@ -2120,7 +2119,29 @@
 	\subsubsection*{Kurvendiskussion}
 	\subsection{Definition}
 	$f\colon D\>\R$ besitzt in $x_0\in D$ ein \underline{lokales} $\overset{\textrm{\underline{Extremum}}}{\textrm{\underline{Maximum/Minimum}}}$, wenn es ein Intervall $U=(x_0-s,x_0+s)\subseteq D, s>0$ gibt, so dass $f(x_0)\underset{\geq}{\leq}f(x)\quad\forall x\in U$ ($U$ heißt Umgebung von $x_0$).\\
-	$f$ besitzt ein \underline{globales Maximum/Minimum} in $x_0$, wenn $f(x_0)\underset{\geq}{\leq}f(x)\quad\forall x\in\R$
+	\begin{minipage}[c]{0.5\textwidth}
+		$f$ besitzt ein\\
+		 \underline{globales Maximum/Minimum}\\
+		  in $x_0$, wenn $f(x_0)\underset{\geq}{\leq}f(x)\quad\forall x\in\R$
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		\begin{tikzpicture}[scale=0.5]
+		\draw[->]
+		(-0.2,0) -- (4.2,0) node[right] {$x$};
+		\draw[->]
+		(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+		\draw[color=blue]
+		(1.17,4) node[above]{$U$}
+		(1.15,2.5) node[above]{lokal}
+		(3.6,4) node[above]{global};
+		\draw[style=dotted, color=blue]
+		(0.1,0)--(0.1,3.6)
+		(2,0)--(2,3.6)
+		(0,3.6)--(2,3.6);
+		\draw[color=blue, domain=0.4:4, ultra thick]
+		plot(\x,-0.7365967*\x*\x*\x*\x+6.82206682*\x*\x*\x-21.551282*\x*\x+27.3533411*\x-9.7867132) node[right]{$f$};
+		\end{tikzpicture}
+	\end{minipage}\\
 	\subsection{Satz (notwendige Bedingungen für lokale Extrema)}
 	Sei $f\colon D\>\R$ diffbar. Falls $f$ in $x_0\in D$ ein Extremum besitzt, dann ist $f^\prime(x_0)=0$.\\
 	\subsubsection*{Beweis}
@@ -2150,11 +2171,63 @@
 	\subsection{Satz (Mittelwertsätze, Satz von Rolle)}
 	Seien $f,g\colon[a,b]\>\R$ stetig und diffbar auf $(a,b)$; $g^\prime(x)\neq0\quad\forall x\in(a,b)$.
 	\begin{itemize}
-		\item[1)] [Skizze folgt]\\
-		$\Rightarrow\quad\exists\xi\in(a,b)\colon\frac{f(b)-f(a)}{b-a}=f^\prime(\xi)$\\
-		1. Mittelwertsatz
-		\item[2)] $f(a)=f(b)\Rightarrow \quad\exists\xi\in(a,b)\colon f^\prime(\xi)=0$\\
-		Satz von Rolle
+		\item[1)]
+		\begin{minipage}[c]{0.5\textwidth}
+			$\Rightarrow\quad\exists\xi\in(a,b)\colon\frac{f(b)-f(a)}{b-a}=f^\prime(\xi)$\\
+			1. Mittelwertsatz
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-0.2,0) -- (4.2,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+			\draw[color=blue]
+			(0.6,0) node[below]{$a$}
+			(4.2,0) node[below]{$b$};
+			\draw[color=black]
+			(4.2,2.7) node[right]{Tangente}
+			(2.1,0) node[below]{$\xi_2$}
+			(3.6,0) node[below]{$\xi_1$};
+			\draw[color=black, style=dotted]
+			(2.1,0)--(2.1,1.45)
+			(3.6,0)--(3.6,3.95);
+			\draw[style=dotted, color=blue, domain=0.5:4.4]
+			plot(\x,0.25416666*\x+0.0915) node[right]{};
+			\draw[style=dotted, color=black, domain=0.5:4.4]
+			plot(\x,0.25416666*\x+0.0915+0.8);
+			\draw[style=dotted, color=black, domain=0.5:4.4]
+			plot(\x,0.25416666*\x+0.0915+2.9);
+			\draw[color=blue, domain=0.6:4.2, ultra thick]
+			plot(\x,-0.7365967*\x*\x*\x*\x+6.82206682*\x*\x*\x-21.551282*\x*\x+27.3533411*\x-9.7867132) node[right]{$f$};
+			\end{tikzpicture}
+		\end{minipage}\\
+		\item[2)] 
+		\begin{minipage}[c]{0.5\textwidth}
+			$f(a)=f(b)\Rightarrow \quad\exists\xi\in(a,b)\colon f^\prime(\xi)=0$\\
+			Satz von Rolle
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-0.2,0) -- (5,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=blue, domain=0.8:3, ultra thick]
+			plot(\x,-2*\x*\x+7.6*\x-4) node[]{};
+			\draw[style=dotted, color=black]
+			(2,0)--(2,3.2);
+			\draw[color=black, style=dotted, domain=0.8:3]
+			plot(\x,3.2) node[right]{Tangente};
+			\draw[color=black]
+			(2,0) node[below]	{$\xi$};
+			\draw[color=blue]
+			(0.74,0) node[below]{$a$}
+			(3,0)node[below right]{$b$};
+			\draw[color=blue, style=dotted, domain=0.8:3]
+			plot(\x,0.8) node[right]{};
+			\end{tikzpicture}
+		\end{minipage}
 		\item[3)] $\Rightarrow \quad\exists\xi\in(a,b)\colon\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f^\prime(\xi)}{g^\prime(\xi)}$\\
 		2. Mittelwertsatz
 	\end{itemize}
@@ -2182,7 +2255,7 @@
 	Sei $f\colon[a,b]\>\R$ stetig und auf $(a,b)$ diffbar.
 	\begin{itemize}
 		\item[i)] $f^\prime(x)\underset{\leq}{\geq}0\quad\forall x\in(a,b)\Leftrightarrow f$ monoton $\underset{\textrm{fallend}}{\textrm{wachsend}}$ auf $[a,b]$
-		\item[ii)] $f^\prime(x)\underset{<}{>}0\quad\forall x\in(a,b) \overset{\nLeftarrow}{\Rightarrow} f$ streng monoton $\underset{\textrm{fallend}}{wachsen}$ auf $[a,b]$
+		\item[ii)] $f^\prime(x)\underset{<}{>}0\quad\forall x\in(a,b) \overset{\nLeftarrow}{\Rightarrow} f$ streng monoton $\underset{\textrm{fallend}}{\textrm{wachsend}}$ auf $[a,b]$
 		\item[iii)] $f^\prime(x)=0\quad\forall x\in(a,b)\Leftrightarrow f$ konstant auf $[a,b]$		
 	\end{itemize}
 	\subsubsection*{Beweis}
@@ -2200,15 +2273,60 @@
 	\end{itemize}
 	\hfill$\square$
 	\subsection{Satz (Hinreichende Bedingung für lokale Extrema I)}
-	[Skizze folgt]\\
 	Sei $f\colon(a,b)\>\R$ diffbar auf $(a,b)$ und sei $x_0\in(a,b)$ mit $f(x_0)=0$
 	\begin{itemize}
-		\item[i)] $f^\prime(x)\underset{\geq}{\leq}0\quad\forall x\in(x_0-s,x_0)$ und\\
-		$f^\prime(x)\underset{\leq}{\geq}0\quad\forall x\in(x_0,x_0+s)$, $s>0$\\
-		$\Rightarrow f$ hat lokales $\underset{\textrm{Maximum}}{\textrm{Minimum}}$ in $x_0$\\
-		Vorzeichenwechsel
-		\item[ii)] $f^\prime(x)\underset{>}{<}0\quad\forall x\in(x_0-s,x_0)\cap(x_0,x_0+s)$, $s>0$\\
-		$\Rightarrow f$ hat kein lokales Extremum in $x_0$
+		\item[i)] $\quad$\\
+		\begin{minipage}[c]{0.5\textwidth}
+			 $f^\prime(x)\underset{\geq}{\leq}0\quad\forall x\in(x_0-s,x_0)$ und\\
+			 $f^\prime(x)\underset{\leq}{\geq}0\quad\forall x\in(x_0,x_0+s)$, $s>0$\\
+			 $\Rightarrow f$ hat lokales $\underset{\textrm{Maximum}}{\textrm{Minimum}}$ in $x_0$\\
+			 Vorzeichenwechsel
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-0.2,0) -- (5,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=blue, domain=0.8:3, ultra thick]
+			plot(\x,-2*\x*\x+7.6*\x-4) node[]{};
+			\draw[color=red, domain=0.8:3, ultra thick]
+			plot(\x,2*\x*\x-7.6*\x+7.8) node[]{};
+			\draw[style=dotted, color=black]
+			(1.9,0)--(1.9,3.2);
+			\draw[color=blue, domain=0.8:2]
+			plot(\x,4.7) node[below]{$\geq0\qquad$};
+			\draw[color=blue, domain=2.4:3]
+			plot(\x,4.7) node[below]{$\leq0$};
+			\draw[color=red, domain=2.4:3]
+			plot(\x,4.8) node[above]{$\geq0$};
+			\draw[color=red, domain=0.8:2]
+			plot(\x,4.8) node[above]{$\leq0\qquad$};
+			\draw[color=black]
+			(2.2,0) node[below]	{$x_0$};
+			\end{tikzpicture}
+		\end{minipage}
+		\item[ii)] $\quad$\\
+		\begin{minipage}[c]{0.5\textwidth}
+			$f^\prime(x)\underset{>}{<}0\quad\forall x\in(x_0-s,x_0)\cap(x_0,x_0+s)$, $s>0$\\
+			$\Rightarrow f$ hat kein lokales Extremum in $x_0$
+		\end{minipage}
+		\begin{minipage}[c]{0.5\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-0.2,0) -- (5,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=blue, domain=0:4.5, ultra thick]
+			plot(\x, 0.125*\x*\x*\x-0.5*\x*\x+0.5*\x-0.25*\x*\x+\x-1+2) node[]{};
+			\draw[color=black, style=dotted]
+			(2,2)--(2,0) node[below]{$x_0$};
+			\draw[color=blue, domain=0.8:2]
+			plot(\x,4.7) node[below]{$\geq0\qquad$};
+			\draw[color=blue, domain=2.4:3]
+			plot(\x,4.7) node[below]{$\geq0$};
+			\end{tikzpicture}
+		\end{minipage}
 	\end{itemize}
 	\subsubsection*{Beweis (für Minimum)}
 	Zu zeigen: $f(x)\geq f(x_0)\quad\forall x\in(x_0-s,x_0+s)=U$\\
@@ -2227,9 +2345,35 @@
 	Insgesamt also $f(x)\geq f(x_0)\quad\forall x\in U$\\
 	Rest analog\hfill$\square$
 	\subsection{Bemerkung}
-	[Skizze folgt]\\
-	Steigung von $f^\prime$ ist positiv in $x_0$, d.h. $f^{\prime\prime}(x_0)>0$\\
-	Wenn $f^{\prime\prime}(x_0)=0$, ist keine Aussage über Vorzeichenwechsel möglich, z.b. [Skizze folgt]
+	
+		\begin{minipage}[c]{0.5\textwidth}
+			Steigung von $f^\prime$ ist positiv in $x_0$, d.h. $f^{\prime\prime}(x_0)>0$\\
+			Wenn $f^{\prime\prime}(x_0)=0$, ist keine Aussage über Vorzeichenwechsel möglich, z.b. s. Skizze, jeweils $f^{\prime\prime}(x_0)=0$
+		\end{minipage}
+		\begin{minipage}[c]{0.25\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-0.2,0) -- (5,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=blue, domain=0:4.5, ultra thick]
+			plot(\x, 0.125*\x*\x*\x-0.5*\x*\x+0.5*\x-0.25*\x*\x+\x-1) node[right]{$f^\prime$};
+			\draw[color=black]
+			(2,0) node[below]{$x_0$};
+			\end{tikzpicture}
+		\end{minipage}
+		\begin{minipage}[c]{0.25\textwidth}
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-0.2,0) -- (5,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=blue, domain=0.6:3.7, ultra thick]
+			plot(\x,\x*\x-4*\x+4) node[right]{$f^\prime$};
+			\draw[color=black]
+			(2,0) node[below]{$x_0$};
+			\end{tikzpicture}
+		\end{minipage}
 	\subsection{Satz (Hinreichende Bedingung für lokale Extrema II)}
 	Sei $f\colon(a,b)\>\R$ diffbar auf $(a,b)$ und in $x_0\in(a,b)$ 2-mal diffbar\\
 	$[f^\prime(x_0)=0\textrm{ und }f^{\prime\prime}(x_0)\underset{<}{>}]\Rightarrow f$ besitzt in $x_0$ lokales $\underset{\textrm{Maximum}}{\textrm{Minimum}}$
@@ -2248,11 +2392,11 @@
 	Problem: Grenzwerte vom Typ $\frac{0}{0},\frac{\infty}{\infty},0\*\infty$ usw.
 	\subsubsection*{Beispiel}
 	\begin{itemize}
-		\item	$\frac{\sin x}{x}\underset{x\>0}{\>}?$ [Skizze folgt]\\
+		\item	$\frac{\sin x}{x}\underset{x\>0}{\>}?$\\
 	$f(x)=\sin x$ und $g(x)=x$ haben in $x=0$ dieselbe Tangente ($t(x)=x$)\\
 	$\Rightarrow f,g$ konvergieren mit derselben Geschwindigkeit gegen 0 für $x\>0$\\
 	$\Rightarrow \frac{\sin x}{x}\underset{x\>0}{\>}1$
-	\item $\frac{\sin x}{x^2}\underset{x\>0}{\>}?$ [Skizze folgt]\\
+	\item $\frac{\sin x}{x^2}\underset{x\>0}{\>}?$\\
 	$f(x)=\sin x$, $g(x)=x^2$: $f,g$ haben unterschiedliche Tangenten in $x_0=0$, $x^2$ konvergiert schneller gegen 0 als $\sin x$\\
 	$\Rightarrow \frac{\sin x}{x^2}\begin{cases}
 	\underset{x\>0+}{\>}\infty\\
@@ -2316,7 +2460,7 @@
 	\subsection{Beispiel}
 	\begin{itemize}
 		\item[a)] $f(x)=c\qquad\forall x \in[a,b]$, dann\\
-		$y_i=c=Y_i\quad\forall i=1...n$\\4
+		$y_i=c=Y_i\quad\forall i=1...n$\\
 		$U_n=\sum_{i=1}^{n}c\*(x_i-x_{i-1})=c\*\sum_{i=1}^{n}(x_i-x_{i-1})$\\
 		$\quad\overset{\textrm{Teleskopsumme}}{=}c\*(x_n-x_0)=c\*(b-a)$\\
 		$O_n=\sum_{i=1}^{n}c\*(x_i-x_{i-1})=...=c\*(b-a)$\\
@@ -2341,7 +2485,7 @@
 	\subsection{Bemerkung}
 	Wir haben in 7.1 $f$ positiv gewählt.\\
 	In diesem Fall ist $\int_{a}^{b}f(x)\textrm{d}x$ der Flächeninhalt der von $f$ und der $x$-Achse begrenzten Fläche.\\
-	Andere Fälle: [Skizze folgt]
+	Andere Fälle:
 	\begin{itemize}
 		\item $A=\underbrace{\int_{a}^{c}f(x)\textrm{d}x}_{f\textrm{ positiv}}+\underbrace{\int_{c}^{b}-f(x)\textrm{d}x}_{\textrm{hier ist }f\textrm{ negativ, also }-f\textrm{ positiv}}$\\
 		$\qquad=\int_{a}^{b}|f(x)|\textrm{d}x$
@@ -2362,12 +2506,10 @@
 		(Monotonie)
 		\item[e)] falls $m\leq f(x)\leq M\quad\forall x\in[a,b]$, dann ist \\
 		$m(b-a)\leq\int_{a}^{b}f(x)\textrm{d}x\leq M(b-a)$\\
-		%[Skizze folgt]
 	\end{itemize}
 	\subsection{Satz (Mittelwertsatz der Integralrechnung)}
 	$f\colon[a,b]\>\R$ stetig\\
 	Dann existiert $\xi\in[a,b]$ mit $\int_{a}^{b}f(x)\textrm{d}x=f(\xi)(b-a)$\\
-	%[Skizze folgt]
 	\subsubsection*{Beweis}
 	$f$ stetig auf $[a,b]\overset{\textrm{Minimaxth.}}{\underset{\textrm{5.20}}{\Rightarrow}}f$ nimmt auf $[a,b]$ Minimum $m$ und Maximum $M$ an, d.h.\\
 	\begin{align*}
@@ -2384,7 +2526,8 @@
 	\begin{itemize}
 		\item[a)] Sei $g\colon[a,b\>\R]$ eine stetige Funktion. Der Grenzwert $\lim\limits_{h\>0^+}\frac{g(a+h)-g(a)}{h}\eqqcolon g^\prime_+(a)$ heißt (falls existent) \underline{rechtsseitige Ableitung} von $g$ in $a$.\\
 		Analog: $\lim\limits_{h\>0^-}\frac{g(b+h)-g(b)}{h}\eqqcolon g^\prime_-(b)$ ist \underline{linksseitige Ableitung} von $g$ in $b$.
-		\item[b) Stammfunktion] Sei $f\colon[a,b]\>\R$.\\Dann nennt man eine diffbare Funktion $F\colon[a,b]\>\R$ \underline{Stammfunktion} von $f$ über $[a,b]$, wenn gilt:
+		\item[b)] Stammfunktion\\
+		 Sei $f\colon[a,b]\>\R$.\\Dann nennt man eine diffbare Funktion $F\colon[a,b]\>\R$ \underline{Stammfunktion} von $f$ über $[a,b]$, wenn gilt:
 		\begin{align*}
 			F^\prime(x)&=f(x)\qquad\forall x\in(a,b)\\
 			F^\prime_+(a)&=f(a)\\
@@ -2405,14 +2548,14 @@
 	Sind $F$ und $G$ Stammfunktionen von $f$, so können sie sich nur durch eine Konstante unterscheiden:
 	\begin{align*}
 		(F-G)^\prime&=F^\prime-G^\prime=f-f=0\\
-		&\underset{\textrm{6.19 iii}}{\Rightarrow} F-G\textrm{ist konstant}
+		&\underset{\textrm{6.19 iii}}{\Rightarrow} F-G\textrm{ ist konstant}
 	\end{align*}
 	Der Zusammenhang zwischen dem in 7.1/7.2 behandelten Integral von $f$ und einer Stammfunktion von $f$ wird im folgenden Satz hergestellt.
 	\subsection{Satz (HDI, Hauptsatz der Differential- und Integralrechnung)}
 	$f\colon[a,b]\>\R$ stetig.
 	\begin{itemize}
 		\item[a)] Dann ist $F(x)=\int_{a}^{x}f(t)\textrm{d}t\qquad x\in[a,b]$ eine Stammfunktion von $f$ (also diffbar, $F^\prime(x)=f(x)$) und es gilt:
-		\item[b)] $\underbrace{\int_{a}^{b}f(x)\textrm{d}x}_{\textrm{bish. Flächeninh., nur mit} U_n, O_n \textrm{berechenbar}}=F(b)-F(a)\overset{\textrm{Schreibweise}}{=}[F(x)]^{x=b}_{x=a}=[F(x)]^b_a$
+		\item[b)] $\underbrace{\int_{a}^{b}f(x)\textrm{d}x}_{\textrm{bish. Flächeninh., nur mit } U_n, O_n \textrm{berechenbar}}=F(b)-F(a)\overset{\textrm{Schreibweise}}{=}[F(x)]^{x=b}_{x=a}=[F(x)]^b_a$
 	\end{itemize}
 	\subsubsection*{Beweis:}
 	\begin{itemize}
@@ -2701,11 +2844,31 @@
 	\hfill$\square$
 	\subsection{Beispiel}
 	\begin{itemize}
-		\item[a)] $V$ ist ein $\R$-Vektorraum, $\O\neq v\in V$.\\
-		Dann ist $G=\{\lambda\*v|\lambda\in\R\}$ ein Unterraum.\\
-		$V=\R^2,\R^3$: $G$ ist Gerade durch Nullpunkt (geometrisch), z.B. $v=\vec{2\\1},w=\vec{1\\2}$\\
-		Bild einfügen\\
-		Aber: $G^\prime=\{w+\lambda\*v|\lambda\in\R,\quad w\in V\}$ ist kein Unterraum für $w\neq \mu\*v,\quad \mu\in\R$. Warum? Z.B. $\O\notin G^\prime$
+		\item[a)] $\quad$\\
+		\begin{minipage}[c]{0.5\textwidth}
+			$V$ ist ein $\R$-Vektorraum, $\O\neq v\in V$.\\
+			Dann ist $G=\{\lambda\*v|\lambda\in\R\}$ ein Unterraum.\\
+			$V=\R^2,\R^3$: $G$ ist Gerade durch Nullpunkt (geometrisch), z.B.\\ $v=\vec{2\\1},w=\vec{1\\2}$\\
+			Aber: $G^\prime=\{w+\lambda\*v|\lambda\in\R,\quad w\in V\}$ ist kein Unterraum für $w\neq \mu\*v,\quad \mu\in\R$. Warum? Z.B. $\O\notin G^\prime$
+		\end{minipage}
+		\begin{minipage}[c]{0.25\textwidth}$\quad$
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-0.2,0) -- (5,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=blue, thick, ->]
+			(0,0)--(2,1)node[below]{$v$};
+			\draw[color=blue, thick, ->]
+			(0,0)--(1,2)node[above]{$w$};
+			\draw[color=blue, ->]
+			(0,0)--(4,2)node[below]{$\quad2\*v$, $G$};
+			\draw[color=blue, ->]
+			(0,0)--(2,4)node[above]{$2\*w$};
+			\draw[color=blue, ->]
+			(0,1.5)--(3,3)node[right]{$G^\prime$};
+			\end{tikzpicture}
+		\end{minipage}
 	\item[b)] $V=\R^3,\qquad U_1=\{\vec{x_1\\x_2\\x_3}\in\R^3|x_1+x_2-x_3=0\}$ ist Unterraum. Wir zeigen (1), (2) aus 8.6:
 	\begin{itemize}
 		\item $U_1\neq\emptyset$, z.B. $\O=\vec{0\\0\\0}\in U_1$, denn $\overset{x_1}{0}+\overset{x_2}{0}-\overset{x_3}{0}=0$
@@ -2717,9 +2880,9 @@
 			&=0
 		\end{align*}
 		Also ist $\lambda\*v\in U_1$
-		\item[(2)] Seien $v=\vec{v_1\\v_"\\v_3},\quad w=\vec{w_1\\w_2\\w_3}\in U_1$, d.h. $v_1+v_2-v_3=0,\quad w_1+w_2-w_3=0$. Gilt $v+w\in U_1$? $v+w=\vec{v_1+w_1\\v_2+w_2\\v_3+w_3}$
+		\item[(2)] Seien $v=\vec{v_1\\v_2\\v_3},\quad w=\vec{w_1\\w_2\\w_3}\in U_1$, d.h. $v_1+v_2-v_3=0,\quad w_1+w_2-w_3=0$. Gilt $v+w\in U_1$?  $v+w=\vec{v_1+w_1\\v_2+w_2\\v_3+w_3}$
 		\begin{align*}
-			(v_1+w_1)+(v_2+w_2)+(v_3+w_3)&=\underbrace{(v_1+v_2-v_3)}_{=0}+\underbrace{(w_1+w_2-w_3)}_{=0}\\
+			(v_1+w_1)+(v_2+w_2)-(v_3+w_3)&=\underbrace{(v_1+v_2-v_3)}_{=0}+\underbrace{(w_1+w_2-w_3)}_{=0}\\
 			&=0
 		\end{align*}
 		Also $v+w\in U_1$
